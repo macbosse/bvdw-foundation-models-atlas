@@ -1,0 +1,4809 @@
+{
+  "meta": {
+    "title": "BVDW Foundation Models Atlas",
+    "subtitle": "Neutrale Übersicht textbasierter Foundation Models mit europäischer Souveränitätsperspektive",
+    "version": "0.1-draft",
+    "last_updated": "2026-04-15",
+    "curator": "BVDW AI Tech Lab",
+    "language": "de",
+    "neutrality_notice": "Diese Übersicht ist eine neutrale Information für BVDW-Mitglieder und stellt keine Empfehlung einzelner Anbieter dar. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen, keine Wertungen oder Kaufberatung. Die Aufnahme oder Nicht-Aufnahme eines Modells erfolgt nach Sachkriterien (Hygienefaktoren) und impliziert keine Bevorzugung.",
+    "inclusion_criteria": [
+      "Hygienefaktor 1 (Modalität): Modell ist textlich ansprechbar und reagiert mit Text (reine Bild-, Audio- oder Speech-to-Text-Modelle ausgeschlossen).",
+      "Hygienefaktor 2 (Sprache): Modell beherrscht Deutsch zumindest auf Grundniveau (German capability mindestens 'low').",
+      "Hygienefaktor 3 (Verfügbarkeit): Modell ist für BVDW-Mitglieder zugänglich (öffentliche API, offene Gewichte oder kommerzielles Lizenzmodell)."
+    ],
+    "methodology": "Erste Iteration auf Basis des Sprachmodell-Wissensstands (Cut-off Mai 2025). Diese Fassung wurde noch nicht web-verifiziert. Vor Veröffentlichung sollten Hersteller-Quellen (Releases, Modellkarten, Lizenzdokumente) geprüft werden. Souveränitäts- und Preisbewertungen sind redaktionelle Einordnungen des Lab und ersetzen keine Rechts- oder Einkaufsberatung.",
+    "fields_explanation": {
+      "tier": "Frontier Closed (proprietäres Top-Modell, nur per API), Frontier Open (offene Gewichte auf Top-Niveau), Regional (lokal/sprachlich spezialisiert), Specialist (Domain- oder Architektur-Spezialist), Research (Forschungs-/Lehrmodell)",
+      "openness": "closed = nicht zugänglich, api-only = nur kommerzielle API, weights-research = Gewichte verfügbar nur für Forschung, open-weights = Gewichte verfügbar mit Auflagen, open-source = OSI-konforme freie Lizenz, public-domain = gemeinfrei",
+      "eu_host": "Modell ist technisch ohne US-Anbieter in der EU hostbar (Self-Host oder europäischer Cloud-Anbieter)",
+      "cloud_act": "Exposition gegenüber dem US Cloud Act bei Standard-Nutzung (none/low/medium/high)",
+      "transparency": "Offenheit der Trainingsdaten und -methoden (none/low/medium/high)",
+      "sovereignty": "Aggregierter europäischer Souveränitätsscore 1-5 (1 = stark exponiert, 5 = vollständig souverän bei vollständiger EU-konformer Nutzung)",
+      "german_capability": "Praxisbeobachtete Deutschkompetenz (low/medium/high)",
+      "pricing": "€ = sehr günstig oder kostenlos self-hostbar, €€ = günstig, €€€ = mittel, €€€€ = oberer Mittelpreis, €€€€€ = Frontier-Premium, €€€€€€ = Top-Premium-Tier (z.B. Long-Context-Frontier)"
+    }
+  },
+  "filters": {
+    "regions": [
+      "DACH",
+      "EU",
+      "US",
+      "CN",
+      "KR",
+      "JP",
+      "IN",
+      "MENA",
+      "AF",
+      "RU",
+      "INTL"
+    ],
+    "tiers": [
+      "frontier-closed",
+      "frontier-open",
+      "regional",
+      "specialist",
+      "research"
+    ],
+    "openness": [
+      "closed",
+      "api-only",
+      "weights-research",
+      "open-weights",
+      "open-source",
+      "public-domain"
+    ],
+    "use_cases": [
+      "marketing-text",
+      "kundenkommunikation",
+      "datenanalyse",
+      "code",
+      "research",
+      "uebersetzung",
+      "kreativ",
+      "compliance",
+      "agent",
+      "long-context"
+    ],
+    "german_capability": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "pricing": [
+      "€",
+      "€€",
+      "€€€",
+      "€€€€",
+      "€€€€€",
+      "€€€€€€"
+    ]
+  },
+  "licenses": {
+    "apache-2.0": {
+      "name": "Apache 2.0",
+      "category": "open-source",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "plain": "Vollständig freie Lizenz nach OSI-Definition. Sie dürfen das Modell kommerziell nutzen, verändern, weitergeben und in eigene Produkte integrieren. Es gibt keine Beschränkung der Nutzerzahl, der Branche oder des Use Cases. Pflichten: Lizenztext beilegen, Copyright-Hinweis erhalten, Änderungen kennzeichnen. Keine Patentklage gegen den Lizenzgeber. Praktisch die unkomplizierteste freie Lizenz für Foundation Models."
+    },
+    "mit": {
+      "name": "MIT License",
+      "category": "open-source",
+      "url": "https://opensource.org/license/mit",
+      "plain": "Sehr kurze, sehr freie Lizenz. Sie dürfen alles tun: nutzen, kopieren, verändern, kommerziell vertreiben, sublizenzieren. Einzige Pflicht: den Lizenztext bei Weitergabe mitliefern. Im Vergleich zu Apache 2.0 ohne expliziten Patent-Schutz."
+    },
+    "cc-by-4.0": {
+      "name": "Creative Commons BY 4.0",
+      "category": "open-source",
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "plain": "Sie dürfen das Modell und seine Outputs kommerziell nutzen, verändern und weitergeben. Pflicht: Sie müssen den ursprünglichen Hersteller nennen. Im KI-Kontext etwas ungewöhnlich, weil CC primär für Inhalte gedacht ist."
+    },
+    "cc-by-nc-4.0": {
+      "name": "Creative Commons BY-NC 4.0",
+      "category": "research",
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "plain": "Sie dürfen das Modell für Forschung und private Zwecke nutzen, aber nicht kommerziell. Eine Verwendung in einem Produkt, das Geld verdient, ist ausgeschlossen. Für Marketing-Use-Cases im Mittelstand also in der Regel nicht geeignet."
+    },
+    "llama-3-community": {
+      "name": "Llama 3 Community License",
+      "category": "open-weights-conditional",
+      "url": "https://www.llama.com/llama3/license/",
+      "plain": "Kommerziell nutzbar mit zwei wichtigen Einschränkungen: 1) Unternehmen mit über 700 Millionen monatlich aktiven Nutzern müssen eine separate Lizenz bei Meta beantragen. 2) Outputs dürfen nicht zum Training konkurrierender LLMs genutzt werden. Für die meisten BVDW-Mitglieder ohne weiteres nutzbar."
+    },
+    "llama-4-community": {
+      "name": "Llama 4 Community License",
+      "category": "open-weights-conditional",
+      "url": "https://www.llama.com/llama4/license/",
+      "plain": "Wie Llama 3 mit der 700-Mio-Nutzer-Schwelle und dem Trainingsverbot. Zusätzlich Meta-Branding-Pflicht in vielen Auslieferungen."
+    },
+    "mistral-research": {
+      "name": "Mistral Research License (MNPL/MRL)",
+      "category": "research",
+      "url": "https://mistral.ai/licenses/MRL-0.1.md",
+      "plain": "Die Modellgewichte dürfen kostenlos für Forschung und nicht-kommerzielle Zwecke heruntergeladen und genutzt werden. Für jede kommerzielle Nutzung muss eine separate Lizenz bei Mistral oder die Nutzung über die Mistral-API erworben werden. Self-Hosting in Production ohne kommerzielle Lizenz ist nicht erlaubt."
+    },
+    "mistral-non-production": {
+      "name": "Mistral Non-Production License",
+      "category": "research",
+      "url": "https://mistral.ai/licenses/MNPL-0.1.md",
+      "plain": "Weights für Tests, Forschung und Demo-Zwecke nutzbar. Einsatz in produktiven, geldverdienenden Systemen erfordert eine kommerzielle Lizenz von Mistral."
+    },
+    "gemma-tou": {
+      "name": "Gemma Terms of Use",
+      "category": "open-weights-conditional",
+      "url": "https://ai.google.dev/gemma/terms",
+      "plain": "Kommerziell nutzbar, auch in Produkten. Google verbietet aber bestimmte Anwendungsfälle (Schaden, Diskriminierung, etc.) und kann die Lizenz unter bestimmten Bedingungen entziehen. Outputs gehören dem Nutzer."
+    },
+    "openai-closed": {
+      "name": "OpenAI Terms of Service",
+      "category": "closed",
+      "url": "https://openai.com/policies/terms-of-use/",
+      "plain": "Modell nur per OpenAI-API oder Azure OpenAI nutzbar. Sie kaufen die Nutzung tokenweise ein. Outputs gehören dem Nutzer, dürfen aber nicht zum Training konkurrierender LLMs verwendet werden. Datenverarbeitung bei OpenAI USA, bei Azure-Variante optional in EU-Region (US Cloud Act bleibt rechtlich anwendbar)."
+    },
+    "anthropic-closed": {
+      "name": "Anthropic Commercial Terms",
+      "category": "closed",
+      "url": "https://www.anthropic.com/legal/commercial-terms",
+      "plain": "Nutzung über die Anthropic-API, AWS Bedrock oder Google Vertex AI. Outputs gehören dem Nutzer. Anthropic gibt eine Daten-Nichtweiterverwendungs-Garantie für API-Inputs. Datenverarbeitung außerhalb der EU üblich, Bedrock und Vertex bieten EU-Regionen, US Cloud Act bleibt technisch anwendbar."
+    },
+    "google-cloud-closed": {
+      "name": "Google Cloud / Vertex AI Terms",
+      "category": "closed",
+      "url": "https://cloud.google.com/terms/",
+      "plain": "Modellnutzung über Vertex AI oder Gemini API. EU-Region möglich, Customer-Managed-Encryption-Keys verfügbar. Outputs gehören dem Nutzer. Datenverarbeitungs-Addendum nach DSGVO möglich, US Cloud Act bleibt rechtlich anwendbar."
+    },
+    "aleph-alpha-license": {
+      "name": "Open Aleph License",
+      "category": "research",
+      "url": "https://github.com/Aleph-Alpha/open-aleph-license",
+      "plain": "Aleph Alphas eigene quellverfügbare Lizenz. Erlaubt Forschung, interne Evaluation und nicht-kommerzielle Nutzung. Kommerzielle Nutzung erfordert Vertrag mit Aleph Alpha. Ziel: europäische Souveränität bei gleichzeitig kommerzieller Tragfähigkeit."
+    },
+    "deepseek-license": {
+      "name": "DeepSeek License",
+      "category": "open-weights-conditional",
+      "url": "https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/LICENSE-MODEL",
+      "plain": "Sehr offen, Apache-ähnlich, mit Use-Case-Restriktionen (kein Schaden, keine Waffen, keine kritische Infrastruktur ohne Sicherheitsprüfung, etc.). Kommerzielle Nutzung erlaubt. Praktisch für die meisten BVDW-Mitglieder ohne Einschränkung anwendbar."
+    },
+    "qwen-license": {
+      "name": "Qwen Research License (für Modelle ≥72B)",
+      "category": "open-weights-conditional",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-72B/blob/main/LICENSE",
+      "plain": "Kleine bis mittlere Qwen-Modelle (bis 32B): Apache 2.0. Größere (72B-Klasse): kommerzielle Nutzung erfordert Lizenz von Alibaba ab 100 Mio aktiven Nutzern. Für die meisten Anwendungsfälle praktisch frei."
+    },
+    "tii-falcon-license": {
+      "name": "TII Falcon License 2.0",
+      "category": "open-weights-conditional",
+      "url": "https://falconllm.tii.ae/falcon-terms-and-conditions.html",
+      "plain": "An Apache 2.0 angelehnt, mit Acceptable-Use-Policy. Kommerziell uneingeschränkt nutzbar. TII (Technology Innovation Institute, Abu Dhabi) ist staatlich finanziert."
+    },
+    "cohere-cc-by-nc": {
+      "name": "Cohere Open Model License (CC-BY-NC)",
+      "category": "research",
+      "url": "https://cohere.com/research/license",
+      "plain": "Gewichte für Forschung und nicht-kommerzielle Anwendungen frei. Für kommerzielle Anwendungen muss die Cohere-API genutzt oder eine Enterprise-Lizenz erworben werden."
+    },
+    "openrail-m": {
+      "name": "BigCode OpenRAIL-M",
+      "category": "responsible-ai",
+      "url": "https://www.bigcode-project.org/docs/pages/bigcode-openrail/",
+      "plain": "Offen wie Apache 2.0, aber mit Use-Case-Verbot: bestimmte schädliche Anwendungen (Diskriminierung, Überwachung, Schadcode-Generierung mit klarer Schadintention) sind ausgeschlossen. Kommerziell nutzbar in allen üblichen Marketing- und Produkt-Kontexten."
+    },
+    "exaone-license": {
+      "name": "EXAONE AI Model License",
+      "category": "research",
+      "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-32B-Instruct",
+      "plain": "Die LG-EXAONE-Gewichte sind für Forschung kostenlos zugänglich. Kommerzielle Nutzung erfordert eine Vereinbarung mit LG. Für Konzernkunden mit bestehender LG-Beziehung praktisch nutzbar."
+    },
+    "tencent-hunyuan-license": {
+      "name": "Tencent Hunyuan Community License",
+      "category": "open-weights-conditional",
+      "url": "https://github.com/Tencent/Tencent-Hunyuan-Large/blob/main/License.docx",
+      "plain": "Frei nutzbar bis zu einer Schwelle von 100 Millionen monatlich aktiven Nutzern. Darüber separate Lizenz nötig. Outputs gehören dem Nutzer."
+    },
+    "yi-license": {
+      "name": "01.AI Yi License",
+      "category": "open-source",
+      "url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat/blob/main/LICENSE",
+      "plain": "Apache 2.0-konform. Kommerziell uneingeschränkt nutzbar."
+    },
+    "glm-license": {
+      "name": "GLM Model License",
+      "category": "open-weights-conditional",
+      "url": "https://huggingface.co/THUDM/glm-4-9b-chat/blob/main/LICENSE",
+      "plain": "Ähnlich Apache mit Use-Case-Klauseln. Kleinere GLM-Varianten (≤9B) meist frei, größere benötigen formale Vereinbarung mit Zhipu AI."
+    },
+    "stability-non-commercial": {
+      "name": "Stability AI Non-Commercial License",
+      "category": "research",
+      "url": "https://huggingface.co/stabilityai/stablelm-2-12b/blob/main/LICENSE",
+      "plain": "Forschung und private Nutzung kostenlos. Für kommerzielle Nutzung Stability AI Membership oder Vertrag erforderlich."
+    },
+    "ibm-granite-license": {
+      "name": "IBM Granite Apache 2.0",
+      "category": "open-source",
+      "url": "https://huggingface.co/ibm-granite/granite-3.0-8b-instruct/blob/main/LICENSE",
+      "plain": "Standard Apache 2.0. IBM bietet zusätzlich kommerziellen Enterprise-Support an. Voll für Marketing-, Code- und Datenanalyse-Use-Cases nutzbar."
+    },
+    "snowflake-apache": {
+      "name": "Snowflake Apache 2.0",
+      "category": "open-source",
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-instruct",
+      "plain": "Standard Apache 2.0. Snowflake-Kunden erhalten zusätzliche Hosting-Optionen, das Modell selbst ist aber frei."
+    },
+    "ai21-jamba-license": {
+      "name": "Jamba Open Model License",
+      "category": "open-weights-conditional",
+      "url": "https://www.ai21.com/jamba-open-model-license/",
+      "plain": "Frei für Forschung und Entwicklung. Kommerzielle Nutzung erfordert Anzeige bei AI21 Labs und Einhaltung der Use-Policy. Für die meisten BVDW-Mitglieder unkompliziert nutzbar."
+    },
+    "yandex-closed": {
+      "name": "Yandex Cloud Foundation Models Terms",
+      "category": "closed",
+      "url": "https://yandex.cloud/en/docs/foundation-models/concepts/yandexgpt/",
+      "plain": "Nutzung nur über die Yandex Cloud. Datenverarbeitung in Russland. Für DACH-Marketing-Anwendungen aufgrund politischer und regulatorischer Risiken in der Praxis nicht einsetzbar."
+    },
+    "sber-closed": {
+      "name": "Sber GigaChat Terms",
+      "category": "closed",
+      "url": "https://developers.sber.ru/docs/ru/gigachat/legal-info",
+      "plain": "Nutzung nur über Sber-API. Datenverarbeitung in Russland. Für DACH-Marketing-Anwendungen praktisch nicht einsetzbar."
+    },
+    "salesforce-closed": {
+      "name": "xAI API Terms",
+      "category": "closed",
+      "url": "https://x.ai/legal/terms-of-service",
+      "plain": "Nutzung nur über die xAI-API oder X-Plattform. Datenverarbeitung in den USA. US Cloud Act anwendbar."
+    },
+    "ggpl-pleias": {
+      "name": "Pleias Public Domain Pipeline (Apache 2.0)",
+      "category": "public-domain",
+      "url": "https://huggingface.co/PleIAs",
+      "plain": "Modellgewichte unter Apache 2.0. Trainingsdaten ausschließlich aus gemeinfreien Quellen (Common Corpus). Outputs sind urheberrechtlich besonders unbedenklich, weil keine geschützten Werke memorisiert wurden. Für regulierte Use Cases (Verlage, Bibliotheken, Behörden) besonders relevant."
+    }
+  },
+  "models": [
+    {
+      "id": "aleph-alpha-pharia-1",
+      "name": "Pharia 1 LLM 7B",
+      "vendor": "Aleph Alpha",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2024,
+      "context": "8K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "explainable",
+        "instruction"
+      ],
+      "license_id": "aleph-alpha-license",
+      "openness": "weights-research",
+      "url": "https://aleph-alpha.com/pharia-1",
+      "weights": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "compliance",
+        "kundenkommunikation",
+        "marketing-text",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Modellkarte (Hugging Face)",
+          "url": "https://huggingface.co/Aleph-Alpha/Pharia-1-LLM-7B-control"
+        },
+        {
+          "label": "Aleph Alpha Pharia",
+          "url": "https://aleph-alpha.com/pharia-1"
+        }
+      ],
+      "insider": "Aleph Alphas eigenes from-scratch trainiertes Modell, entwickelt mit Fokus auf europäische Souveränität und nachvollziehbare Trainingsdaten. Wird im DACH-Raum häufig in Pilotprojekten von Bundes- und Landesbehörden sowie bei DSGVO-sensiblen Konzernkunden beobachtet. Als 7B-Modell positioniert für Self-Hosted-Szenarien."
+    },
+    {
+      "id": "aleph-alpha-luminous",
+      "name": "Luminous (Base/Extended/Supreme)",
+      "vendor": "Aleph Alpha",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2022,
+      "context": "2K",
+      "params": "13B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "enterprise",
+        "explainable"
+      ],
+      "license_id": "aleph-alpha-license",
+      "openness": "api-only",
+      "url": "https://aleph-alpha.com",
+      "weights": null,
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€€€€",
+      "use_cases": [
+        "compliance",
+        "kundenkommunikation",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Aleph Alpha",
+          "url": "https://aleph-alpha.com"
+        }
+      ],
+      "insider": "Frühe europäische Frontier-Modellfamilie aus Heidelberg. War in mehreren öffentlichen DACH-Pilotprojekten im Einsatz, mittlerweile schrittweise durch Pharia abgelöst. Historisch relevant als erstes europäisches GPT-3-Klassen-Modell mit produktivem Vertrieb."
+    },
+    {
+      "id": "teuken-7b",
+      "name": "Teuken 7B",
+      "vendor": "OpenGPT-X (Fraunhofer IAIS, TU Dresden, FZJ et al.)",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://opengpt-x.de",
+      "weights": "https://huggingface.co/openGPT-X/Teuken-7B-instruct-research-v0.4",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "compliance",
+        "marketing-text",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "OpenGPT-X Projekt",
+          "url": "https://opengpt-x.de"
+        },
+        {
+          "label": "Modellkarte (Hugging Face)",
+          "url": "https://huggingface.co/openGPT-X/Teuken-7B-instruct-research-v0.4"
+        }
+      ],
+      "insider": "Konsortialmodell aus dem BMWK-geförderten Projekt OpenGPT-X. Trainiert auf 24 europäischen Amtssprachen mit überdurchschnittlich hohem Nicht-Englisch-Anteil. Apache 2.0-lizenziert und mit dokumentierten Trainingsdaten – wird häufig als Referenz für offene europäische Trainingspipelines genannt."
+    },
+    {
+      "id": "discolm",
+      "name": "DiscoLM (German 7B / Mixtral)",
+      "vendor": "DiscoResearch",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2023,
+      "context": "8K – 32K",
+      "params": "7B / 8x7B / 120B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "german",
+        "instruction",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-weights",
+      "url": "https://disco-research.de",
+      "weights": "https://huggingface.co/DiscoResearch",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "kreativ"
+      ],
+      "sources": [
+        {
+          "label": "DiscoResearch",
+          "url": "https://disco-research.de"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/DiscoResearch"
+        }
+      ],
+      "insider": "Community-getriebene Forschungsgruppe rund um deutschsprachige Open-Source-Finetunes. DiscoLM German 7B war zeitweise eines der meistgenutzten freien deutschsprachigen Modelle. Maintainer aktiv im DACH-Open-Source-Ökosystem."
+    },
+    {
+      "id": "leolm",
+      "name": "LeoLM (7B / 13B / 70B)",
+      "vendor": "LAION + Hessian.AI / TU Darmstadt",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2023,
+      "context": "8K",
+      "params": "7B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "german",
+        "european",
+        "instruction",
+        "long-context"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://laion.ai/blog/leo-lm/",
+      "weights": "https://huggingface.co/LeoLM",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "LAION Blog",
+          "url": "https://laion.ai/blog/leo-lm/"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/LeoLM"
+        }
+      ],
+      "insider": "Eine der ersten systematischen Continued-Pretraining-Reihen für Deutsch auf Llama-Basis. Zeigt eine reproduzierbare Methodik, wie europäische Sprachadaption auf US-Basismodellen umgesetzt werden kann. Souveränitätsscore reduziert wegen Llama-Lizenzkette."
+    },
+    {
+      "id": "llaemmlein",
+      "name": "LLäMmlein 120M / 1B",
+      "vendor": "Universität Würzburg (Lehrstuhl LSX)",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "research",
+      "year": 2024,
+      "context": "2K",
+      "params": "120M / 1B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "german",
+        "edge",
+        "research",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.informatik.uni-wuerzburg.de/datascience/research/nlp/llaemmlein/",
+      "weights": "https://huggingface.co/LSX-UniWue/LLaMmlein_1B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "compliance"
+      ],
+      "sources": [
+        {
+          "label": "Lehrstuhl-Projektseite",
+          "url": "https://www.informatik.uni-wuerzburg.de/datascience/research/nlp/llaemmlein/"
+        },
+        {
+          "label": "Modellkarte 1B",
+          "url": "https://huggingface.co/LSX-UniWue/LLaMmlein_1B"
+        }
+      ],
+      "insider": "Akademisches From-scratch-Projekt mit Fokus auf reines Deutsch-Pretraining. Häufig in Lehre und Forschung als Beispiel für reproduzierbare europäische Trainingspipelines genannt. Nicht für Produktivworkloads dimensioniert."
+    },
+    {
+      "id": "sauerkrautlm",
+      "name": "SauerkrautLM (diverse Varianten)",
+      "vendor": "VAGOsolutions",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2023,
+      "context": "8K – 128K",
+      "params": "7B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "german",
+        "instruction",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-weights",
+      "url": "https://vago-solutions.ai",
+      "weights": "https://huggingface.co/VAGOsolutions",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "kreativ",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "VAGOsolutions",
+          "url": "https://vago-solutions.ai"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/VAGOsolutions"
+        }
+      ],
+      "insider": "Bekannt für deutschsprachige Finetunes auf populären Open-Weights-Basismodellen (Llama, Mistral, Mixtral, Qwen). Wird im DACH-Mittelstand häufig in lokal gehosteten Setups beobachtet, vor allem bei Marketing- und Service-Anwendungen ohne Cloud-Abhängigkeit."
+    },
+    {
+      "id": "nyonic-wonton",
+      "name": "Wonton 7B",
+      "vendor": "Nyonic",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2024,
+      "context": "8K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.nyonic.com",
+      "weights": "https://huggingface.co/nyonic",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "research",
+        "kundenkommunikation",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Nyonic",
+          "url": "https://www.nyonic.com"
+        }
+      ],
+      "insider": "Berliner Initiative mit Fokus auf from-scratch europäisches Pretraining und nachvollziehbare Datenquellen. Junges Projekt, häufig in der DACH-Open-Source-Community als Alternative zu Llama-basierten Tunes diskutiert."
+    },
+    {
+      "id": "openassistant",
+      "name": "OpenAssistant (OASST)",
+      "vendor": "LAION + Open-Assistant Community",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "research",
+      "year": 2023,
+      "context": "2K",
+      "params": "12B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "instruction",
+        "european",
+        "multilingual"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://open-assistant.io",
+      "weights": "https://huggingface.co/OpenAssistant",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Projektseite",
+          "url": "https://open-assistant.io"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/OpenAssistant"
+        }
+      ],
+      "insider": "Frühes Open-Source-RLHF-Projekt mit international gesammeltem Instruction-Dataset (OASST1/OASST2). Modelle selbst werden heute kaum noch produktiv eingesetzt, die Datasets sind aber weiterhin Standardquellen für Instruction-Tuning."
+    },
+    {
+      "id": "em-german",
+      "name": "EM German (7B / 13B / 70B)",
+      "vendor": "Jan P. Harries (jphme)",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2023,
+      "context": "4K – 8K",
+      "params": "7B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "german",
+        "instruction",
+        "european"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://huggingface.co/jphme",
+      "weights": "https://huggingface.co/jphme/em_german_70b_v01",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/jphme"
+        }
+      ],
+      "insider": "Solo-Maintainer-Projekt aus dem Rheinland. EM German Mistral 7B war eine der ersten breit eingesetzten deutschsprachigen Open-Source-Empfehlungen für CPU-/Consumer-GPU-Inferenz im Mittelstand."
+    },
+    {
+      "id": "occiglot",
+      "name": "Occiglot 7B",
+      "vendor": "Occiglot Konsortium (Hessian.AI, DFKI et al.)",
+      "country": "DE",
+      "region": "DACH",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://occiglot.eu",
+      "weights": "https://huggingface.co/occiglot",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "compliance",
+        "marketing-text",
+        "uebersetzung"
+      ],
+      "sources": [
+        {
+          "label": "Occiglot",
+          "url": "https://occiglot.eu"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/occiglot"
+        }
+      ],
+      "insider": "Polyglottes europäisches Modell aus dem Hessian.AI-Umfeld mit Fokus auf gleichmäßige Abdeckung mehrerer EU-Amtssprachen. Wird häufig als europäische Alternative zu rein englischzentrierten Open-Source-Pipelines genannt."
+    },
+    {
+      "id": "mistral-7b",
+      "name": "Mistral 7B Instruct",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2023,
+      "context": "32K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "european",
+        "general"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai",
+      "weights": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Mistral AI",
+          "url": "https://mistral.ai"
+        },
+        {
+          "label": "Modellkarte",
+          "url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3"
+        }
+      ],
+      "insider": "Pariser Open-Source-Veröffentlichung von 2023, die das Verhältnis von Modellgröße zu Qualität neu definierte. Apache 2.0-lizenziert und in der Open-Source-Community häufig als Einstiegsmodell für Self-Host-Szenarien verwendet."
+    },
+    {
+      "id": "mistral-large-2",
+      "name": "Mistral Large 2 (123B)",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "123B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "reasoning",
+        "european",
+        "code",
+        "instruction"
+      ],
+      "license_id": "mistral-research",
+      "openness": "weights-research",
+      "url": "https://mistral.ai/news/mistral-large-2407/",
+      "weights": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "low",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research",
+        "kreativ"
+      ],
+      "sources": [
+        {
+          "label": "Mistral Large 2 Announcement",
+          "url": "https://mistral.ai/news/mistral-large-2407/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2407"
+        }
+      ],
+      "insider": "Frontier-Modell mit ausgeprägter Mehrsprachigkeit (FR/DE/ES/IT/EN). Wird im DACH-Raum häufig in Setups eingesetzt, in denen eine europäische API mit EU-Hosting bei gleichzeitig hoher Modellqualität verlangt wird. Self-Hosting der Gewichte ist nicht-kommerziell."
+    },
+    {
+      "id": "mixtral-8x7b",
+      "name": "Mixtral 8x7B Instruct",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2023,
+      "context": "32K",
+      "params": "MoE 8x7B (47B total, 13B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "multilingual",
+        "instruction",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai",
+      "weights": "https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Mistral AI",
+          "url": "https://mistral.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1"
+        }
+      ],
+      "insider": "Frühe MoE-Architektur, die das Konzept Sparse Mixture of Experts in der breiten Open-Source-Community etablierte. Inferenzgeschwindigkeit nahe 13B bei Qualität nahe 70B. Apache 2.0 ohne Auflagen."
+    },
+    {
+      "id": "mixtral-8x22b",
+      "name": "Mixtral 8x22B Instruct",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "64K",
+      "params": "MoE 8x22B (141B total, 39B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "multilingual",
+        "european",
+        "code",
+        "reasoning"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai/news/mixtral-8x22b/",
+      "weights": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Announcement",
+          "url": "https://mistral.ai/news/mixtral-8x22b/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Mixtral-8x22B-Instruct-v0.1"
+        }
+      ],
+      "insider": "Größere MoE-Variante, vollständig Apache 2.0. Wird häufig in Setups eingesetzt, in denen ein offenes Frontier-Modell aus europäischer Quelle mit ausreichend GPU-RAM lokal betrieben werden soll."
+    },
+    {
+      "id": "mistral-small-3",
+      "name": "Mistral Small 3 (24B)",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "32K",
+      "params": "24B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "instruction",
+        "european",
+        "general"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai",
+      "weights": "https://huggingface.co/mistralai",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Mistral AI",
+          "url": "https://mistral.ai"
+        }
+      ],
+      "insider": "Dichtes Modell als bewusste Alternative zu MoE-Architekturen, dimensioniert für Latenz-sensitive lokale Inferenz. Wird häufig als Mittelklasse zwischen 7B und 70B in Open-Source-Stacks beobachtet."
+    },
+    {
+      "id": "mistral-medium-3",
+      "name": "Mistral Medium 3",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "128K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "european",
+        "tool-use",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://mistral.ai",
+      "weights": null,
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "none",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "agent",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Mistral AI",
+          "url": "https://mistral.ai"
+        }
+      ],
+      "insider": "Kommerziell nur per API verfügbares Mittelklasse-Frontier-Modell. Wird häufig in DACH-Marketing-Stacks als europäische API-Option mit Reasoning- und Function-Calling-Optimierung diskutiert."
+    },
+    {
+      "id": "mistral-nemo",
+      "name": "Mistral Nemo (12B)",
+      "vendor": "Mistral AI / NVIDIA",
+      "country": "FR",
+      "region": "EU",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "12B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "long-context",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai/news/mistral-nemo/",
+      "weights": "https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "uebersetzung",
+        "kreativ"
+      ],
+      "sources": [
+        {
+          "label": "Announcement",
+          "url": "https://mistral.ai/news/mistral-nemo/"
+        }
+      ],
+      "insider": "Gemeinschaftsentwicklung mit NVIDIA, mit Tekken-Tokenizer für besseren Umgang mit Nicht-Englisch-Sprachen. Wird häufig in DACH-Marketing-Workloads mit deutschsprachigen Inputs eingesetzt."
+    },
+    {
+      "id": "ministral-3b-8b",
+      "name": "Ministral 3B / 8B",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "3B / 8B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "edge",
+        "european",
+        "instruction"
+      ],
+      "license_id": "mistral-research",
+      "openness": "weights-research",
+      "url": "https://mistral.ai/news/ministraux/",
+      "weights": "https://huggingface.co/mistralai",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "low",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "kundenkommunikation",
+        "datenanalyse",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Announcement",
+          "url": "https://mistral.ai/news/ministraux/"
+        }
+      ],
+      "insider": "Edge-Familie für On-Device- und ARM-Server-Inferenz. Ergänzt das Mistral-Portfolio im Bereich kleiner, ressourcenschonender Modelle."
+    },
+    {
+      "id": "silo-poro",
+      "name": "Poro 34B",
+      "vendor": "Silo AI / TurkuNLP (heute AMD)",
+      "country": "FI",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "34B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "nordic",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.silo.ai/poro",
+      "weights": "https://huggingface.co/LumiOpen/Poro-34B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "low",
+      "pricing": "€€",
+      "use_cases": [
+        "research",
+        "uebersetzung",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Silo AI Poro",
+          "url": "https://www.silo.ai/poro"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/LumiOpen/Poro-34B"
+        }
+      ],
+      "insider": "Auf dem europäischen LUMI-Supercomputer trainiert. Wird in nordischen Sprachräumen häufig als Beweis genannt, dass eigene Frontier-Modelle ohne Englisch-Dominanz möglich sind. Silo AI wurde 2024 von AMD übernommen."
+    },
+    {
+      "id": "silo-viking",
+      "name": "Viking 7B / 13B / 33B",
+      "vendor": "Silo AI (AMD)",
+      "country": "FI",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B / 13B / 33B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "nordic",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.silo.ai/viking",
+      "weights": "https://huggingface.co/LumiOpen/Viking-33B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "uebersetzung",
+        "marketing-text",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Silo AI Viking",
+          "url": "https://www.silo.ai/viking"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/LumiOpen/Viking-33B"
+        }
+      ],
+      "insider": "Erweitert die Poro-Linie um ein größeres germanisches Sprachset (DA, NO, SV, IS, EN, plus angrenzende). Wird im DACH-Raum vereinzelt für Setups mit Skandinavien-Bezug genannt."
+    },
+    {
+      "id": "lighton-alfred",
+      "name": "Alfred / Paradigm Platform",
+      "vendor": "LightOn",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "enterprise",
+        "rag",
+        "european",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://www.lighton.ai",
+      "weights": null,
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€€€",
+      "use_cases": [
+        "compliance",
+        "kundenkommunikation",
+        "research",
+        "rag"
+      ],
+      "sources": [
+        {
+          "label": "LightOn",
+          "url": "https://www.lighton.ai"
+        }
+      ],
+      "insider": "Französischer Enterprise-Anbieter mit RAG-Fokus. Paradigm-Plattform wird in französischen Behördenprojekten als souveräne KI-Plattform eingesetzt."
+    },
+    {
+      "id": "salamandra",
+      "name": "Salamandra 2B / 7B / 40B",
+      "vendor": "Barcelona Supercomputing Center (BSC)",
+      "country": "ES",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "8K",
+      "params": "2B / 7B / 40B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "spanish",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.bsc.es/research-and-development/research-areas/language-technologies",
+      "weights": "https://huggingface.co/BSC-LT/salamandra-7b-instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "uebersetzung",
+        "marketing-text",
+        "compliance"
+      ],
+      "sources": [
+        {
+          "label": "BSC Language Technologies",
+          "url": "https://www.bsc.es/research-and-development/research-areas/language-technologies"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/BSC-LT/salamandra-7b-instruct"
+        }
+      ],
+      "insider": "Iberisches Pendant zu Teuken. Trainiert auf 35 europäischen Sprachen einschließlich kleinerer iberischer und romanischer Sprachen. Daten- und Methoden-Dokumentation gilt als überdurchschnittlich offen."
+    },
+    {
+      "id": "eurollm",
+      "name": "EuroLLM 1.7B / 9B",
+      "vendor": "Unbabel + IST + Charles University (UTTER-Konsortium)",
+      "country": "PT",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "1.7B / 9B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "translation",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://huggingface.co/utter-project",
+      "weights": "https://huggingface.co/utter-project/EuroLLM-9B-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "uebersetzung",
+        "kundenkommunikation",
+        "research",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "UTTER Project",
+          "url": "https://huggingface.co/utter-project"
+        }
+      ],
+      "insider": "EU-Forschungskonsortialmodell mit explizitem Translation- und Multilingualitätsfokus. 35 Sprachen, gleichmäßig in Trainingsdaten gewichtet, deutsche Performance auf Augenhöhe mit englischer."
+    },
+    {
+      "id": "stable-lm-2",
+      "name": "StableLM 2 12B",
+      "vendor": "Stability AI",
+      "country": "GB",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "4K",
+      "params": "1.6B / 12B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "european",
+        "instruction"
+      ],
+      "license_id": "stability-non-commercial",
+      "openness": "weights-research",
+      "url": "https://stability.ai",
+      "weights": "https://huggingface.co/stabilityai/stablelm-2-12b",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "research",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Stability AI",
+          "url": "https://stability.ai"
+        }
+      ],
+      "insider": "Stability AI ist post-IPO-Phase deutlich kleiner geworden. StableLM 2 wird weiter als forschungsorientiertes mehrsprachiges Modell aus dem UK gepflegt. UK ist nicht EU-Mitglied, aber außerhalb des US Cloud Act."
+    },
+    {
+      "id": "pleias",
+      "name": "Pleias 1.0 (Public Domain)",
+      "vendor": "Pleias",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "4K",
+      "params": "350M / 1.2B / 3B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "european",
+        "instruction",
+        "compliance",
+        "research"
+      ],
+      "license_id": "ggpl-pleias",
+      "openness": "public-domain",
+      "url": "https://huggingface.co/PleIAs",
+      "weights": "https://huggingface.co/PleIAs/Pleias-1.2b-Preview",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "compliance",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Pleias auf Hugging Face",
+          "url": "https://huggingface.co/PleIAs"
+        }
+      ],
+      "insider": "Erstes nennenswertes LLM, das ausschließlich auf gemeinfreien Trainingsdaten (Common Corpus) trainiert wurde. Wird in Verlags-, Bibliotheks- und Behördenkontexten häufig als urheberrechtlich besonders unbedenkliche Option diskutiert. Modellgröße und Performance entsprechend bescheiden."
+    },
+    {
+      "id": "bielik",
+      "name": "Bielik 11B",
+      "vendor": "Speakleash + Cyfronet AGH",
+      "country": "PL",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "32K",
+      "params": "11B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "polish",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://bielik.ai",
+      "weights": "https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Bielik",
+          "url": "https://bielik.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/speakleash/Bielik-11B-v2.3-Instruct"
+        }
+      ],
+      "insider": "Polnisches Open-Source-Vorzeigemodell, trainiert auf einem polnischen Supercomputer. Wird im DACH-Raum von Unternehmen mit Polen-Geschäft als regionale Option diskutiert."
+    },
+    {
+      "id": "pllum",
+      "name": "PLLuM 8B / 12B / 70B",
+      "vendor": "PLLuM Konsortium (PL Forschungseinrichtungen)",
+      "country": "PL",
+      "region": "EU",
+      "tier": "regional",
+      "year": 2025,
+      "context": "8K",
+      "params": "8B / 12B / 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "polish",
+        "european",
+        "compliance",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://pllum.org.pl",
+      "weights": "https://huggingface.co/CYFRAGOVPL",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "compliance",
+        "research",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "PLLuM",
+          "url": "https://pllum.org.pl"
+        }
+      ],
+      "insider": "Polnisches Regierungsprojekt mit Fokus auf öffentliche Verwaltung. Konsortium aus mehreren Forschungseinrichtungen. Wird häufig als Beispiel für staatlich getragene EU-Souveräne-KI-Initiativen genannt."
+    },
+    {
+      "id": "openai-gpt-5",
+      "name": "GPT-5",
+      "vendor": "OpenAI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "256K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "reasoning",
+        "general",
+        "tool-use",
+        "agent",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://openai.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research",
+        "agent",
+        "kreativ"
+      ],
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        }
+      ],
+      "insider": "OpenAIs aktuelles Spitzenmodell, vereint frühere o-Series-Reasoning-Funktionen mit der GPT-Linie. Wird im Markt häufig als generalistische Default-Wahl referenziert. Aus europäischer Sicht: über Azure mit EU-Region nutzbar, US Cloud Act bleibt rechtlich anwendbar. Genauer Release-Stand vor Veröffentlichung verifizieren."
+    },
+    {
+      "id": "openai-gpt-4-1",
+      "name": "GPT-4.1 / 4.1 mini / 4.1 nano",
+      "vendor": "OpenAI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "1M",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "code",
+        "long-context",
+        "general",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://openai.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€",
+      "use_cases": [
+        "code",
+        "datenanalyse",
+        "marketing-text",
+        "kundenkommunikation",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        }
+      ],
+      "insider": "Coding-orientierte Refresh-Linie der GPT-4-Familie mit erweitertem 1-Mio-Token-Kontext. mini- und nano-Varianten werden häufig in latenz- oder kostensensitiven Workloads eingesetzt."
+    },
+    {
+      "id": "openai-o-series",
+      "name": "o3 / o3-mini / o4-mini",
+      "vendor": "OpenAI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "200K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "math",
+        "agent",
+        "tool-use"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://openai.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€€",
+      "use_cases": [
+        "research",
+        "datenanalyse",
+        "code",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "OpenAI",
+          "url": "https://openai.com"
+        }
+      ],
+      "insider": "Reasoning-Linie mit explizitem Chain-of-Thought-Training. Wird häufig für mathematische, agentische und mehrstufige Tool-Use-Aufgaben genutzt. Latenz und Kosten höher als bei klassischen GPT-Modellen."
+    },
+    {
+      "id": "openai-gpt-oss",
+      "name": "GPT-OSS 120B / 20B",
+      "vendor": "OpenAI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "128K",
+      "params": "MoE 120B / 20B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "reasoning",
+        "instruction",
+        "general"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://openai.com",
+      "weights": "https://huggingface.co/openai/gpt-oss-120b",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "code",
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/openai/gpt-oss-120b"
+        }
+      ],
+      "insider": "OpenAIs erste offene Gewichts-Veröffentlichung seit GPT-2. Apache 2.0, MoE-Architektur. Wird in der Open-Source-Community häufig als US-Frontier-Option ohne Llama-Lizenzkette diskutiert."
+    },
+    {
+      "id": "anthropic-opus-4-6",
+      "name": "Claude Opus 4.6 (auch 1M-Variante)",
+      "vendor": "Anthropic",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "200K / 1M",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "code",
+        "reasoning",
+        "long-context",
+        "agent",
+        "instruction"
+      ],
+      "license_id": "anthropic-closed",
+      "openness": "api-only",
+      "url": "https://anthropic.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "low",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€€€",
+      "use_cases": [
+        "code",
+        "research",
+        "datenanalyse",
+        "agent",
+        "kreativ",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Anthropic",
+          "url": "https://anthropic.com"
+        }
+      ],
+      "insider": "Wird in der Praxis häufig als Coding-Frontier-Modell der Wahl in AI-Coding-Agents (Claude Code, Cursor) genannt. Die 1-Mio-Token-Variante wird für ganzheitliche Codebase-Reviews verwendet. Cloud Act bleibt anwendbar, AWS Bedrock und Vertex AI bieten EU-Regionen."
+    },
+    {
+      "id": "anthropic-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
+      "vendor": "Anthropic",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "200K / 1M",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "general",
+        "code",
+        "reasoning",
+        "instruction",
+        "tool-use"
+      ],
+      "license_id": "anthropic-closed",
+      "openness": "api-only",
+      "url": "https://anthropic.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "low",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "code",
+        "datenanalyse",
+        "agent",
+        "kreativ",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Anthropic",
+          "url": "https://anthropic.com"
+        }
+      ],
+      "insider": "Wird in der Praxis häufig als Default für Production-Workloads im Mittelfeld-Frontier eingesetzt. In DACH-Marketing-Stacks häufig wegen ausgeprägter deutschsprachiger Stilqualität diskutiert."
+    },
+    {
+      "id": "anthropic-haiku-4-5",
+      "name": "Claude Haiku 4.5",
+      "vendor": "Anthropic",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "200K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "general",
+        "instruction",
+        "tool-use"
+      ],
+      "license_id": "anthropic-closed",
+      "openness": "api-only",
+      "url": "https://anthropic.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "low",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "kundenkommunikation",
+        "marketing-text",
+        "datenanalyse",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "Anthropic",
+          "url": "https://anthropic.com"
+        }
+      ],
+      "insider": "Edge der Anthropic-Familie mit ausgeprägtem Preis-Latenz-Vorteil. Wird häufig in High-Volume-Klassifikations- und Routing-Workloads diskutiert. Sprachstil im DACH-Markt häufig als überdurchschnittlich natürlich beschrieben."
+    },
+    {
+      "id": "google-gemini-2-5-pro",
+      "name": "Gemini 2.5 Pro",
+      "vendor": "Google DeepMind",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "2M",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "long-context",
+        "agent",
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "google-cloud-closed",
+      "openness": "api-only",
+      "url": "https://deepmind.google/technologies/gemini",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€€",
+      "use_cases": [
+        "research",
+        "datenanalyse",
+        "kundenkommunikation",
+        "marketing-text",
+        "agent",
+        "long-context"
+      ],
+      "sources": [
+        {
+          "label": "Google DeepMind",
+          "url": "https://deepmind.google/technologies/gemini"
+        }
+      ],
+      "insider": "Längster produktiver Kontext im Frontier-Vergleich (2 Mio Token). Stark in multimodaler Analyse von Video, Audio und Dokumenten. Wird häufig in Research-Workloads mit großen Quellen-Mengen eingesetzt."
+    },
+    {
+      "id": "google-gemini-2-5-flash",
+      "name": "Gemini 2.5 Flash",
+      "vendor": "Google DeepMind",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "1M",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "long-context",
+        "instruction"
+      ],
+      "license_id": "google-cloud-closed",
+      "openness": "api-only",
+      "url": "https://deepmind.google",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Google DeepMind",
+          "url": "https://deepmind.google"
+        }
+      ],
+      "insider": "Günstige Multimodal-Variante. Wird häufig in Document-AI- und High-Volume-Workloads diskutiert."
+    },
+    {
+      "id": "google-gemma-3",
+      "name": "Gemma 3 (1B / 4B / 12B / 27B)",
+      "vendor": "Google",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "128K",
+      "params": "1B / 4B / 12B / 27B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multilingual",
+        "multimodal",
+        "edge",
+        "instruction"
+      ],
+      "license_id": "gemma-tou",
+      "openness": "open-weights",
+      "url": "https://ai.google.dev/gemma",
+      "weights": "https://huggingface.co/google/gemma-3-27b-it",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Gemma",
+          "url": "https://ai.google.dev/gemma"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/google/gemma-3-27b-it"
+        }
+      ],
+      "insider": "Googles offene Modell-Linie. Gemma 3 ist nativ multimodal und in vier Größen verfügbar. Lizenz erlaubt kommerzielle Nutzung mit Use-Case-Verboten. 27B-Variante wird häufig als mehrsprachiges Self-Host-Modell genannt."
+    },
+    {
+      "id": "meta-llama-4-scout",
+      "name": "Llama 4 Scout (17B aktiv, MoE)",
+      "vendor": "Meta",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "10M",
+      "params": "MoE 109B (17B active)",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multimodal",
+        "moe",
+        "long-context",
+        "instruction"
+      ],
+      "license_id": "llama-4-community",
+      "openness": "open-weights",
+      "url": "https://www.llama.com",
+      "weights": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "long-context",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Llama",
+          "url": "https://www.llama.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct"
+        }
+      ],
+      "insider": "Wird häufig wegen des 10-Mio-Token-Kontextfensters in der Open-Source-Community diskutiert. Lizenz mit 700-Mio-MAU-Schwelle und Trainingsverbot für Konkurrenzmodelle. Verfügbarkeit der Varianten Scout/Maverick/Behemoth vor Veröffentlichung verifizieren."
+    },
+    {
+      "id": "meta-llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "vendor": "Meta",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "1M",
+      "params": "MoE",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multimodal",
+        "moe",
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "llama-4-community",
+      "openness": "open-weights",
+      "url": "https://www.llama.com",
+      "weights": "https://huggingface.co/meta-llama",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Llama",
+          "url": "https://www.llama.com"
+        }
+      ],
+      "insider": "Größere und reasoning-orientierte Llama-4-Variante. Genaue Konfiguration und Verfügbarkeit vor Veröffentlichung verifizieren."
+    },
+    {
+      "id": "meta-llama-3-3-70b",
+      "name": "Llama 3.3 70B Instruct",
+      "vendor": "Meta",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "general",
+        "multilingual",
+        "instruction",
+        "tool-use"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://www.llama.com",
+      "weights": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "Llama",
+          "url": "https://www.llama.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct"
+        }
+      ],
+      "insider": "Dichtes 70B-Modell aus der Llama-3-Linie. Wird häufig in DACH-Mittelstandsanwendungen mit GPU-Self-Host-Setups als Standardgröße genannt. Tool-Use im Vergleich zu früheren Llama-Versionen deutlich verbessert."
+    },
+    {
+      "id": "microsoft-phi-4",
+      "name": "Phi-4 (14B)",
+      "vendor": "Microsoft Research",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "16K",
+      "params": "14B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "instruction",
+        "edge"
+      ],
+      "license_id": "mit",
+      "openness": "open-source",
+      "url": "https://huggingface.co/microsoft/phi-4",
+      "weights": "https://huggingface.co/microsoft/phi-4",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "datenanalyse",
+        "code",
+        "research",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/microsoft/phi-4"
+        }
+      ],
+      "insider": "Microsofts 'kleines, aber starkes' Reasoning-Modell mit synthetischen Trainingsdaten. MIT-lizenziert und damit in regulierten Einsätzen häufig diskutiert. Wird oft als CPU-fähige Alternative zu größeren Modellen genannt."
+    },
+    {
+      "id": "microsoft-phi-3-5-mini",
+      "name": "Phi-3.5-mini (3.8B)",
+      "vendor": "Microsoft Research",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "3.8B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "edge",
+        "instruction",
+        "long-context"
+      ],
+      "license_id": "mit",
+      "openness": "open-source",
+      "url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+      "weights": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "edge",
+        "kundenkommunikation",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct"
+        }
+      ],
+      "insider": "Wird in DACH-Mittelständischen Setups häufig als Standard-Edge-Modell für CPU-Inferenz genannt. 128K-Kontext besonders nützlich in Document-Workflows."
+    },
+    {
+      "id": "xai-grok-4",
+      "name": "Grok 4",
+      "vendor": "xAI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "256K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "reasoning",
+        "general",
+        "tool-use",
+        "instruction"
+      ],
+      "license_id": "salesforce-closed",
+      "openness": "api-only",
+      "url": "https://x.ai",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "high",
+      "pricing": "€€€€",
+      "use_cases": [
+        "marketing-text",
+        "research",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "xAI",
+          "url": "https://x.ai"
+        }
+      ],
+      "insider": "Mit X-Plattform-Integration für Echtzeit-Daten. Im DACH-Compliance-Kontext häufig wegen geringerer Output-Filterung als sensibel eingestuft."
+    },
+    {
+      "id": "ai2-olmo-2",
+      "name": "OLMo 2 (7B / 13B / 32B)",
+      "vendor": "Allen Institute for AI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B / 13B / 32B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "instruction",
+        "research",
+        "general"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://allenai.org/olmo",
+      "weights": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "compliance",
+        "marketing-text",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "AI2 OLMo",
+          "url": "https://allenai.org/olmo"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/allenai/OLMo-2-1124-13B-Instruct"
+        }
+      ],
+      "insider": "Vollständig offen inklusive Trainingsdaten (Dolma), Code, Logs und Checkpoints. Wird in Forschung und Lehre häufig als Referenz für reproduzierbare Modellentwicklung genannt."
+    },
+    {
+      "id": "ai2-tulu-3",
+      "name": "Tülu 3 (8B / 70B / 405B)",
+      "vendor": "Allen Institute for AI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "8B / 70B / 405B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "instruction",
+        "research",
+        "reasoning"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://allenai.org/tulu",
+      "weights": "https://huggingface.co/allenai/Llama-3.1-Tulu-3-70B",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "research",
+        "marketing-text",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "AI2 Tülu",
+          "url": "https://allenai.org/tulu"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/allenai/Llama-3.1-Tulu-3-70B"
+        }
+      ],
+      "insider": "AI2-Post-Training-Pipeline auf Llama 3-Base mit dokumentiertem RLVR-Verfahren. Wird häufig als Beispiel diskutiert, dass offene Post-Training-Verfahren mit proprietären Top-Modellen vergleichbar werden können."
+    },
+    {
+      "id": "ibm-granite-3",
+      "name": "Granite 3 (2B / 8B)",
+      "vendor": "IBM",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "2B / 8B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "enterprise",
+        "instruction",
+        "tool-use",
+        "code"
+      ],
+      "license_id": "ibm-granite-license",
+      "openness": "open-source",
+      "url": "https://www.ibm.com/granite",
+      "weights": "https://huggingface.co/ibm-granite",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "compliance",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "IBM Granite",
+          "url": "https://www.ibm.com/granite"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/ibm-granite"
+        }
+      ],
+      "insider": "IBMs Foundation-Models-Familie für Enterprise-Workloads. Apache 2.0-lizenziert. Wird in DACH-Großkunden häufig in Verbindung mit IBM-Vertriebskanälen genannt."
+    },
+    {
+      "id": "nvidia-nemotron",
+      "name": "Llama-3.1-Nemotron 70B Instruct",
+      "vendor": "NVIDIA",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "instruction",
+        "reasoning",
+        "general"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+      "weights": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF"
+        }
+      ],
+      "insider": "NVIDIA-Post-Training auf Llama 3.1 mit synthetischen Daten. Wird häufig in Alignment-Benchmarks als Beispiel diskutiert, wie Open-Weights-Modelle die Lücke zu proprietären Modellen verkleinern."
+    },
+    {
+      "id": "databricks-dbrx",
+      "name": "DBRX Instruct",
+      "vendor": "Databricks",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "32K",
+      "params": "MoE 132B (36B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "code",
+        "instruction",
+        "datenanalyse"
+      ],
+      "license_id": "openrail-m",
+      "openness": "open-weights",
+      "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm",
+      "weights": "https://huggingface.co/databricks/dbrx-instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "datenanalyse",
+        "code",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Databricks",
+          "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/databricks/dbrx-instruct"
+        }
+      ],
+      "insider": "Databricks-MoE mit Schwerpunkt auf strukturierten Daten und Code. Wird häufig im Databricks-Ökosystem für Lakehouse-nahe Anwendungen genannt."
+    },
+    {
+      "id": "snowflake-arctic",
+      "name": "Snowflake Arctic Instruct",
+      "vendor": "Snowflake",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "4K",
+      "params": "MoE 480B (17B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "domain-sql",
+        "instruction",
+        "enterprise"
+      ],
+      "license_id": "snowflake-apache",
+      "openness": "open-source",
+      "url": "https://www.snowflake.com/blog/arctic-open-efficient-foundation-language-models-snowflake/",
+      "weights": "https://huggingface.co/Snowflake/snowflake-arctic-instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Snowflake",
+          "url": "https://www.snowflake.com/blog/arctic-open-efficient-foundation-language-models-snowflake/"
+        }
+      ],
+      "insider": "Apache-2.0-lizenziertes Sparse-MoE mit ausgeprägter SQL-Stärke. Wird im Datenbank-/Analytics-Umfeld häufig als Self-Host-Option für strukturierte Workloads diskutiert."
+    },
+    {
+      "id": "ai21-jamba-1-5",
+      "name": "Jamba 1.5 Large / Mini",
+      "vendor": "AI21 Labs",
+      "country": "IL",
+      "region": "INTL",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "256K",
+      "params": "94B / 12B (Mamba-Hybrid)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "mamba",
+        "long-context",
+        "moe",
+        "instruction",
+        "enterprise"
+      ],
+      "license_id": "ai21-jamba-license",
+      "openness": "open-weights",
+      "url": "https://www.ai21.com/jamba",
+      "weights": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€€€",
+      "use_cases": [
+        "long-context",
+        "datenanalyse",
+        "research",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "AI21",
+          "url": "https://www.ai21.com/jamba"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/ai21labs/AI21-Jamba-1.5-Large"
+        }
+      ],
+      "insider": "Erstes produktiv eingesetztes Mamba-Transformer-Hybrid-Modell. AI21 ist israelisch ansässig, was im EU-Datenschutzkontext aufgrund des EU-Adäquanzbeschlusses für Israel relevant ist."
+    },
+    {
+      "id": "cohere-command-r-plus",
+      "name": "Command R+ (08-2024)",
+      "vendor": "Cohere",
+      "country": "CA",
+      "region": "INTL",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "104B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "rag",
+        "tool-use",
+        "enterprise",
+        "instruction"
+      ],
+      "license_id": "cohere-cc-by-nc",
+      "openness": "weights-research",
+      "url": "https://cohere.com/command",
+      "weights": "https://huggingface.co/CohereForAI/c4ai-command-r-plus-08-2024",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€€",
+      "use_cases": [
+        "rag",
+        "kundenkommunikation",
+        "marketing-text",
+        "agent",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Cohere",
+          "url": "https://cohere.com/command"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/CohereForAI/c4ai-command-r-plus-08-2024"
+        }
+      ],
+      "insider": "Cohere ist kanadisch ansässig, was den US-Cloud-Act-Bezug reduziert. Command R+ wird häufig in RAG- und Function-Calling-Workloads im Enterprise-Kontext genannt. Gewichte für nicht-kommerzielle Nutzung verfügbar."
+    },
+    {
+      "id": "cohere-aya-expanse",
+      "name": "Aya Expanse 8B / 32B",
+      "vendor": "Cohere For AI",
+      "country": "CA",
+      "region": "INTL",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "8B / 32B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "european"
+      ],
+      "license_id": "cohere-cc-by-nc",
+      "openness": "weights-research",
+      "url": "https://cohere.com/research/aya",
+      "weights": "https://huggingface.co/CohereForAI/aya-expanse-32b",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "uebersetzung",
+        "marketing-text",
+        "kundenkommunikation",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Cohere Aya",
+          "url": "https://cohere.com/research/aya"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/CohereForAI/aya-expanse-32b"
+        }
+      ],
+      "insider": "Forschungsprogramm Cohere For AI. Aya Expanse ist mehrsprachig optimiert und wird im DACH-Kontext häufig wegen überdurchschnittlicher deutscher Performance genannt. Lizenz schließt direkte kommerzielle Self-Host-Nutzung aus."
+    },
+    {
+      "id": "reka-core",
+      "name": "Reka Core / Flash / Edge",
+      "vendor": "Reka AI",
+      "country": "US",
+      "region": "US",
+      "tier": "frontier-closed",
+      "year": 2024,
+      "context": "128K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://www.reka.ai",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "none",
+      "sovereignty": 2,
+      "german_capability": "medium",
+      "pricing": "€€€",
+      "use_cases": [
+        "marketing-text",
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Reka AI",
+          "url": "https://www.reka.ai"
+        }
+      ],
+      "insider": "Singapur/USA-Startup mit nativ multimodaler Architektur (auch Video und Audio). Im internationalen Vergleich kleinerer Marktanteil, technisch aber als Vollmultimodal-Anbieter genannt."
+    },
+    {
+      "id": "qwen-3",
+      "name": "Qwen3 (0.6B – 235B inkl. MoE)",
+      "vendor": "Alibaba (Qwen Team)",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "128K",
+      "params": "0.6B – 235B (MoE 30B-A3B / 235B-A22B)",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multilingual",
+        "reasoning",
+        "code",
+        "instruction",
+        "moe"
+      ],
+      "license_id": "qwen-license",
+      "openness": "open-source",
+      "url": "https://qwenlm.github.io",
+      "weights": "https://huggingface.co/Qwen",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research",
+        "agent",
+        "kreativ",
+        "uebersetzung"
+      ],
+      "sources": [
+        {
+          "label": "Qwen Blog",
+          "url": "https://qwenlm.github.io"
+        },
+        {
+          "label": "Hugging Face Org",
+          "url": "https://huggingface.co/Qwen"
+        }
+      ],
+      "insider": "Eine der breitesten Open-Source-Modellfamilien, vom 0.6B-Edge-Modell bis zum 235B-MoE. Wird in der DACH-Open-Source-Community häufig als Default für lokale, mehrsprachige Workloads genannt. Lizenzbedingungen für sehr große Varianten beachten."
+    },
+    {
+      "id": "qwen-2-5-72b",
+      "name": "Qwen 2.5 72B Instruct",
+      "vendor": "Alibaba (Qwen Team)",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "72B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "general",
+        "instruction"
+      ],
+      "license_id": "qwen-license",
+      "openness": "open-weights",
+      "url": "https://qwenlm.github.io",
+      "weights": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct"
+        }
+      ],
+      "insider": "Vorgängergeneration zu Qwen3, breit ausgereift. War zeitweise das stärkste offene generalistische Modell vor DeepSeek V3."
+    },
+    {
+      "id": "qwen-2-5-coder-32b",
+      "name": "Qwen 2.5 Coder 32B Instruct",
+      "vendor": "Alibaba (Qwen Team)",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "32B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "code",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/",
+      "weights": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "code",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Qwen Coder Blog",
+          "url": "https://qwenlm.github.io/blog/qwen2.5-coder-family/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct"
+        }
+      ],
+      "insider": "Wird in der Open-Source-Community häufig als 32B-Code-Modell für Self-Host-Coding-Assistenten in 24-32 GB VRAM genannt. Apache 2.0-lizenziert."
+    },
+    {
+      "id": "qwen-qwq-32b",
+      "name": "QwQ 32B (Reasoning Preview)",
+      "vendor": "Alibaba (Qwen Team)",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "32B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "math",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://qwenlm.github.io/blog/qwq-32b-preview/",
+      "weights": "https://huggingface.co/Qwen/QwQ-32B-Preview",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Qwen QwQ Blog",
+          "url": "https://qwenlm.github.io/blog/qwq-32b-preview/"
+        }
+      ],
+      "insider": "Reasoning-Variante der Qwen-Familie mit Chain-of-Thought-Optimierung. Wird häufig als self-hostbare Alternative zu o1-Klasse-Modellen diskutiert."
+    },
+    {
+      "id": "deepseek-v3",
+      "name": "DeepSeek V3",
+      "vendor": "DeepSeek",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "128K",
+      "params": "MoE 671B (37B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "code",
+        "reasoning",
+        "general",
+        "instruction"
+      ],
+      "license_id": "deepseek-license",
+      "openness": "open-weights",
+      "url": "https://www.deepseek.com",
+      "weights": "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "research",
+        "kreativ",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "DeepSeek",
+          "url": "https://www.deepseek.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3"
+        }
+      ],
+      "insider": "671B-MoE-Modell, das mit ungewöhnlich niedrigem Trainings-Budget realisiert wurde. Wird häufig als Beispiel diskutiert, wie die Effizienzgrenze für Frontier-Modelle nach unten verschoben werden kann. Self-Host benötigt sehr große GPU-Cluster, API-Nutzung deutlich günstiger als westliche Frontier-Anbieter."
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "vendor": "DeepSeek",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "128K",
+      "params": "MoE 671B + distillierte 1.5B – 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "math",
+        "code",
+        "instruction"
+      ],
+      "license_id": "mit",
+      "openness": "open-source",
+      "url": "https://www.deepseek.com",
+      "weights": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "datenanalyse",
+        "code",
+        "compliance"
+      ],
+      "sources": [
+        {
+          "label": "DeepSeek",
+          "url": "https://www.deepseek.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1"
+        }
+      ],
+      "insider": "Erstes vollständig MIT-lizenziertes Reasoning-Modell auf o1-Klasse. Distillierte 1.5B–70B-Varianten werden in der Open-Source-Szene häufig als self-hostbare Reasoning-Optionen genannt."
+    },
+    {
+      "id": "deepseek-coder-v2",
+      "name": "DeepSeek-Coder V2 (16B / 236B MoE)",
+      "vendor": "DeepSeek",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "16B / MoE 236B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "code",
+        "moe",
+        "instruction"
+      ],
+      "license_id": "deepseek-license",
+      "openness": "open-weights",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+      "weights": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "code",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/deepseek-ai/DeepSeek-Coder-V2"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct"
+        }
+      ],
+      "insider": "Wird in Coding-Benchmarks häufig auf GPT-4-Turbo-Niveau positioniert. 16B-Variante als populäre Self-Host-Code-Option in 24 GB VRAM."
+    },
+    {
+      "id": "deepseek-math",
+      "name": "DeepSeek-Math 7B",
+      "vendor": "DeepSeek",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "math",
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "deepseek-license",
+      "openness": "open-weights",
+      "url": "https://github.com/deepseek-ai/DeepSeek-Math",
+      "weights": "https://huggingface.co/deepseek-ai/deepseek-math-7b-instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/deepseek-ai/DeepSeek-Math"
+        }
+      ],
+      "insider": "Pionier des GRPO-Trainingsverfahrens, das später bei R1 erneut verwendet wurde. Wird häufig in mathematischen Benchmark-Vergleichen als Beispiel für effizientes Domain-Pretraining genannt."
+    },
+    {
+      "id": "zhipu-glm-4",
+      "name": "GLM-4 9B Chat",
+      "vendor": "Zhipu AI / THUDM",
+      "country": "CN",
+      "region": "CN",
+      "tier": "regional",
+      "year": 2024,
+      "context": "128K",
+      "params": "9B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "tool-use",
+        "instruction"
+      ],
+      "license_id": "glm-license",
+      "openness": "open-weights",
+      "url": "https://github.com/THUDM/GLM-4",
+      "weights": "https://huggingface.co/THUDM/glm-4-9b-chat",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code",
+        "agent"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/THUDM/GLM-4"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/THUDM/glm-4-9b-chat"
+        }
+      ],
+      "insider": "Aus der Tsinghua-Universität hervorgegangenes Modellprogramm. Vorgänger ChatGLM gehörte zu den frühesten populären chinesischen Open-Source-LLMs. Tool-Use- und Function-Calling-Schwerpunkt."
+    },
+    {
+      "id": "01ai-yi-1-5",
+      "name": "Yi-1.5 (6B / 9B / 34B)",
+      "vendor": "01.AI",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "32K",
+      "params": "6B / 9B / 34B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "general"
+      ],
+      "license_id": "yi-license",
+      "openness": "open-source",
+      "url": "https://01.ai",
+      "weights": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "kreativ"
+      ],
+      "sources": [
+        {
+          "label": "01.AI",
+          "url": "https://01.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat"
+        }
+      ],
+      "insider": "Modellfamilie aus dem Umfeld von Kai-Fu Lees 01.AI. 34B-Variante wurde in der Open-Source-Community lange als ausgewogenes Self-Host-Modell für 48 GB VRAM-Setups diskutiert."
+    },
+    {
+      "id": "moonshot-kimi-k2",
+      "name": "Kimi K2",
+      "vendor": "Moonshot AI",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "2M",
+      "params": "MoE 1T (32B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "long-context",
+        "agent",
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://kimi.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 2,
+      "german_capability": "medium",
+      "pricing": "€€€",
+      "use_cases": [
+        "long-context",
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Kimi",
+          "url": "https://kimi.com"
+        }
+      ],
+      "insider": "Im chinesischen Markt populärer Konsumenten-Chat. Sehr großes MoE und ausgeprägter Long-Context-Fokus. Im DACH-Markt durch CN-Compliance-Themen praktisch begrenzt einsetzbar."
+    },
+    {
+      "id": "tencent-hunyuan-large",
+      "name": "Hunyuan-Large",
+      "vendor": "Tencent",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "256K",
+      "params": "MoE 389B (52B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "moe",
+        "instruction",
+        "general"
+      ],
+      "license_id": "tencent-hunyuan-license",
+      "openness": "open-weights",
+      "url": "https://github.com/Tencent/Tencent-Hunyuan-Large",
+      "weights": "https://huggingface.co/tencent/Tencent-Hunyuan-Large",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/Tencent/Tencent-Hunyuan-Large"
+        }
+      ],
+      "insider": "Tencents bisher größter offener MoE-Push. 100-Mio-MAU-Schwelle in der Lizenz, für die meisten BVDW-Mitglieder unkritisch."
+    },
+    {
+      "id": "tencent-hunyuan-t1",
+      "name": "Hunyuan T1",
+      "vendor": "Tencent",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "128K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://hunyuan.tencent.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "medium",
+      "pricing": "€€€",
+      "use_cases": [
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Tencent Hunyuan",
+          "url": "https://hunyuan.tencent.com"
+        }
+      ],
+      "insider": "Tencents Reasoning-orientierte Antwort auf R1/o1-Klasse. API-only über Tencent Cloud."
+    },
+    {
+      "id": "bytedance-doubao",
+      "name": "Doubao 1.5 Pro",
+      "vendor": "ByteDance",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "128K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multilingual",
+        "general",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://www.doubao.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Doubao",
+          "url": "https://www.doubao.com"
+        }
+      ],
+      "insider": "Konsumenten-Frontier-Modell aus dem ByteDance-Konzern. International wegen ByteDance-Compliance-Themen wenig sichtbar, im chinesischen Markt sehr verbreitet."
+    },
+    {
+      "id": "baichuan-4",
+      "name": "Baichuan 4",
+      "vendor": "Baichuan AI",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-closed",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "general"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://www.baichuan-ai.com",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "low",
+      "pricing": "€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Baichuan AI",
+          "url": "https://www.baichuan-ai.com"
+        }
+      ],
+      "insider": "Eines der führenden chinesischen Konsumenten-Modell-Studios. Ältere Baichuan-2-Gewichte wurden offen veröffentlicht, neuere Versionen nur per API."
+    },
+    {
+      "id": "minimax-text-01",
+      "name": "MiniMax-Text-01 / M1",
+      "vendor": "MiniMax",
+      "country": "CN",
+      "region": "CN",
+      "tier": "frontier-open",
+      "year": 2025,
+      "context": "4M",
+      "params": "MoE 456B (45B active)",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "long-context",
+        "moe",
+        "instruction"
+      ],
+      "license_id": "openrail-m",
+      "openness": "open-weights",
+      "url": "https://www.minimaxi.com",
+      "weights": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "long-context",
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "MiniMax",
+          "url": "https://www.minimaxi.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01"
+        }
+      ],
+      "insider": "Lightning-Attention-Architektur (linear statt klassischer Self-Attention), längstes effektives Kontextfenster im offenen Vergleich. Wird häufig als architektonisch eigenständige Alternative zu klassischen Transformern genannt."
+    },
+    {
+      "id": "internlm-3",
+      "name": "InternLM 3 (8B)",
+      "vendor": "Shanghai AI Laboratory",
+      "country": "CN",
+      "region": "CN",
+      "tier": "regional",
+      "year": 2025,
+      "context": "32K",
+      "params": "8B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "research"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://internlm.intern-ai.org.cn",
+      "weights": "https://huggingface.co/internlm/internlm3-8b-instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "marketing-text",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "InternLM",
+          "url": "https://internlm.intern-ai.org.cn"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/internlm/internlm3-8b-instruct"
+        }
+      ],
+      "insider": "Akademisches Open-Source-Projekt aus Shanghai. Modelle und Datasets gelten als überdurchschnittlich offen dokumentiert."
+    },
+    {
+      "id": "lg-exaone-3-5",
+      "name": "EXAONE 3.5 (2.4B / 7.8B / 32B)",
+      "vendor": "LG AI Research",
+      "country": "KR",
+      "region": "KR",
+      "tier": "regional",
+      "year": 2024,
+      "context": "32K",
+      "params": "2.4B / 7.8B / 32B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "korean",
+        "instruction",
+        "long-context"
+      ],
+      "license_id": "exaone-license",
+      "openness": "weights-research",
+      "url": "https://www.lgresearch.ai/exaone",
+      "weights": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-32B-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "kundenkommunikation",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "LG AI Research",
+          "url": "https://www.lgresearch.ai/exaone"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-32B-Instruct"
+        }
+      ],
+      "insider": "Industriemodell aus dem LG-Konzern, in Korea breit eingesetzt. 32B-Variante in Benchmarks häufig auf Niveau deutlich größerer Modelle positioniert. Lizenz erlaubt Forschung, kommerzielle Nutzung über LG-Vertrieb."
+    },
+    {
+      "id": "naver-hyperclova-x",
+      "name": "HyperCLOVA X",
+      "vendor": "Naver",
+      "country": "KR",
+      "region": "KR",
+      "tier": "frontier-closed",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multilingual",
+        "korean",
+        "instruction",
+        "general"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://clova.ai/hyperclova",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 2,
+      "german_capability": "low",
+      "pricing": "€€€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Naver HyperCLOVA",
+          "url": "https://clova.ai/hyperclova"
+        }
+      ],
+      "insider": "Naver ist Koreas führender Internet-Konzern. HyperCLOVA X ist das hauseigene Frontier-Modell mit Suchsystem-Integration. Im DACH-Markt selten direkt eingesetzt."
+    },
+    {
+      "id": "upstage-solar-pro",
+      "name": "Solar Pro (22B)",
+      "vendor": "Upstage",
+      "country": "KR",
+      "region": "KR",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "22B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "general"
+      ],
+      "license_id": "mit",
+      "openness": "open-source",
+      "url": "https://www.upstage.ai",
+      "weights": "https://huggingface.co/upstage/solar-pro-preview-instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Upstage",
+          "url": "https://www.upstage.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/upstage/solar-pro-preview-instruct"
+        }
+      ],
+      "insider": "Bekannt für 'Depth Up-Scaling' (Schichten-Verdoppelung als Skalierungs-Technik). Solar 10.7B war zeitweise eines der populärsten Open-Source-Modelle auf Hugging Face. Solar Pro wird häufig als 22B-Single-GPU-Option mit ausgewogener Mehrsprachigkeit diskutiert."
+    },
+    {
+      "id": "sakana-evollm-jp",
+      "name": "EvoLLM-JP 7B",
+      "vendor": "Sakana AI",
+      "country": "JP",
+      "region": "JP",
+      "tier": "research",
+      "year": 2024,
+      "context": "4K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "japanese",
+        "instruction",
+        "research"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://sakana.ai",
+      "weights": "https://huggingface.co/SakanaAI/EvoLLM-JP-v1-7B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Sakana AI",
+          "url": "https://sakana.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/SakanaAI/EvoLLM-JP-v1-7B"
+        }
+      ],
+      "insider": "Sakana AI verfolgt 'Evolutionary Model Merging' als methodische Alternative zu klassischem Pretraining. Konzeptionell relevant für die Diskussion neuer Skalierungsstrategien in der Foundation-Model-Entwicklung."
+    },
+    {
+      "id": "cyberagent-calm3",
+      "name": "CALM3-22B Chat",
+      "vendor": "CyberAgent",
+      "country": "JP",
+      "region": "JP",
+      "tier": "regional",
+      "year": 2024,
+      "context": "16K",
+      "params": "22B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "japanese",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://www.cyberagent.co.jp",
+      "weights": "https://huggingface.co/cyberagent/calm3-22b-chat",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/cyberagent/calm3-22b-chat"
+        }
+      ],
+      "insider": "CyberAgent ist eine japanische Internet-Holding mit aktivem KI-Forschungsbereich. CALM3 ist eines der breitesten offenen japanischen Modelle in der 22B-Klasse."
+    },
+    {
+      "id": "pfn-plamo",
+      "name": "PLaMo Prime",
+      "vendor": "Preferred Networks",
+      "country": "JP",
+      "region": "JP",
+      "tier": "regional",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "japanese",
+        "instruction",
+        "enterprise"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://plamo.preferredai.jp",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€€",
+      "use_cases": [
+        "compliance",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Preferred Networks",
+          "url": "https://plamo.preferredai.jp"
+        }
+      ],
+      "insider": "Preferred Networks gehört zu Japans Deep-Learning-Pionieren mit Toyota- und Honda-Partnerschaften. PLaMo wird im japanischen Industrie-Kontext eingesetzt."
+    },
+    {
+      "id": "sarvam-1",
+      "name": "Sarvam-1 / Sarvam-2B",
+      "vendor": "Sarvam AI",
+      "country": "IN",
+      "region": "IN",
+      "tier": "regional",
+      "year": 2024,
+      "context": "8K",
+      "params": "2B – 7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "indian",
+        "instruction"
+      ],
+      "license_id": "cc-by-nc-4.0",
+      "openness": "weights-research",
+      "url": "https://www.sarvam.ai",
+      "weights": "https://huggingface.co/sarvamai/sarvam-1",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "uebersetzung",
+        "research",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Sarvam AI",
+          "url": "https://www.sarvam.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/sarvamai/sarvam-1"
+        }
+      ],
+      "insider": "Erstes ernstzunehmendes indisches Foundation-Model-Lab. Unterstützt zehn indische Sprachen (Hindi, Tamil, Telugu, Bengali u.a.) auf einem Qualitätsniveau, das westliche Modelle in diesen Sprachen nicht erreichen. Für DACH-Unternehmen mit Indien-Outsourcing relevant."
+    },
+    {
+      "id": "krutrim",
+      "name": "Krutrim",
+      "vendor": "Krutrim Si Designs (Ola)",
+      "country": "IN",
+      "region": "IN",
+      "tier": "frontier-closed",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "indian",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "api-only",
+      "url": "https://www.krutrim.ai",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 2,
+      "german_capability": "low",
+      "pricing": "€€",
+      "use_cases": [
+        "uebersetzung",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Krutrim",
+          "url": "https://www.krutrim.ai"
+        }
+      ],
+      "insider": "Indisches Frontier-Projekt aus dem Umfeld des Ola-Mitgründers. International noch wenig sichtbar, national als 'BharatGPT'-Antwort positioniert."
+    },
+    {
+      "id": "falcon-3",
+      "name": "Falcon 3 (1B / 3B / 7B / 10B)",
+      "vendor": "Technology Innovation Institute",
+      "country": "AE",
+      "region": "MENA",
+      "tier": "frontier-open",
+      "year": 2024,
+      "context": "32K",
+      "params": "1B / 3B / 7B / 10B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "edge"
+      ],
+      "license_id": "tii-falcon-license",
+      "openness": "open-source",
+      "url": "https://falconllm.tii.ae",
+      "weights": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "marketing-text",
+        "kundenkommunikation",
+        "datenanalyse",
+        "edge"
+      ],
+      "sources": [
+        {
+          "label": "TII Falcon",
+          "url": "https://falconllm.tii.ae"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
+        }
+      ],
+      "insider": "Effiziente Falcon-Generation mit dichten Modellen statt MoE. TII (Abu Dhabi) ist staatlich finanziert. Lizenz ist Apache-nah und kommerziell uneingeschränkt."
+    },
+    {
+      "id": "falcon-mamba",
+      "name": "Falcon Mamba 7B",
+      "vendor": "Technology Innovation Institute",
+      "country": "AE",
+      "region": "MENA",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "unbegrenzt (linear)",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "mamba",
+        "instruction",
+        "long-context"
+      ],
+      "license_id": "tii-falcon-license",
+      "openness": "open-source",
+      "url": "https://falconllm.tii.ae",
+      "weights": "https://huggingface.co/tiiuae/falcon-mamba-7b",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "long-context",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/tiiuae/falcon-mamba-7b"
+        }
+      ],
+      "insider": "Erstes Mamba-Modell jenseits der reinen Forschung mit produktiv nutzbarer Performance. Konstanter Speicher pro Token, lineare Inferenzkomplexität."
+    },
+    {
+      "id": "falcon-180b",
+      "name": "Falcon 180B",
+      "vendor": "Technology Innovation Institute",
+      "country": "AE",
+      "region": "MENA",
+      "tier": "frontier-open",
+      "year": 2023,
+      "context": "4K",
+      "params": "180B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction"
+      ],
+      "license_id": "tii-falcon-license",
+      "openness": "open-weights",
+      "url": "https://falconllm.tii.ae",
+      "weights": "https://huggingface.co/tiiuae/falcon-180B-chat",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/tiiuae/falcon-180B-chat"
+        }
+      ],
+      "insider": "Zum Release-Zeitpunkt das größte offene Modell weltweit. Heute überholt, aber als historischer Beleg für die Diversifizierung der Frontier-Geographie häufig zitiert."
+    },
+    {
+      "id": "jais",
+      "name": "Jais Family (13B / 30B / 70B)",
+      "vendor": "G42 / Inception / MBZUAI",
+      "country": "AE",
+      "region": "MENA",
+      "tier": "regional",
+      "year": 2023,
+      "context": "8K",
+      "params": "13B / 30B / 70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "arabic",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://inceptionai.ai/jais",
+      "weights": "https://huggingface.co/inceptionai/jais-family-30b-chat",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 4,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "uebersetzung",
+        "kundenkommunikation",
+        "marketing-text"
+      ],
+      "sources": [
+        {
+          "label": "Inception AI",
+          "url": "https://inceptionai.ai/jais"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/inceptionai/jais-family-30b-chat"
+        }
+      ],
+      "insider": "Eines der breitesten offenen arabisch-englischen Modellprogramme, mit Trainingsabdeckung für 18+ arabische Dialekte. Für DACH-Unternehmen mit MENA-Kundenstamm relevant."
+    },
+    {
+      "id": "yandex-gpt-5",
+      "name": "YandexGPT 5",
+      "vendor": "Yandex",
+      "country": "RU",
+      "region": "RU",
+      "tier": "frontier-closed",
+      "year": 2025,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "russian",
+        "instruction"
+      ],
+      "license_id": "yandex-closed",
+      "openness": "api-only",
+      "url": "https://yandex.cloud/en/services/yandexgpt",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "uebersetzung",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Yandex Cloud",
+          "url": "https://yandex.cloud/en/services/yandexgpt"
+        }
+      ],
+      "insider": "Russlands populärstes kommerzielles LLM. Aufgrund regulatorischer und politischer Lage in DACH-Marketing-Workloads praktisch nicht einsetzbar; Eintrag erfolgt aus Vollständigkeitsgründen."
+    },
+    {
+      "id": "sber-gigachat",
+      "name": "GigaChat / GigaChat MAX",
+      "vendor": "Sber AI",
+      "country": "RU",
+      "region": "RU",
+      "tier": "frontier-closed",
+      "year": 2024,
+      "context": "32K",
+      "params": "undisclosed",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "russian",
+        "instruction",
+        "multimodal"
+      ],
+      "license_id": "sber-closed",
+      "openness": "api-only",
+      "url": "https://giga.chat",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "none",
+      "transparency": "none",
+      "sovereignty": 1,
+      "german_capability": "low",
+      "pricing": "€€",
+      "use_cases": [
+        "uebersetzung",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "GigaChat",
+          "url": "https://giga.chat"
+        }
+      ],
+      "insider": "Russisches Pendant zu ChatGPT, von der Sberbank entwickelt. National stark verbreitet. Für DACH-Märkte aus regulatorischen Gründen praktisch nicht einsetzbar."
+    },
+    {
+      "id": "t-bank-t-pro",
+      "name": "T-pro / T-lite",
+      "vendor": "T-Bank (ehem. Tinkoff)",
+      "country": "RU",
+      "region": "RU",
+      "tier": "regional",
+      "year": 2024,
+      "context": "32K",
+      "params": "7B / 33B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "russian",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-weights",
+      "url": "https://t-tech.ai",
+      "weights": "https://huggingface.co/t-tech",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 2,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "uebersetzung",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/t-tech"
+        }
+      ],
+      "insider": "Open-Source-Push aus dem T-Bank-Ökosystem, basierend auf Llama- und Qwen-Tunes mit russischem Sprachschwerpunkt. Für DACH-Marketing-Workloads aus geopolitischen Gründen mit Vorsicht zu betrachten."
+    },
+    {
+      "id": "codestral-22b",
+      "name": "Codestral 22B",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "22B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "code",
+        "instruction",
+        "european"
+      ],
+      "license_id": "mistral-non-production",
+      "openness": "weights-research",
+      "url": "https://mistral.ai/news/codestral/",
+      "weights": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "low",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "code",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Mistral Codestral",
+          "url": "https://mistral.ai/news/codestral/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Codestral-22B-v0.1"
+        }
+      ],
+      "insider": "80+ Programmiersprachen, Fill-in-the-Middle für Editor-Plugins. Wird in europäischen Coding-Toolchains häufig als API- oder kommerziell lizenzierte Option diskutiert. Self-Host der Gewichte ist nicht-kommerziell."
+    },
+    {
+      "id": "starcoder-2",
+      "name": "StarCoder 2 (3B / 7B / 15B)",
+      "vendor": "BigCode (Hugging Face + ServiceNow + NVIDIA)",
+      "country": "INTL",
+      "region": "INTL",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "16K",
+      "params": "3B / 7B / 15B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "code",
+        "instruction"
+      ],
+      "license_id": "openrail-m",
+      "openness": "open-source",
+      "url": "https://www.bigcode-project.org",
+      "weights": "https://huggingface.co/bigcode/starcoder2-15b",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "BigCode",
+          "url": "https://www.bigcode-project.org"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/bigcode/starcoder2-15b"
+        }
+      ],
+      "insider": "Trainiert auf 'The Stack v2' mit 619 Programmiersprachen. Verfahren und Trainingsdaten sind öffentlich dokumentiert. Wird häufig in Setups genannt, in denen Lizenz- und Datenherkunft des Code-Modells auditierbar sein müssen."
+    },
+    {
+      "id": "mathstral-7b",
+      "name": "Mathstral 7B",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "math",
+        "reasoning",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://mistral.ai/news/mathstral/",
+      "weights": "https://huggingface.co/mistralai/Mathstral-7B-v0.1",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "low",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Mistral Mathstral",
+          "url": "https://mistral.ai/news/mathstral/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Mathstral-7B-v0.1"
+        }
+      ],
+      "insider": "Mistral-Beitrag im Math-Reasoning-Bereich. Wird häufig in Vergleichen mit DeepSeek-Math als europäisches Pendant aufgeführt."
+    },
+    {
+      "id": "numinamath-72b",
+      "name": "NuminaMath 72B",
+      "vendor": "Numina (mit Mistral, Hugging Face)",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "72B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "math",
+        "reasoning",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://huggingface.co/AI-MO",
+      "weights": "https://huggingface.co/AI-MO/NuminaMath-72B-CoT",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/AI-MO/NuminaMath-72B-CoT"
+        }
+      ],
+      "insider": "Sieger-Modell der AI Math Olympiad 2024. Wird häufig als Beleg für die Wirksamkeit kombinierten symbolischen Tool-Use (Python) und LLM-Reasonings genannt."
+    },
+    {
+      "id": "pixtral-large",
+      "name": "Pixtral Large 124B",
+      "vendor": "Mistral AI",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "124B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "european",
+        "instruction"
+      ],
+      "license_id": "mistral-research",
+      "openness": "weights-research",
+      "url": "https://mistral.ai/news/pixtral-large/",
+      "weights": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "low",
+      "sovereignty": 4,
+      "german_capability": "high",
+      "pricing": "€€€",
+      "use_cases": [
+        "datenanalyse",
+        "research",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "Mistral Pixtral Large",
+          "url": "https://mistral.ai/news/pixtral-large/"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/mistralai/Pixtral-Large-Instruct-2411"
+        }
+      ],
+      "insider": "Vision-Sprach-Modell aus europäischer Quelle. Wird häufig in Document-AI-, OCR- und Diagramm-Verständnis-Workloads diskutiert."
+    },
+    {
+      "id": "llava-onevision",
+      "name": "LLaVA-OneVision",
+      "vendor": "UW Madison + ByteDance + NTU",
+      "country": "INTL",
+      "region": "INTL",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "0.5B / 7B / 72B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://llava-vl.github.io",
+      "weights": "https://huggingface.co/llava-hf/llava-onevision-qwen2-72b-ov",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "LLaVA",
+          "url": "https://llava-vl.github.io"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/llava-hf/llava-onevision-qwen2-72b-ov"
+        }
+      ],
+      "insider": "Konsortialmodell, in der Forschung als offener Standard für Vision-Language-Experimente etabliert."
+    },
+    {
+      "id": "internvl-2-5",
+      "name": "InternVL 2.5 (1B – 78B)",
+      "vendor": "Shanghai AI Laboratory + OpenGVLab",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "1B / 8B / 26B / 78B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "instruction"
+      ],
+      "license_id": "mit",
+      "openness": "open-source",
+      "url": "https://internvl.github.io",
+      "weights": "https://huggingface.co/OpenGVLab/InternVL2_5-78B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€€",
+      "use_cases": [
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "InternVL",
+          "url": "https://internvl.github.io"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/OpenGVLab/InternVL2_5-78B"
+        }
+      ],
+      "insider": "Wird in offenen Vision-Language-Benchmarks häufig auf Augenhöhe mit proprietären Modellen positioniert. Sehr breites Größen-Spektrum von Edge bis Frontier."
+    },
+    {
+      "id": "minicpm-v-2-6",
+      "name": "MiniCPM-V 2.6 (8B)",
+      "vendor": "OpenBMB / Tsinghua + ModelBest",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "8B",
+      "modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "edge",
+        "instruction"
+      ],
+      "license_id": "openrail-m",
+      "openness": "open-weights",
+      "url": "https://github.com/OpenBMB/MiniCPM-V",
+      "weights": "https://huggingface.co/openbmb/MiniCPM-V-2_6",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "datenanalyse",
+        "edge",
+        "kundenkommunikation"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/OpenBMB/MiniCPM-V"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/openbmb/MiniCPM-V-2_6"
+        }
+      ],
+      "insider": "Kompaktes Vision-Sprach-Modell, das auch auf Smartphones läuft. Wird häufig als Edge-Multimodal-Option genannt."
+    },
+    {
+      "id": "idefics-3",
+      "name": "Idefics 3 (8B)",
+      "vendor": "Hugging Face",
+      "country": "FR",
+      "region": "INTL",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "16K",
+      "params": "8B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "instruction",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://huggingface.co/HuggingFaceM4",
+      "weights": "https://huggingface.co/HuggingFaceM4/Idefics3-8B-Llama3",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/HuggingFaceM4/Idefics3-8B-Llama3"
+        }
+      ],
+      "insider": "Hugging Faces vollständig offene Multimodal-Linie, inklusive Trainingsdaten-Dokumentation. Reproduzierbar von Grund auf."
+    },
+    {
+      "id": "cogvlm-2",
+      "name": "CogVLM 2 / CogAgent",
+      "vendor": "Zhipu AI / THUDM",
+      "country": "CN",
+      "region": "CN",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "8K",
+      "params": "19B",
+      "modalities": [
+        "text",
+        "image"
+      ],
+      "specs": [
+        "multimodal",
+        "vision",
+        "agent",
+        "instruction"
+      ],
+      "license_id": "glm-license",
+      "openness": "open-weights",
+      "url": "https://github.com/THUDM/CogVLM2",
+      "weights": "https://huggingface.co/THUDM/cogvlm2-llama3-chat-19B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "agent",
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/THUDM/CogVLM2"
+        }
+      ],
+      "insider": "CogAgent ist explizit für GUI-Agent-Workloads konzipiert (Screenshot-Verständnis, Klick-Koordinaten). Wird häufig als früher Vorreiter im Browser-Agent-Bereich genannt."
+    },
+    {
+      "id": "llama-3-2-edge",
+      "name": "Llama 3.2 1B / 3B",
+      "vendor": "Meta",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "128K",
+      "params": "1B / 3B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "edge",
+        "instruction",
+        "multilingual"
+      ],
+      "license_id": "llama-3-community",
+      "openness": "open-weights",
+      "url": "https://www.llama.com",
+      "weights": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "edge",
+        "kundenkommunikation",
+        "datenanalyse"
+      ],
+      "sources": [
+        {
+          "label": "Llama",
+          "url": "https://www.llama.com"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct"
+        }
+      ],
+      "insider": "Standard-Edge-Familie im Llama-Ökosystem. 1B-Variante läuft auf modernen Smartphones in produktiver Geschwindigkeit."
+    },
+    {
+      "id": "smollm-2",
+      "name": "SmolLM 2 (135M / 360M / 1.7B)",
+      "vendor": "Hugging Face",
+      "country": "FR",
+      "region": "INTL",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "8K",
+      "params": "135M / 360M / 1.7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "edge",
+        "instruction",
+        "european"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://huggingface.co/blog/smollm",
+      "weights": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "edge",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face Blog",
+          "url": "https://huggingface.co/blog/smollm"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct"
+        }
+      ],
+      "insider": "Vollständig offene Edge-Modellfamilie aus dem Hugging-Face-Forschungsumfeld. Trainingsdaten (Cosmopedia, FineWeb) sind dokumentiert. Beliebt in Lehrkontexten."
+    },
+    {
+      "id": "apple-openelm",
+      "name": "Apple OpenELM (270M – 3B)",
+      "vendor": "Apple",
+      "country": "US",
+      "region": "US",
+      "tier": "research",
+      "year": 2024,
+      "context": "2K",
+      "params": "270M / 450M / 1.1B / 3B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "edge",
+        "research"
+      ],
+      "license_id": "openai-closed",
+      "openness": "weights-research",
+      "url": "https://machinelearning.apple.com/research/openelm",
+      "weights": "https://huggingface.co/apple/OpenELM-3B-Instruct",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "edge"
+      ],
+      "sources": [
+        {
+          "label": "Apple ML Research",
+          "url": "https://machinelearning.apple.com/research/openelm"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/apple/OpenELM-3B-Instruct"
+        }
+      ],
+      "insider": "Apples einzige offene Modellfamilie. Lizenz erlaubt Forschung und nicht-kommerzielle Nutzung. Wichtig als Indikator, dass auch Apple Teile seiner Forschung öffentlich publiziert."
+    },
+    {
+      "id": "biomistral-7b",
+      "name": "BioMistral 7B",
+      "vendor": "BioMistral Konsortium (FR Universitäten)",
+      "country": "FR",
+      "region": "EU",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "7B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "domain-medical",
+        "european",
+        "instruction"
+      ],
+      "license_id": "apache-2.0",
+      "openness": "open-source",
+      "url": "https://huggingface.co/BioMistral",
+      "weights": "https://huggingface.co/BioMistral/BioMistral-7B",
+      "eu_host": true,
+      "cloud_act": "none",
+      "transparency": "high",
+      "sovereignty": 5,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "compliance"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/BioMistral/BioMistral-7B"
+        }
+      ],
+      "insider": "Mistral-basiertes Continued-Pretraining auf PubMed Central. Wird in europäischer medizinischer Forschung als offene Alternative zu proprietären Medizin-LLMs genannt."
+    },
+    {
+      "id": "defog-sqlcoder",
+      "name": "Defog SQLCoder 70B",
+      "vendor": "Defog AI",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2024,
+      "context": "32K",
+      "params": "70B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "domain-sql",
+        "code",
+        "instruction"
+      ],
+      "license_id": "cc-by-4.0",
+      "openness": "open-weights",
+      "url": "https://defog.ai",
+      "weights": "https://huggingface.co/defog/sqlcoder-70b-alpha",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "medium",
+      "sovereignty": 3,
+      "german_capability": "low",
+      "pricing": "€",
+      "use_cases": [
+        "datenanalyse",
+        "code"
+      ],
+      "sources": [
+        {
+          "label": "Defog",
+          "url": "https://defog.ai"
+        },
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/defog/sqlcoder-70b-alpha"
+        }
+      ],
+      "insider": "Auf Text-zu-SQL spezialisiertes Llama-Finetune. Wird häufig in Self-Hosted-Analytics-Stacks für DB-Schema-zu-Query-Workloads genannt."
+    },
+    {
+      "id": "bloomberggpt",
+      "name": "BloombergGPT",
+      "vendor": "Bloomberg",
+      "country": "US",
+      "region": "US",
+      "tier": "specialist",
+      "year": 2023,
+      "context": "2K",
+      "params": "50B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "domain-finance",
+        "instruction"
+      ],
+      "license_id": "openai-closed",
+      "openness": "closed",
+      "url": "https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance/",
+      "weights": null,
+      "eu_host": false,
+      "cloud_act": "high",
+      "transparency": "low",
+      "sovereignty": 1,
+      "german_capability": "low",
+      "pricing": "€€€€",
+      "use_cases": [
+        "datenanalyse",
+        "research"
+      ],
+      "sources": [
+        {
+          "label": "Bloomberg Pressemitteilung",
+          "url": "https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance/"
+        }
+      ],
+      "insider": "Domain-spezialisiertes Foundation-Model, ausschließlich auf Finanzdaten trainiert. Nicht öffentlich verfügbar, nur intern in Bloomberg-Produkten. Häufig als Beispiel für Datenmonopol-getriebene Domain-Modelle zitiert."
+    },
+    {
+      "id": "bloomz",
+      "name": "BLOOMZ (7B / 176B)",
+      "vendor": "BigScience Workshop",
+      "country": "INTL",
+      "region": "INTL",
+      "tier": "research",
+      "year": 2023,
+      "context": "2K",
+      "params": "560M – 176B",
+      "modalities": [
+        "text"
+      ],
+      "specs": [
+        "multilingual",
+        "instruction",
+        "research"
+      ],
+      "license_id": "openrail-m",
+      "openness": "open-source",
+      "url": "https://huggingface.co/bigscience",
+      "weights": "https://huggingface.co/bigscience/bloomz",
+      "eu_host": true,
+      "cloud_act": "low",
+      "transparency": "high",
+      "sovereignty": 4,
+      "german_capability": "medium",
+      "pricing": "€",
+      "use_cases": [
+        "research",
+        "uebersetzung"
+      ],
+      "sources": [
+        {
+          "label": "Hugging Face",
+          "url": "https://huggingface.co/bigscience"
+        }
+      ],
+      "insider": "Internationales Forschungskollektiv (BigScience), 1000+ Forschende aus 60 Ländern. BLOOM/BLOOMZ war 2022/2023 das erste komplett offene 176B-Modell und ist als Forschungsmeilenstein dokumentiert. Heute eher historisch."
+    }
+  ]
+}

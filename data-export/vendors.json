@@ -1,0 +1,962 @@
+[
+  {
+    "slug": "01-ai",
+    "name": "01.AI",
+    "country": "CN",
+    "website": "https://01.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=01.AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.091+00:00"
+  },
+  {
+    "slug": "2noise",
+    "name": "2noise",
+    "country": "INTL",
+    "website": "https://github.com/2noise/ChatTTS",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=2noise&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.143+00:00"
+  },
+  {
+    "slug": "adobe",
+    "name": "Adobe",
+    "country": "US",
+    "website": "https://www.adobe.com/products/firefly.html",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/adobe.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.161+00:00"
+  },
+  {
+    "slug": "ai21-labs",
+    "name": "AI21 Labs",
+    "country": "IL",
+    "website": "https://www.ai21.com/jamba",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/ai21.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.217+00:00"
+  },
+  {
+    "slug": "aleph-alpha",
+    "name": "Aleph Alpha",
+    "country": "DE",
+    "website": "https://aleph-alpha.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/alephalpha.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.285+00:00"
+  },
+  {
+    "slug": "alibaba",
+    "name": "Alibaba",
+    "country": "CN",
+    "website": "https://github.com/FunAudioLLM/CosyVoice",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/qwen.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.34+00:00"
+  },
+  {
+    "slug": "alibaba-qwen-team",
+    "name": "Alibaba (Qwen Team)",
+    "country": "CN",
+    "website": "https://qwenlm.github.io",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/alibaba.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.4+00:00"
+  },
+  {
+    "slug": "allen-institute-for-ai",
+    "name": "Allen Institute for AI",
+    "country": "US",
+    "website": "https://allenai.org/olmo",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/ai2.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:23.453+00:00"
+  },
+  {
+    "slug": "anthropic",
+    "name": "Anthropic",
+    "country": "US",
+    "website": "https://anthropic.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/anthropic.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:24.187+00:00"
+  },
+  {
+    "slug": "apple",
+    "name": "Apple",
+    "country": "US",
+    "website": "https://machinelearning.apple.com/research/openelm",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/apple.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:24.241+00:00"
+  },
+  {
+    "slug": "assemblyai",
+    "name": "AssemblyAI",
+    "country": "US",
+    "website": "https://www.assemblyai.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/assemblyai.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:24.3+00:00"
+  },
+  {
+    "slug": "baichuan-ai",
+    "name": "Baichuan AI",
+    "country": "CN",
+    "website": "https://www.baichuan-ai.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/baichuan.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:24.35+00:00"
+  },
+  {
+    "slug": "barcelona-supercomputing-center-bsc",
+    "name": "Barcelona Supercomputing Center (BSC)",
+    "country": "ES",
+    "website": "https://www.bsc.es/research-and-development/research-areas/language-technologies",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Barcelona%20Supercomputing%20Center%20(BSC)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.194+00:00"
+  },
+  {
+    "slug": "bigcode-hugging-face-servicenow-nvidia",
+    "name": "BigCode (Hugging Face + ServiceNow + NVIDIA)",
+    "country": "INTL",
+    "website": "https://www.bigcode-project.org",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=BigCode%20(Hugging%20Face%20%2B%20ServiceNow%20%2B%20NVIDIA)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.05+00:00"
+  },
+  {
+    "slug": "bigscience-workshop",
+    "name": "BigScience Workshop",
+    "country": "INTL",
+    "website": "https://huggingface.co/bigscience",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=BigScience%20Workshop&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.135+00:00"
+  },
+  {
+    "slug": "biomistral-konsortium-fr-universitaeten",
+    "name": "BioMistral Konsortium (FR Universitäten)",
+    "country": "FR",
+    "website": "https://huggingface.co/BioMistral",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=BioMistral%20Konsortium%20(FR%20Universit%C3%A4ten)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.252+00:00"
+  },
+  {
+    "slug": "black-forest-labs",
+    "name": "Black Forest Labs",
+    "country": "DE",
+    "website": "https://blackforestlabs.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/flux.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:25.391+00:00"
+  },
+  {
+    "slug": "bloomberg",
+    "name": "Bloomberg",
+    "country": "US",
+    "website": "https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Bloomberg&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.263+00:00"
+  },
+  {
+    "slug": "bytedance",
+    "name": "ByteDance",
+    "country": "CN",
+    "website": "https://www.doubao.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/bytedance.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:25.497+00:00"
+  },
+  {
+    "slug": "cartesia",
+    "name": "Cartesia",
+    "country": "US",
+    "website": "https://cartesia.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Cartesia&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.32+00:00"
+  },
+  {
+    "slug": "cohere",
+    "name": "Cohere",
+    "country": "CA",
+    "website": "https://cohere.com/command",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/cohere.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:25.608+00:00"
+  },
+  {
+    "slug": "cohere-for-ai",
+    "name": "Cohere For AI",
+    "country": "CA",
+    "website": "https://cohere.com/research/aya",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/cohere.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:25.662+00:00"
+  },
+  {
+    "slug": "coqui-open-source-erbe",
+    "name": "Coqui (Open-Source-Erbe)",
+    "country": "DE",
+    "website": "https://github.com/coqui-ai/TTS",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/coqui.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:25.72+00:00"
+  },
+  {
+    "slug": "cyberagent",
+    "name": "CyberAgent",
+    "country": "JP",
+    "website": "https://www.cyberagent.co.jp",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=CyberAgent&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.372+00:00"
+  },
+  {
+    "slug": "databricks",
+    "name": "Databricks",
+    "country": "US",
+    "website": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm",
+    "logo_url": "https://cdn.simpleicons.org/databricks",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:26.405+00:00"
+  },
+  {
+    "slug": "deepgram",
+    "name": "Deepgram",
+    "country": "US",
+    "website": "https://deepgram.com",
+    "logo_url": "https://cdn.simpleicons.org/deepgram",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:26.457+00:00"
+  },
+  {
+    "slug": "deepseek",
+    "name": "DeepSeek",
+    "country": "CN",
+    "website": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/deepseek.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:26.515+00:00"
+  },
+  {
+    "slug": "defog-ai",
+    "name": "Defog AI",
+    "country": "US",
+    "website": "https://defog.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Defog%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.336+00:00"
+  },
+  {
+    "slug": "discoresearch",
+    "name": "DiscoResearch",
+    "country": "DE",
+    "website": "https://disco-research.de",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=DiscoResearch&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.42+00:00"
+  },
+  {
+    "slug": "elevenlabs",
+    "name": "ElevenLabs",
+    "country": "US",
+    "website": "https://elevenlabs.io",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/elevenlabs.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:26.684+00:00"
+  },
+  {
+    "slug": "g42-inception-mbzuai",
+    "name": "G42 / Inception / MBZUAI",
+    "country": "AE",
+    "website": "https://inceptionai.ai/jais",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=G42%20%2F%20Inception%20%2F%20MBZUAI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.39+00:00"
+  },
+  {
+    "slug": "genmo",
+    "name": "Genmo",
+    "country": "US",
+    "website": "https://www.genmo.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Genmo&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.481+00:00"
+  },
+  {
+    "slug": "google",
+    "name": "Google",
+    "country": "US",
+    "website": "https://ai.google.dev/gemma",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/gemini.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:27.884+00:00"
+  },
+  {
+    "slug": "google-deepmind",
+    "name": "Google DeepMind",
+    "country": "US",
+    "website": "https://deepmind.google",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/gemini.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:27.939+00:00"
+  },
+  {
+    "slug": "hexgrad",
+    "name": "hexgrad",
+    "country": "INTL",
+    "website": "https://huggingface.co/hexgrad/Kokoro-82M",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=hexgrad&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.532+00:00"
+  },
+  {
+    "slug": "hugging-face",
+    "name": "Hugging Face",
+    "country": "FR",
+    "website": "https://huggingface.co/HuggingFaceM4",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/huggingface.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:28.058+00:00"
+  },
+  {
+    "slug": "hume-ai",
+    "name": "Hume AI",
+    "country": "US",
+    "website": "https://hume.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Hume%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.586+00:00"
+  },
+  {
+    "slug": "ibm",
+    "name": "IBM",
+    "country": "US",
+    "website": "https://www.ibm.com/granite",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/ibm.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:28.171+00:00"
+  },
+  {
+    "slug": "ideogram",
+    "name": "Ideogram",
+    "country": "CA",
+    "website": "https://ideogram.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/ideogram.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:28.226+00:00"
+  },
+  {
+    "slug": "jan-p-harries-jphme",
+    "name": "Jan P. Harries (jphme)",
+    "country": "DE",
+    "website": "https://huggingface.co/jphme",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Jan%20P.%20Harries%20(jphme)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.633+00:00"
+  },
+  {
+    "slug": "krutrim-si-designs-ola",
+    "name": "Krutrim Si Designs (Ola)",
+    "country": "IN",
+    "website": "https://github.com/ola-krutrim",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Krutrim%20Si%20Designs%20(Ola)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.439+00:00"
+  },
+  {
+    "slug": "kuaishou",
+    "name": "Kuaishou",
+    "country": "CN",
+    "website": "https://klingai.com",
+    "logo_url": "https://cdn.simpleicons.org/kuaishou",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:28.971+00:00"
+  },
+  {
+    "slug": "kyutai",
+    "name": "Kyutai",
+    "country": "FR",
+    "website": "https://kyutai.org",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Kyutai&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.687+00:00"
+  },
+  {
+    "slug": "laion-hessian-ai-tu-darmstadt",
+    "name": "LAION + Hessian.AI / TU Darmstadt",
+    "country": "DE",
+    "website": "https://laion.ai/blog/leo-lm/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=LAION%20%2B%20Hessian.AI%20%2F%20TU%20Darmstadt&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.739+00:00"
+  },
+  {
+    "slug": "laion-open-assistant-community",
+    "name": "LAION + Open-Assistant Community",
+    "country": "DE",
+    "website": "https://open-assistant.io",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=LAION%20%2B%20Open-Assistant%20Community&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.497+00:00"
+  },
+  {
+    "slug": "lg-ai-research",
+    "name": "LG AI Research",
+    "country": "KR",
+    "website": "https://www.lgresearch.ai/exaone",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/lg.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:29.193+00:00"
+  },
+  {
+    "slug": "lighton",
+    "name": "LightOn",
+    "country": "FR",
+    "website": "https://www.lighton.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=LightOn&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.791+00:00"
+  },
+  {
+    "slug": "m-a-p-hkust",
+    "name": "M-A-P / HKUST",
+    "country": "CN",
+    "website": "https://github.com/multimodal-art-projection/YuE",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=M-A-P%20%2F%20HKUST&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.842+00:00"
+  },
+  {
+    "slug": "meta",
+    "name": "Meta",
+    "country": "US",
+    "website": "https://www.llama.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/meta.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.082+00:00"
+  },
+  {
+    "slug": "microsoft-research",
+    "name": "Microsoft Research",
+    "country": "US",
+    "website": "https://huggingface.co/microsoft/Phi-3.5-mini-instruct",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/microsoft.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.131+00:00"
+  },
+  {
+    "slug": "midjourney-inc",
+    "name": "Midjourney Inc.",
+    "country": "US",
+    "website": "https://www.midjourney.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/midjourney.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.191+00:00"
+  },
+  {
+    "slug": "minimax",
+    "name": "MiniMax",
+    "country": "CN",
+    "website": "https://www.minimaxi.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/minimax.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.241+00:00"
+  },
+  {
+    "slug": "mistral-ai",
+    "name": "Mistral AI",
+    "country": "FR",
+    "website": "https://mistral.ai/news/codestral/",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/mistral.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.297+00:00"
+  },
+  {
+    "slug": "mistral-ai-nvidia",
+    "name": "Mistral AI / NVIDIA",
+    "country": "FR",
+    "website": "https://mistral.ai/news/mistral-nemo/",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/mistral.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.349+00:00"
+  },
+  {
+    "slug": "moonshot-ai",
+    "name": "Moonshot AI",
+    "country": "CN",
+    "website": "https://kimi.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/moonshot.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.409+00:00"
+  },
+  {
+    "slug": "naver",
+    "name": "Naver",
+    "country": "KR",
+    "website": "https://clova.ai/hyperclova",
+    "logo_url": "https://cdn.simpleicons.org/naver",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:30.462+00:00"
+  },
+  {
+    "slug": "numina-mit-mistral-hugging-face",
+    "name": "Numina (mit Mistral, Hugging Face)",
+    "country": "FR",
+    "website": "https://huggingface.co/AI-MO",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Numina%20(mit%20Mistral%2C%20Hugging%20Face)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.894+00:00"
+  },
+  {
+    "slug": "nvidia",
+    "name": "NVIDIA",
+    "country": "US",
+    "website": "https://huggingface.co/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/nvidia.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:31.249+00:00"
+  },
+  {
+    "slug": "nyonic",
+    "name": "Nyonic",
+    "country": "DE",
+    "website": "https://www.nyonic.com",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Nyonic&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.952+00:00"
+  },
+  {
+    "slug": "occiglot-konsortium-hessian-ai-dfki-et-al",
+    "name": "Occiglot Konsortium (Hessian.AI, DFKI et al.)",
+    "country": "DE",
+    "website": "https://occiglot.eu",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Occiglot%20Konsortium%20(Hessian.AI%2C%20DFKI%20et%20al.)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.005+00:00"
+  },
+  {
+    "slug": "openai",
+    "name": "OpenAI",
+    "country": "US",
+    "website": "https://openai.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/openai.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:31.431+00:00"
+  },
+  {
+    "slug": "openbmb-tsinghua-modelbest",
+    "name": "OpenBMB / Tsinghua + ModelBest",
+    "country": "CN",
+    "website": "https://github.com/OpenBMB/MiniCPM-V",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=OpenBMB%20%2F%20Tsinghua%20%2B%20ModelBest&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.543+00:00"
+  },
+  {
+    "slug": "opengpt-x-fraunhofer-iais-tu-dresden-fzj-et-al",
+    "name": "OpenGPT-X (Fraunhofer IAIS, TU Dresden, FZJ et al.)",
+    "country": "DE",
+    "website": "https://opengpt-x.de",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=OpenGPT-X%20(Fraunhofer%20IAIS%2C%20TU%20Dresden%2C%20FZJ%20et%20al.)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.166+00:00"
+  },
+  {
+    "slug": "pika-labs",
+    "name": "Pika Labs",
+    "country": "US",
+    "website": "https://pika.art",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/pika.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:31.597+00:00"
+  },
+  {
+    "slug": "pixart-team-huawei-noah-s-ark-lab",
+    "name": "PixArt-α Team / Huawei Noah's Ark Lab",
+    "country": "CN",
+    "website": "https://pixart-alpha.github.io/PixArt-sigma-project/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=PixArt-%CE%B1%20Team%20%2F%20Huawei%20Noah's%20Ark%20Lab&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.058+00:00"
+  },
+  {
+    "slug": "pleias",
+    "name": "Pleias",
+    "country": "FR",
+    "website": "https://huggingface.co/PleIAs",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Pleias&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.604+00:00"
+  },
+  {
+    "slug": "pllum-konsortium-pl-forschungseinrichtungen",
+    "name": "PLLuM Konsortium (PL Forschungseinrichtungen)",
+    "country": "PL",
+    "website": "https://pllum.org.pl",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=PLLuM%20Konsortium%20(PL%20Forschungseinrichtungen)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.217+00:00"
+  },
+  {
+    "slug": "preferred-networks",
+    "name": "Preferred Networks",
+    "country": "JP",
+    "website": "https://plamo.preferredai.jp",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Preferred%20Networks&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.658+00:00"
+  },
+  {
+    "slug": "reka-ai",
+    "name": "Reka AI",
+    "country": "US",
+    "website": "https://www.reka.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Reka%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.713+00:00"
+  },
+  {
+    "slug": "runway",
+    "name": "Runway",
+    "country": "US",
+    "website": "https://runwayml.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/runway.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:32.79+00:00"
+  },
+  {
+    "slug": "sakana-ai",
+    "name": "Sakana AI",
+    "country": "JP",
+    "website": "https://sakana.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Sakana%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.763+00:00"
+  },
+  {
+    "slug": "sarvam-ai",
+    "name": "Sarvam AI",
+    "country": "IN",
+    "website": "https://www.sarvam.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Sarvam%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.267+00:00"
+  },
+  {
+    "slug": "sber-ai",
+    "name": "Sber AI",
+    "country": "RU",
+    "website": "https://giga.chat",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Sber%20AI&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.819+00:00"
+  },
+  {
+    "slug": "shanghai-ai-laboratory",
+    "name": "Shanghai AI Laboratory",
+    "country": "CN",
+    "website": "https://internlm.intern-ai.org.cn",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Shanghai%20AI%20Laboratory&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.317+00:00"
+  },
+  {
+    "slug": "shanghai-ai-laboratory-opengvlab",
+    "name": "Shanghai AI Laboratory + OpenGVLab",
+    "country": "CN",
+    "website": "https://internvl.github.io",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Shanghai%20AI%20Laboratory%20%2B%20OpenGVLab&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.368+00:00"
+  },
+  {
+    "slug": "silo-ai-amd",
+    "name": "Silo AI (AMD)",
+    "country": "FI",
+    "website": "https://www.silo.ai/viking",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Silo%20AI%20(AMD)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.866+00:00"
+  },
+  {
+    "slug": "silo-ai-turkunlp-heute-amd",
+    "name": "Silo AI / TurkuNLP (heute AMD)",
+    "country": "FI",
+    "website": "https://www.silo.ai/poro",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Silo%20AI%20%2F%20TurkuNLP%20(heute%20AMD)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.422+00:00"
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "country": "US",
+    "website": "https://www.snowflake.com/blog/arctic-open-efficient-foundation-language-models-snowflake/",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/snowflake.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:33.97+00:00"
+  },
+  {
+    "slug": "speakleash-cyfronet-agh",
+    "name": "Speakleash + Cyfronet AGH",
+    "country": "PL",
+    "website": "https://bielik.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Speakleash%20%2B%20Cyfronet%20AGH&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.926+00:00"
+  },
+  {
+    "slug": "speechmatics",
+    "name": "Speechmatics",
+    "country": "GB",
+    "website": "https://www.speechmatics.com",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Speechmatics&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.114+00:00"
+  },
+  {
+    "slug": "stability-ai",
+    "name": "Stability AI",
+    "country": "GB",
+    "website": "https://stability.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/stability.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:35.062+00:00"
+  },
+  {
+    "slug": "stability-ai-universitaet-wien",
+    "name": "Stability AI + Universität Wien",
+    "country": "DE",
+    "website": "https://github.com/dome272/Wuerstchen",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/stability.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:35.111+00:00"
+  },
+  {
+    "slug": "suno",
+    "name": "Suno",
+    "country": "US",
+    "website": "https://github.com/suno-ai/bark",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/suno.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:35.166+00:00"
+  },
+  {
+    "slug": "swivid-forschung",
+    "name": "SWivid (Forschung)",
+    "country": "INTL",
+    "website": "https://github.com/SWivid/F5-TTS",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=SWivid%20(Forschung)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.476+00:00"
+  },
+  {
+    "slug": "t-bank-ehem-tinkoff",
+    "name": "T-Bank (ehem. Tinkoff)",
+    "country": "RU",
+    "website": "https://t-tech.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=T-Bank%20(ehem.%20Tinkoff)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.534+00:00"
+  },
+  {
+    "slug": "technology-innovation-institute",
+    "name": "Technology Innovation Institute",
+    "country": "AE",
+    "website": "https://falconllm.tii.ae",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Technology%20Innovation%20Institute&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.583+00:00"
+  },
+  {
+    "slug": "tencent",
+    "name": "Tencent",
+    "country": "CN",
+    "website": "https://github.com/Tencent/Tencent-Hunyuan-Large",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/tencent.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:35.388+00:00"
+  },
+  {
+    "slug": "udio",
+    "name": "Udio",
+    "country": "US",
+    "website": "https://www.udio.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/udio.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:35.441+00:00"
+  },
+  {
+    "slug": "unbabel-ist-charles-university-utter-konsortium",
+    "name": "Unbabel + IST + Charles University (UTTER-Konsortium)",
+    "country": "PT",
+    "website": "https://huggingface.co/utter-project",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Unbabel%20%2B%20IST%20%2B%20Charles%20University%20(UTTER-Konsortium)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.641+00:00"
+  },
+  {
+    "slug": "universitaet-wuerzburg-lehrstuhl-lsx",
+    "name": "Universität Würzburg (Lehrstuhl LSX)",
+    "country": "DE",
+    "website": "https://www.informatik.uni-wuerzburg.de/datascience/research/nlp/llaemmlein/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Universit%C3%A4t%20W%C3%BCrzburg%20(Lehrstuhl%20LSX)&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:45.973+00:00"
+  },
+  {
+    "slug": "upstage",
+    "name": "Upstage",
+    "country": "KR",
+    "website": "https://www.upstage.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/upstage.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:36.568+00:00"
+  },
+  {
+    "slug": "uw-madison-bytedance-ntu",
+    "name": "UW Madison + ByteDance + NTU",
+    "country": "INTL",
+    "website": "https://llava-vl.github.io",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=UW%20Madison%20%2B%20ByteDance%20%2B%20NTU&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:47.689+00:00"
+  },
+  {
+    "slug": "vagosolutions",
+    "name": "VAGOsolutions",
+    "country": "DE",
+    "website": "https://vago-solutions.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=VAGOsolutions&backgroundColor=32373C&shapeColor=0045C3,FF5833,FFFFFF",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-04-22T09:37:46.025+00:00"
+  },
+  {
+    "slug": "xai",
+    "name": "xAI",
+    "country": "US",
+    "website": "https://x.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/grok.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:36.726+00:00"
+  },
+  {
+    "slug": "yandex",
+    "name": "Yandex",
+    "country": "RU",
+    "website": "https://yandex.cloud/en/services/yandexgpt",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/yandex.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:36.788+00:00"
+  },
+  {
+    "slug": "zhipu-ai-thudm",
+    "name": "Zhipu AI / THUDM",
+    "country": "CN",
+    "website": "https://github.com/THUDM/CogVLM2",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/zhipu.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-04-22T08:44:36.841+00:00"
+  }
+]

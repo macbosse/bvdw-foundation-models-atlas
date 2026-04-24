@@ -1,0 +1,24 @@
+{
+  "name": "bosses-foundation-models",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BVDW AI Tech Lab — Foundation Models Atlas. Neutrale, kuratierte Übersicht mit europäischer Souveränitätsperspektive.",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod --yes",
+    "init-db": "node --env-file=.env.local scripts/init-db.js",
+    "import": "node --env-file=.env.local scripts/import.js",
+    "reset-images": "node --env-file=.env.local scripts/reset-images.js",
+    "export-all": "node --env-file=.env.local scripts/export-all.js",
+    "import-all": "node --env-file=.env.local scripts/import-all.js",
+    "setup": "npm run init-db && npm run import"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "pg": "^8.13.1"
+  },
+  "engines": {
+    "node": ">=20.6"
+  }
+}

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>BVDW Foundation Models Atlas</title>
+<meta name="description" content="Neutrale Übersicht relevanter Foundation Models mit europäischer Souveränitätsperspektive — eine Arbeitsgrundlage des BVDW AI Tech Lab.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand-block">
+      <div class="brand-row">
+        <img class="bvdw-mark" src="/assets/bvdw-logo/bvdw-white.png" alt="BVDW">
+        <div class="brand">BVDW · AI Tech Lab</div>
+      </div>
+      <h1>Foundation Models Atlas</h1>
+      <div class="sub">Neutrale Übersicht relevanter Foundation Models mit europäischer Souveränitätsperspektive — eine Arbeitsgrundlage zur Diskussion in BVDW-Mitgliedsunternehmen.</div>
+      <div class="meta">Version 0.3 · Stand <span id="last-updated">…</span> · Draft · Passwortgeschützter Edit-Modus</div>
+    </div>
+    <div class="tools">
+      <button class="history-btn" onclick="openHistoryFlyout()">Historie</button>
+      <button id="edit-toggle" class="edit-toggle" onclick="toggleEditMode()">Edit Mode</button>
+    </div>
+  </div>
+</header>
+
+<div class="notice">
+  <div class="wrap">
+    <strong>Verbandshinweis:</strong> Diese Übersicht ist neutrale Information für BVDW-Mitglieder und stellt keine Empfehlung einzelner Anbieter dar. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen, keine Wertungen. Aufnahme oder Nicht-Aufnahme erfolgt nach Sachkriterien (Hygienefaktoren) und impliziert keine Bevorzugung. Souveränitätsbewertungen sind redaktionelle Einordnungen, keine Rechtsberatung.
+  </div>
+</div>
+
+<div class="tabbar">
+  <div class="wrap">
+    <div class="tabgroup">
+      <button class="tab" id="tab-conv" aria-selected="true" onclick="switchTab('conversational')">Konversations-LLMs <span class="count" id="cnt-conv">…</span></button>
+      <button class="tab" id="tab-spec" aria-selected="false" onclick="switchTab('specialized')">Spezial-Modalitäten <span class="count" id="cnt-spec">…</span></button>
+    </div>
+    <div class="view-switch">
+      <button id="view-finder" aria-pressed="false" onclick="switchView('finder')" title="Model-Finder — interaktiv das passende Modell finden">Finder</button>
+      <button id="view-list" aria-pressed="true" onclick="switchView('list')">Liste</button>
+      <button id="view-quartett" aria-pressed="false" onclick="switchView('quartett')">Quartett</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <aside class="filters">
+    <h2>Filter</h2>
+    <div class="field">
+      <label for="search">Suche</label>
+      <input type="text" id="search" placeholder="Name, Anbieter, Stichwort…">
+    </div>
+    <div class="field">
+      <label>Region</label>
+      <div class="pillgroup" id="filter-region"></div>
+    </div>
+    <div class="field">
+      <label>Tier</label>
+      <div class="pillgroup" id="filter-tier"></div>
+    </div>
+    <div class="field">
+      <label>Lizenz / Offenheit</label>
+      <div class="pillgroup" id="filter-openness"></div>
+    </div>
+    <div class="field">
+      <label>Use Case</label>
+      <div class="pillgroup" id="filter-usecase"></div>
+    </div>
+    <div class="field">
+      <label>Einsatz-Optionen (Deployment)</label>
+      <div class="bucket-pillgroup" id="filter-buckets"></div>
+    </div>
+    <div class="field">
+      <label for="filter-sov">Souveränität (mind.)</label>
+      <select id="filter-sov">
+        <option value="0">Alle</option>
+        <option value="1">≥ 1</option>
+        <option value="2">≥ 2</option>
+        <option value="3">≥ 3</option>
+        <option value="4">≥ 4 (mehrheitlich souverän)</option>
+        <option value="5">5 (vollständig souverän)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="filter-price">Preis (max.)</label>
+      <select id="filter-price">
+        <option value="6">Alle</option>
+        <option value="1">€</option>
+        <option value="2">≤ €€</option>
+        <option value="3">≤ €€€</option>
+        <option value="4">≤ €€€€</option>
+        <option value="5">≤ €€€€€</option>
+      </select>
+    </div>
+    <div class="field" id="german-field">
+      <label for="filter-german">Deutsch (mind.)</label>
+      <select id="filter-german">
+        <option value="0">Alle</option>
+        <option value="1">low+</option>
+        <option value="2">medium+</option>
+        <option value="3">high</option>
+      </select>
+    </div>
+    <button class="reset" onclick="resetFilters()">Filter zurücksetzen</button>
+  </aside>
+
+  <section>
+    <div class="result-bar">
+      <div class="result-count" id="result-count">Lade…</div>
+      <button id="create-btn" class="create-btn" onclick="openCreateModal()">＋ Neues Modell</button>
+      <div class="sort-wrap">
+        <label for="sort-select">Sortierung</label>
+        <select id="sort-select">
+          <optgroup label="Neutral (empfohlen)">
+            <option value="alpha">Vendor + Name (A–Z)</option>
+            <option value="name">Name A–Z</option>
+            <option value="name-desc">Name Z–A</option>
+            <option value="vendor">Vendor A–Z</option>
+            <option value="region">Region (alphabetisch)</option>
+            <option value="tier">Tier (Frontier → Forschung)</option>
+            <option value="year-desc">Release — neueste zuerst</option>
+            <option value="year-asc">Release — älteste zuerst</option>
+          </optgroup>
+          <optgroup label="Souveränität (bidirektional)">
+            <option value="sovereignty-desc">Souveränität hoch → niedrig</option>
+            <option value="sovereignty-asc">Souveränität niedrig → hoch</option>
+            <option value="eu_host-desc">EU-Hosting: ja zuerst</option>
+            <option value="eu_host-asc">EU-Hosting: nein zuerst</option>
+            <option value="cloud_act-asc">CLOUD Act: none zuerst</option>
+            <option value="cloud_act-desc">CLOUD Act: high zuerst</option>
+            <option value="transparency-desc">Transparenz hoch → niedrig</option>
+            <option value="transparency-asc">Transparenz niedrig → hoch</option>
+            <option value="on_prem-desc">On-Prem: ja zuerst</option>
+            <option value="on_prem-asc">On-Prem: nein zuerst</option>
+          </optgroup>
+          <optgroup label="Technische Metriken">
+            <option value="context-desc">Kontext groß → klein</option>
+            <option value="context-asc">Kontext klein → groß</option>
+            <option value="params-desc">Parameter groß → klein</option>
+            <option value="params-asc">Parameter klein → groß</option>
+          </optgroup>
+          <optgroup label="Kommerz & Sprache">
+            <option value="price-asc">Preis günstig → teuer</option>
+            <option value="price-desc">Preis teuer → günstig</option>
+            <option value="openness">Offenheit: offen → geschlossen</option>
+            <option value="openness-desc">Offenheit: geschlossen → offen</option>
+            <option value="german-desc">Deutsch hoch → niedrig</option>
+            <option value="german-asc">Deutsch niedrig → hoch</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+    <div class="quartett-toolbar" id="quartett-toolbar" style="display:none">
+      <button onclick="toggleQuartettConfig()">Karten konfigurieren</button>
+      <button onclick="window.print()">Alle drucken (9 / A4)</button>
+      <span class="info">PDF-Download einzeln: auf Karte hover → ⬇-Button</span>
+    </div>
+    <div class="qconfig" id="qconfig"></div>
+    <div class="grid" id="grid"></div>
+    <div id="finder-area" class="finder-area"></div>
+  </section>
+</main>
+
+<!-- ─── Model-Detail-Modal ─────────────────────────────────────── -->
+<div class="modal-bg" id="model-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('model-modal')">
+  <div class="modal" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2 id="m-name"></h2>
+        <div class="vendor" id="m-vendor"></div>
+      </div>
+      <div class="header-actions">
+        <button class="share-btn" id="m-share" onclick="shareModel()" aria-label="Link kopieren / teilen" title="Link zu diesem Modell teilen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="11.49"/></svg>
+        </button>
+        <button class="close" onclick="closeModal('model-modal')" aria-label="Schließen">×</button>
+      </div>
+    </header>
+    <div class="body" id="m-body"></div>
+  </div>
+</div>
+
+<!-- ─── Create-Modal (Neues Modell) ────────────────────────────── -->
+<div class="modal-bg" id="create-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('create-modal')">
+  <div class="modal" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2>Neues Modell anlegen</h2>
+        <div class="vendor">Pflichtfelder ausfüllen — weitere Details im Edit-Modus ergänzen</div>
+      </div>
+      <button class="close" onclick="closeModal('create-modal')" aria-label="Schließen">×</button>
+    </header>
+    <div class="body" id="create-body">
+      <div class="create-atlas-switch">
+        <label><input type="radio" name="c-atlas" value="conversational" checked> Konversations-LLM</label>
+        <label><input type="radio" name="c-atlas" value="specialized"> Spezial-Modalität</label>
+      </div>
+      <div class="form-grid create-grid">
+        <div class="field full"><label>Name des Modells *</label><input type="text" id="c-name" placeholder="z.B. Mistral Large 3"></div>
+        <div class="field"><label>Vendor / Hersteller *</label><input type="text" id="c-vendor" placeholder="z.B. Mistral AI"></div>
+        <div class="field"><label>Land (ISO-2)</label><input type="text" id="c-country" placeholder="FR" maxlength="2"></div>
+        <div class="field"><label>Region *</label>
+          <select id="c-region">
+            <option value="DACH">DACH</option><option value="EU" selected>EU</option><option value="US">US</option>
+            <option value="CN">CN</option><option value="KR">KR</option><option value="JP">JP</option>
+            <option value="IN">IN</option><option value="MENA">MENA</option><option value="AF">AF</option>
+            <option value="RU">RU</option><option value="INTL">INTL</option>
+          </select>
+        </div>
+        <div class="field"><label>Tier *</label>
+          <select id="c-tier">
+            <option value="frontier-closed">Frontier closed (API-only State-of-the-Art)</option>
+            <option value="frontier-open">Frontier open</option>
+            <option value="regional">Regional</option>
+            <option value="specialist" selected>Spezialist</option>
+            <option value="research">Forschung</option>
+          </select>
+        </div>
+        <div class="field"><label>Offenheit *</label>
+          <select id="c-openness">
+            <option value="closed">closed</option>
+            <option value="api-only">api-only</option>
+            <option value="weights-research">weights-research</option>
+            <option value="open-weights" selected>open-weights</option>
+            <option value="open-source">open-source</option>
+            <option value="public-domain">public-domain</option>
+          </select>
+        </div>
+        <div class="field"><label>Release-Jahr</label><input type="number" id="c-year" placeholder="2026" min="2015" max="2030"></div>
+        <div class="field"><label>URL / Homepage</label><input type="url" id="c-url" placeholder="https://..."></div>
+        <div class="field"><label>Parameter</label><input type="text" id="c-params" placeholder="z.B. 70B"></div>
+        <div class="field"><label>Kontextfenster</label><input type="text" id="c-context" placeholder="z.B. 128K"></div>
+        <div class="field"><label>Deutsch</label>
+          <select id="c-german">
+            <option value="low">low</option><option value="medium" selected>medium</option><option value="high">high</option>
+          </select>
+        </div>
+        <div class="field"><label>On-Prem</label>
+          <select id="c-onprem">
+            <option value="yes">yes</option><option value="hybrid">hybrid</option>
+            <option value="no">no</option><option value="unknown" selected>unknown</option>
+          </select>
+        </div>
+        <div class="field full"><label>ID (auto-generiert, editierbar)</label><input type="text" id="c-id" placeholder="wird aus Vendor + Name erzeugt"></div>
+        <div class="field full"><label>Kurze Praxisnotiz (optional, kann später ergänzt werden)</label><textarea id="c-insider" rows="3" placeholder="Was ist das Besondere an diesem Modell?"></textarea></div>
+      </div>
+      <div class="actions">
+        <div class="left"><div class="helper">Nach dem Anlegen wird das Detail-Modal geöffnet — dort kannst du weitere Felder ergänzen.</div></div>
+        <div class="right">
+          <div class="status-msg" id="c-status"></div>
+          <button class="btn" onclick="closeModal('create-modal')">Abbrechen</button>
+          <button class="btn btn-primary" onclick="submitCreate()">Anlegen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Bucket-Detail-Modal ────────────────────────────────────── -->
+<div class="modal-bg" id="bucket-detail-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('bucket-detail-modal')">
+  <div class="modal narrow" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2 id="bd-title"></h2>
+        <div class="vendor" id="bd-sub"></div>
+      </div>
+      <button class="close" onclick="closeModal('bucket-detail-modal')" aria-label="Schließen">×</button>
+    </header>
+    <div class="body" id="bd-body"></div>
+  </div>
+</div>
+
+<!-- ─── Toast für Feedback ──────────────────────────────────────── -->
+<div id="toast" class="toast" aria-live="polite"></div>
+
+<!-- ─── License-Modal ──────────────────────────────────────────── -->
+<div class="modal-bg" id="license-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('license-modal')">
+  <div class="modal narrow" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2 id="l-name"></h2>
+        <span class="cat" id="l-cat"></span>
+      </div>
+      <button class="close" onclick="closeModal('license-modal')" aria-label="Schließen">×</button>
+    </header>
+    <div class="body">
+      <div class="plain" id="l-plain"></div>
+      <a id="l-url" target="_blank" rel="noopener" class="lic-link">Original-Lizenztext öffnen ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Edit-Mode-Aktivierungs-Dialog ──────────────────────────── -->
+<div class="modal-bg" id="edit-activate-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('edit-activate-modal')">
+  <div class="modal narrow" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2>Edit-Mode aktivieren</h2>
+      </div>
+      <button class="close" onclick="closeModal('edit-activate-modal')" aria-label="Schließen">×</button>
+    </header>
+    <div class="body">
+      <div class="info">Aktiviere den Edit-Mode, um Einträge direkt zu bearbeiten. Dein Name wird in der Versionshistorie hinterlegt. Das Passwort bleibt für diese Browser-Session aktiv.</div>
+      <label for="activate-password">Passwort</label>
+      <input type="password" id="activate-password" autocomplete="current-password">
+      <label for="activate-editor">Dein Name</label>
+      <input type="text" id="activate-editor" autocomplete="name" placeholder="z.B. Bosse">
+      <div class="err" id="activate-err"></div>
+      <div class="actions">
+        <button class="btn" onclick="closeModal('edit-activate-modal')">Abbrechen</button>
+        <button class="btn btn-primary" onclick="submitActivation()">Aktivieren</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── Edit-Modal (Modell bearbeiten) ─────────────────────────── -->
+<div class="modal-bg" id="edit-modal" aria-hidden="true" onclick="if(event.target===this)closeModal('edit-modal')">
+  <div class="modal" role="dialog" aria-modal="true">
+    <header>
+      <div>
+        <h2 id="e-title"></h2>
+        <div class="vendor" id="e-sub"></div>
+      </div>
+      <button class="close" onclick="closeModal('edit-modal')" aria-label="Schließen">×</button>
+    </header>
+    <div class="body">
+      <div class="form-grid" id="e-grid"></div>
+      <div class="field full" style="margin-top:14px">
+        <label style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-sub);font-weight:600">Edit-Kommentar (optional, für die Historie)</label>
+        <input type="text" id="e-summary" placeholder="z.B. Preis korrigiert, Insider-Notiz ergänzt">
+      </div>
+      <div class="actions">
+        <div class="left">
+          <button class="btn btn-danger" onclick="deleteModel()" title="Markiert das Modell als gelöscht. Wiederherstellbar über die Historie.">Modell löschen</button>
+          <div class="helper" style="margin-top:6px">Änderungen und Löschungen sind über die Historie wiederherstellbar.</div>
+        </div>
+        <div class="right">
+          <div class="status-msg" id="e-status"></div>
+          <button class="btn" onclick="closeModal('edit-modal')">Abbrechen</button>
+          <button class="btn btn-primary" onclick="saveEdit()">Speichern</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── History-Flyout-Panel ────────────────────────────────────── -->
+<aside class="history-flyout" id="history-panel" aria-hidden="true">
+  <header>
+    <h2 id="history-title">Historie</h2>
+    <button class="close" onclick="closeHistoryFlyout()" aria-label="Schließen">×</button>
+  </header>
+  <div class="body" id="history-body"></div>
+</aside>
+
+<!-- ─── Footer ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <h3>Methodik</h3>
+    <p>Diese Liste enthält Foundation Models, die der BVDW AI Tech Lab als für Mitgliedsunternehmen relevant einschätzt. Aufnahme erfolgt anhand objektiver Hygienefaktoren — keine inhaltliche Empfehlung. Änderungen des Teams werden über einen Edit-Mode mit vollständiger Versionshistorie transparent dokumentiert.</p>
+    <div class="cols">
+      <div>
+        <h3>Hygienefaktoren Konversations-Liste</h3>
+        <ul>
+          <li>Modell ist textlich ansprechbar und antwortet textlich</li>
+          <li>Modell beherrscht Deutsch zumindest auf Grundniveau</li>
+          <li>Modell ist für BVDW-Mitglieder zugänglich (API, offene Gewichte oder kommerzielle Lizenz)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Spezial-Modalitäten</h3>
+        <ul>
+          <li>Generative oder transformative Modelle außerhalb Text-zu-Text</li>
+          <li>Eigenes Schema mit Modalität, Task-Typ, Sprachunterstützung</li>
+          <li>Sprachfähigkeit nicht Voraussetzung, da z.B. Bildgeneration sprachunabhängig</li>
+        </ul>
+      </div>
+    </div>
+    <details class="methodology">
+      <summary>Legende & Methodik — wie einzelne Kriterien definiert und bewertet werden</summary>
+      <div class="defs" id="methodology-defs"></div>
+    </details>
+
+    <div class="legal">
+      Diese Übersicht ist eine Arbeitsgrundlage zur Diskussion und ersetzt keine juristische, steuerliche oder einkaufsbezogene Beratung. Sovereignty Scores sind redaktionelle Einordnungen des AI Tech Lab. Daten basieren auf dem Wissensstand zum Erstellungszeitpunkt und werden im Edit-Mode kontinuierlich durch das Team verifiziert und aktualisiert. Quellen sind in jedem Modell-Detail klickbar hinterlegt. Alle Kriterien mit einem ⓘ-Symbol verweisen auf die obige Methodik-Legende — Hover zeigt die Kurzdefinition.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

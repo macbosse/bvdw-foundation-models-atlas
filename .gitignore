@@ -1,0 +1,34 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.production.local
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build-Output
+.next/
+out/
+dist/
+build/
+
+# Vercel
+.vercel
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log

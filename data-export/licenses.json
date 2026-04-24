@@ -1,0 +1,618 @@
+[
+  {
+    "atlas": "conversational",
+    "id": "apache-2.0",
+    "data": {
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "name": "Apache 2.0",
+      "plain": "Vollständig freie Lizenz nach OSI-Definition. Sie dürfen das Modell kommerziell nutzen, verändern, weitergeben und in eigene Produkte integrieren. Es gibt keine Beschränkung der Nutzerzahl, der Branche oder des Use Cases. Pflichten: Lizenztext beilegen, Copyright-Hinweis erhalten, Änderungen kennzeichnen. Keine Patentklage gegen den Lizenzgeber. Praktisch die unkomplizierteste freie Lizenz für Foundation Models.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "mit",
+    "data": {
+      "url": "https://opensource.org/license/mit",
+      "name": "MIT License",
+      "plain": "Sehr kurze, sehr freie Lizenz. Sie dürfen alles tun: nutzen, kopieren, verändern, kommerziell vertreiben, sublizenzieren. Einzige Pflicht: den Lizenztext bei Weitergabe mitliefern. Im Vergleich zu Apache 2.0 ohne expliziten Patent-Schutz.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "cc-by-4.0",
+    "data": {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "name": "Creative Commons BY 4.0",
+      "plain": "Sie dürfen das Modell und seine Outputs kommerziell nutzen, verändern und weitergeben. Pflicht: Sie müssen den ursprünglichen Hersteller nennen. Im KI-Kontext etwas ungewöhnlich, weil CC primär für Inhalte gedacht ist.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "cc-by-nc-4.0",
+    "data": {
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "name": "Creative Commons BY-NC 4.0",
+      "plain": "Sie dürfen das Modell für Forschung und private Zwecke nutzen, aber nicht kommerziell. Eine Verwendung in einem Produkt, das Geld verdient, ist ausgeschlossen. Für Marketing-Use-Cases im Mittelstand also in der Regel nicht geeignet.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "llama-3-community",
+    "data": {
+      "url": "https://www.llama.com/llama3/license/",
+      "name": "Llama 3 Community License",
+      "plain": "Kommerziell nutzbar mit zwei wichtigen Einschränkungen: 1) Unternehmen mit über 700 Millionen monatlich aktiven Nutzern müssen eine separate Lizenz bei Meta beantragen. 2) Outputs dürfen nicht zum Training konkurrierender LLMs genutzt werden. Für die meisten BVDW-Mitglieder ohne weiteres nutzbar.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "llama-4-community",
+    "data": {
+      "url": "https://www.llama.com/llama4/license/",
+      "name": "Llama 4 Community License",
+      "plain": "Wie Llama 3 mit der 700-Mio-Nutzer-Schwelle und dem Trainingsverbot. Zusätzlich Meta-Branding-Pflicht in vielen Auslieferungen.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "mistral-research",
+    "data": {
+      "url": "https://mistral.ai/licenses/MRL-0.1.md",
+      "name": "Mistral Research License (MNPL/MRL)",
+      "plain": "Die Modellgewichte dürfen kostenlos für Forschung und nicht-kommerzielle Zwecke heruntergeladen und genutzt werden. Für jede kommerzielle Nutzung muss eine separate Lizenz bei Mistral oder die Nutzung über die Mistral-API erworben werden. Self-Hosting in Production ohne kommerzielle Lizenz ist nicht erlaubt.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "mistral-non-production",
+    "data": {
+      "url": "https://mistral.ai/licenses/MNPL-0.1.md",
+      "name": "Mistral Non-Production License",
+      "plain": "Weights für Tests, Forschung und Demo-Zwecke nutzbar. Einsatz in produktiven, geldverdienenden Systemen erfordert eine kommerzielle Lizenz von Mistral.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "gemma-tou",
+    "data": {
+      "url": "https://ai.google.dev/gemma/terms",
+      "name": "Gemma Terms of Use",
+      "plain": "Kommerziell nutzbar, auch in Produkten. Google verbietet aber bestimmte Anwendungsfälle (Schaden, Diskriminierung, etc.) und kann die Lizenz unter bestimmten Bedingungen entziehen. Outputs gehören dem Nutzer.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "openai-closed",
+    "data": {
+      "url": "https://openai.com/policies/terms-of-use/",
+      "name": "OpenAI Terms of Service",
+      "plain": "Modell nur per OpenAI-API oder Azure OpenAI nutzbar. Sie kaufen die Nutzung tokenweise ein. Outputs gehören dem Nutzer, dürfen aber nicht zum Training konkurrierender LLMs verwendet werden. Datenverarbeitung bei OpenAI USA, bei Azure-Variante optional in EU-Region (US Cloud Act bleibt rechtlich anwendbar).",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "anthropic-closed",
+    "data": {
+      "url": "https://www.anthropic.com/legal/commercial-terms",
+      "name": "Anthropic Commercial Terms",
+      "plain": "Nutzung über die Anthropic-API, AWS Bedrock oder Google Vertex AI. Outputs gehören dem Nutzer. Anthropic gibt eine Daten-Nichtweiterverwendungs-Garantie für API-Inputs. Datenverarbeitung außerhalb der EU üblich, Bedrock und Vertex bieten EU-Regionen, US Cloud Act bleibt technisch anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "google-cloud-closed",
+    "data": {
+      "url": "https://cloud.google.com/terms/",
+      "name": "Google Cloud / Vertex AI Terms",
+      "plain": "Modellnutzung über Vertex AI oder Gemini API. EU-Region möglich, Customer-Managed-Encryption-Keys verfügbar. Outputs gehören dem Nutzer. Datenverarbeitungs-Addendum nach DSGVO möglich, US Cloud Act bleibt rechtlich anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "aleph-alpha-license",
+    "data": {
+      "url": "https://github.com/Aleph-Alpha/open-aleph-license",
+      "name": "Open Aleph License",
+      "plain": "Aleph Alphas eigene quellverfügbare Lizenz. Erlaubt Forschung, interne Evaluation und nicht-kommerzielle Nutzung. Kommerzielle Nutzung erfordert Vertrag mit Aleph Alpha. Ziel: europäische Souveränität bei gleichzeitig kommerzieller Tragfähigkeit.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "deepseek-license",
+    "data": {
+      "url": "https://github.com/deepseek-ai/DeepSeek-LLM/blob/main/LICENSE-MODEL",
+      "name": "DeepSeek License",
+      "plain": "Sehr offen, Apache-ähnlich, mit Use-Case-Restriktionen (kein Schaden, keine Waffen, keine kritische Infrastruktur ohne Sicherheitsprüfung, etc.). Kommerzielle Nutzung erlaubt. Praktisch für die meisten BVDW-Mitglieder ohne Einschränkung anwendbar.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "qwen-license",
+    "data": {
+      "url": "https://huggingface.co/Qwen/Qwen2.5-72B/blob/main/LICENSE",
+      "name": "Qwen Research License (für Modelle ≥72B)",
+      "plain": "Kleine bis mittlere Qwen-Modelle (bis 32B): Apache 2.0. Größere (72B-Klasse): kommerzielle Nutzung erfordert Lizenz von Alibaba ab 100 Mio aktiven Nutzern. Für die meisten Anwendungsfälle praktisch frei.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "tii-falcon-license",
+    "data": {
+      "url": "https://falconllm.tii.ae/falcon-terms-and-conditions.html",
+      "name": "TII Falcon License 2.0",
+      "plain": "An Apache 2.0 angelehnt, mit Acceptable-Use-Policy. Kommerziell uneingeschränkt nutzbar. TII (Technology Innovation Institute, Abu Dhabi) ist staatlich finanziert.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "cohere-cc-by-nc",
+    "data": {
+      "url": "https://cohere.com/research/license",
+      "name": "Cohere Open Model License (CC-BY-NC)",
+      "plain": "Gewichte für Forschung und nicht-kommerzielle Anwendungen frei. Für kommerzielle Anwendungen muss die Cohere-API genutzt oder eine Enterprise-Lizenz erworben werden.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "openrail-m",
+    "data": {
+      "url": "https://www.bigcode-project.org/docs/pages/bigcode-openrail/",
+      "name": "BigCode OpenRAIL-M",
+      "plain": "Offen wie Apache 2.0, aber mit Use-Case-Verbot: bestimmte schädliche Anwendungen (Diskriminierung, Überwachung, Schadcode-Generierung mit klarer Schadintention) sind ausgeschlossen. Kommerziell nutzbar in allen üblichen Marketing- und Produkt-Kontexten.",
+      "category": "responsible-ai"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "exaone-license",
+    "data": {
+      "url": "https://huggingface.co/LGAI-EXAONE/EXAONE-3.5-32B-Instruct",
+      "name": "EXAONE AI Model License",
+      "plain": "Die LG-EXAONE-Gewichte sind für Forschung kostenlos zugänglich. Kommerzielle Nutzung erfordert eine Vereinbarung mit LG. Für Konzernkunden mit bestehender LG-Beziehung praktisch nutzbar.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "tencent-hunyuan-license",
+    "data": {
+      "url": "https://github.com/Tencent/Tencent-Hunyuan-Large/blob/main/License.docx",
+      "name": "Tencent Hunyuan Community License",
+      "plain": "Frei nutzbar bis zu einer Schwelle von 100 Millionen monatlich aktiven Nutzern. Darüber separate Lizenz nötig. Outputs gehören dem Nutzer.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "yi-license",
+    "data": {
+      "url": "https://huggingface.co/01-ai/Yi-1.5-34B-Chat/blob/main/LICENSE",
+      "name": "01.AI Yi License",
+      "plain": "Apache 2.0-konform. Kommerziell uneingeschränkt nutzbar.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "glm-license",
+    "data": {
+      "url": "https://huggingface.co/THUDM/glm-4-9b-chat/blob/main/LICENSE",
+      "name": "GLM Model License",
+      "plain": "Ähnlich Apache mit Use-Case-Klauseln. Kleinere GLM-Varianten (≤9B) meist frei, größere benötigen formale Vereinbarung mit Zhipu AI.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "stability-non-commercial",
+    "data": {
+      "url": "https://huggingface.co/stabilityai/stablelm-2-12b/blob/main/LICENSE",
+      "name": "Stability AI Non-Commercial License",
+      "plain": "Forschung und private Nutzung kostenlos. Für kommerzielle Nutzung Stability AI Membership oder Vertrag erforderlich.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "ibm-granite-license",
+    "data": {
+      "url": "https://huggingface.co/ibm-granite/granite-3.0-8b-instruct/blob/main/LICENSE",
+      "name": "IBM Granite Apache 2.0",
+      "plain": "Standard Apache 2.0. IBM bietet zusätzlich kommerziellen Enterprise-Support an. Voll für Marketing-, Code- und Datenanalyse-Use-Cases nutzbar.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "snowflake-apache",
+    "data": {
+      "url": "https://huggingface.co/Snowflake/snowflake-arctic-instruct",
+      "name": "Snowflake Apache 2.0",
+      "plain": "Standard Apache 2.0. Snowflake-Kunden erhalten zusätzliche Hosting-Optionen, das Modell selbst ist aber frei.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "ai21-jamba-license",
+    "data": {
+      "url": "https://www.ai21.com/jamba-open-model-license/",
+      "name": "Jamba Open Model License",
+      "plain": "Frei für Forschung und Entwicklung. Kommerzielle Nutzung erfordert Anzeige bei AI21 Labs und Einhaltung der Use-Policy. Für die meisten BVDW-Mitglieder unkompliziert nutzbar.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "yandex-closed",
+    "data": {
+      "url": "https://yandex.cloud/en/docs/foundation-models/concepts/yandexgpt/",
+      "name": "Yandex Cloud Foundation Models Terms",
+      "plain": "Nutzung nur über die Yandex Cloud. Datenverarbeitung in Russland. Für DACH-Marketing-Anwendungen aufgrund politischer und regulatorischer Risiken in der Praxis nicht einsetzbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "sber-closed",
+    "data": {
+      "url": "https://developers.sber.ru/docs/ru/gigachat/legal-info",
+      "name": "Sber GigaChat Terms",
+      "plain": "Nutzung nur über Sber-API. Datenverarbeitung in Russland. Für DACH-Marketing-Anwendungen praktisch nicht einsetzbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "salesforce-closed",
+    "data": {
+      "url": "https://x.ai/legal/terms-of-service",
+      "name": "xAI API Terms",
+      "plain": "Nutzung nur über die xAI-API oder X-Plattform. Datenverarbeitung in den USA. US Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "conversational",
+    "id": "ggpl-pleias",
+    "data": {
+      "url": "https://huggingface.co/PleIAs",
+      "name": "Pleias Public Domain Pipeline (Apache 2.0)",
+      "plain": "Modellgewichte unter Apache 2.0. Trainingsdaten ausschließlich aus gemeinfreien Quellen (Common Corpus). Outputs sind urheberrechtlich besonders unbedenklich, weil keine geschützten Werke memorisiert wurden. Für regulierte Use Cases (Verlage, Bibliotheken, Behörden) besonders relevant.",
+      "category": "public-domain"
+    },
+    "updated_at": "2026-04-15T09:12:27.853128+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "flux-dev-license",
+    "data": {
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/blob/main/LICENSE.md",
+      "name": "FLUX.1 [dev] Non-Commercial License",
+      "plain": "FLUX.1 dev darf für Forschung, Tests und nicht-kommerzielle Zwecke kostenlos genutzt werden. Für jede kommerzielle Nutzung muss eine Lizenz bei Black Forest Labs erworben oder die FLUX.1 [pro]-API genutzt werden. FLUX.1 [schnell] ist hingegen Apache 2.0 und vollständig frei einsetzbar.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "flux-schnell-apache",
+    "data": {
+      "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+      "name": "FLUX.1 [schnell] Apache 2.0",
+      "plain": "Schnellere FLUX-Variante unter Apache 2.0. Vollständig kommerziell nutzbar, auch für Marketing-Bilder, ohne Lizenzgebühren an Black Forest Labs.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "stability-community",
+    "data": {
+      "url": "https://stability.ai/community-license-agreement",
+      "name": "Stability AI Community License",
+      "plain": "Frei für Forschung und für Unternehmen mit weniger als 1 Million US-Dollar Jahresumsatz. Größere Unternehmen benötigen eine Stability AI Membership oder Enterprise-Lizenz. Outputs gehören dem Nutzer.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "creativeml-openrail-m",
+    "data": {
+      "url": "https://huggingface.co/spaces/CompVis/stable-diffusion-license",
+      "name": "CreativeML Open RAIL-M",
+      "plain": "Frei nutzbar inklusive kommerziell, mit definierten Use-Case-Verboten (z.B. keine Erzeugung schädlicher Inhalte, keine Beleidigung, keine Diskriminierung). Outputs gehören dem Nutzer. Standard-Lizenz vieler älterer Stable-Diffusion-Modelle.",
+      "category": "responsible-ai"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "openai-closed",
+    "data": {
+      "url": "https://openai.com/policies/terms-of-use/",
+      "name": "OpenAI Terms of Service",
+      "plain": "Modell nur per OpenAI-API oder Azure OpenAI nutzbar. Outputs gehören dem Nutzer und dürfen kommerziell verwendet werden. Datenverarbeitung bei OpenAI USA, US Cloud Act bleibt rechtlich anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "google-cloud-closed",
+    "data": {
+      "url": "https://cloud.google.com/terms/",
+      "name": "Google Cloud / Vertex AI Terms",
+      "plain": "Modellnutzung über Vertex AI oder Gemini API. EU-Region möglich. Outputs gehören dem Nutzer. US Cloud Act bleibt rechtlich anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "midjourney-tos",
+    "data": {
+      "url": "https://docs.midjourney.com/docs/terms-of-service",
+      "name": "Midjourney Terms of Service",
+      "plain": "Nutzung nur über die Midjourney-Plattform (Discord, Web). Outputs gehören dem Nutzer (Pro-Plan). Free-Plan-Outputs unterliegen einer CC-BY-NC-ähnlichen Klausel. US Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "adobe-firefly-license",
+    "data": {
+      "url": "https://www.adobe.com/legal/licenses-terms/adobe-gen-ai-user-guidelines.html",
+      "name": "Adobe Firefly Terms",
+      "plain": "Nutzung über Adobe-Produkte und -APIs. Adobe Firefly ist explizit auf urheberrechtlich freigegebenen oder lizenzierten Trainingsdaten trainiert (Adobe Stock, Public Domain). Outputs sind kommerziell uneingeschränkt nutzbar mit Adobe-Indemnification.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "ideogram-tos",
+    "data": {
+      "url": "https://ideogram.ai/legal/terms",
+      "name": "Ideogram Terms of Service",
+      "plain": "Nutzung über Ideogram-Plattform. Outputs gehören dem Nutzer. Unternehmen mit Sitz in Toronto/USA, US Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "elevenlabs-tos",
+    "data": {
+      "url": "https://elevenlabs.io/terms-of-use",
+      "name": "ElevenLabs Terms",
+      "plain": "Nutzung nur über die ElevenLabs-API. Outputs gehören dem Nutzer im Rahmen der gewählten Lizenz-Stufe. Voice-Cloning unterliegt einem expliziten Consent-Workflow. US-Sitz, Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "cartesia-tos",
+    "data": {
+      "url": "https://cartesia.ai/legal",
+      "name": "Cartesia Sonic Terms",
+      "plain": "Nutzung über die Cartesia-API. Outputs gehören dem Nutzer. US-Sitz, US Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "suno-tos",
+    "data": {
+      "url": "https://suno.com/terms",
+      "name": "Suno Terms",
+      "plain": "Outputs gehören dem Nutzer im Rahmen des Pro/Premier-Plans. Free-Plan-Outputs unterliegen einer Non-Commercial-Klausel. US-Sitz, Cloud Act anwendbar. Aktuell juristisch umstritten wegen Trainingsdaten-Quellen (laufende Verfahren in den USA).",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "udio-tos",
+    "data": {
+      "url": "https://www.udio.com/terms",
+      "name": "Udio Terms",
+      "plain": "Outputs gehören dem Nutzer im Rahmen des bezahlten Plans. US-Sitz. Wie Suno juristisch wegen Trainingsdaten-Quellen umstritten.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "runway-tos",
+    "data": {
+      "url": "https://runwayml.com/terms-of-use/",
+      "name": "Runway Terms of Use",
+      "plain": "Nutzung über Runway-Plattform und API. Outputs gehören dem Nutzer im Rahmen des bezahlten Plans. US-Sitz, US Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "pika-tos",
+    "data": {
+      "url": "https://pika.art/terms-of-service",
+      "name": "Pika Labs Terms",
+      "plain": "Nutzung über Pika-Plattform. Outputs gehören dem Nutzer im Rahmen des bezahlten Plans. US-Sitz.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "kling-tos",
+    "data": {
+      "url": "https://klingai.com/user-agreement",
+      "name": "Kuaishou Kling Terms",
+      "plain": "Nutzung über Kling-Plattform (China und international). Outputs gehören dem Nutzer im Rahmen des Plans. CN-Sitz, eigene Compliance-Logik. Datenverarbeitung außerhalb der EU.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "tencent-hunyuan-license",
+    "data": {
+      "url": "https://github.com/Tencent/Tencent-Hunyuan-Large/blob/main/License.docx",
+      "name": "Tencent Hunyuan Community License",
+      "plain": "Frei nutzbar bis 100 Millionen monatlich aktive Nutzer. Darüber separate Lizenz nötig. Outputs gehören dem Nutzer.",
+      "category": "open-weights-conditional"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "apache-2.0",
+    "data": {
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "name": "Apache 2.0",
+      "plain": "Vollständig freie OSI-Lizenz. Kommerziell uneingeschränkt nutzbar inklusive Veränderung und Weitergabe. Pflichten: Lizenztext beilegen, Copyright-Hinweis erhalten, Änderungen kennzeichnen.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "mit",
+    "data": {
+      "url": "https://opensource.org/license/mit",
+      "name": "MIT License",
+      "plain": "Sehr kurze, sehr freie Lizenz. Sie dürfen alles tun: nutzen, kopieren, verändern, kommerziell vertreiben. Einzige Pflicht: den Lizenztext bei Weitergabe mitliefern.",
+      "category": "open-source"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "cc-by-nc-4.0",
+    "data": {
+      "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "name": "Creative Commons BY-NC 4.0",
+      "plain": "Forschung und private Nutzung kostenlos. Kommerzielle Nutzung ausgeschlossen. Für Marketing-Workloads im Mittelstand in der Regel nicht geeignet.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "coqui-license",
+    "data": {
+      "url": "https://coqui.ai/cpml.txt",
+      "name": "Coqui Public Model License (CPML)",
+      "plain": "Voice-Modelle dürfen für Forschung, persönliche Projekte und nicht-kommerzielle Zwecke kostenlos genutzt werden. Kommerzielle Nutzung erfordert eine Lizenz oder ist ausgeschlossen. Coqui ist Open-Source-Anbieter, das Unternehmen selbst hat 2024 den Betrieb eingestellt — Code und Modelle bleiben verfügbar.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "speechmatics-tos",
+    "data": {
+      "url": "https://www.speechmatics.com/legal/terms",
+      "name": "Speechmatics Terms",
+      "plain": "Nutzung über die Speechmatics-API mit On-Premise-Option. UK-Sitz, kein US Cloud Act. DSGVO-konform mit EU-Hosting-Optionen verfügbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "deepgram-tos",
+    "data": {
+      "url": "https://deepgram.com/terms-of-service",
+      "name": "Deepgram Terms",
+      "plain": "Nutzung über die Deepgram-API. US-Sitz, Cloud Act anwendbar. Datenverarbeitungs-Vereinbarung nach DSGVO möglich.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "assemblyai-tos",
+    "data": {
+      "url": "https://www.assemblyai.com/legal/terms-of-service",
+      "name": "AssemblyAI Terms",
+      "plain": "Nutzung über AssemblyAI-API. US-Sitz, Cloud Act anwendbar.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "hume-tos",
+    "data": {
+      "url": "https://hume.ai/terms-of-use",
+      "name": "Hume AI Terms",
+      "plain": "Nutzung über Hume-API. US-Sitz, Cloud Act anwendbar. EVI 2 ist ein emotionsbewusstes Speech-to-Speech-Modell.",
+      "category": "closed"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "id": "mistral-research",
+    "data": {
+      "url": "https://mistral.ai/licenses/MRL-0.1.md",
+      "name": "Mistral Research License",
+      "plain": "Modellgewichte für Forschung und nicht-kommerzielle Zwecke frei. Kommerzielle Nutzung erfordert API-Zugriff oder separate Vereinbarung mit Mistral.",
+      "category": "research"
+    },
+    "updated_at": "2026-04-15T09:12:28.465598+00:00"
+  }
+]

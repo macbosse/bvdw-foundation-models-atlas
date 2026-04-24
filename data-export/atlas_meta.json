@@ -1,0 +1,168 @@
+[
+  {
+    "atlas": "conversational",
+    "data": {
+      "title": "BVDW Foundation Models Atlas",
+      "curator": "BVDW AI Tech Lab",
+      "filters": {
+        "tiers": [
+          "frontier-closed",
+          "frontier-open",
+          "regional",
+          "specialist",
+          "research"
+        ],
+        "pricing": [
+          "€",
+          "€€",
+          "€€€",
+          "€€€€",
+          "€€€€€",
+          "€€€€€€"
+        ],
+        "regions": [
+          "DACH",
+          "EU",
+          "US",
+          "CN",
+          "KR",
+          "JP",
+          "IN",
+          "MENA",
+          "AF",
+          "RU",
+          "INTL"
+        ],
+        "openness": [
+          "closed",
+          "api-only",
+          "weights-research",
+          "open-weights",
+          "open-source",
+          "public-domain"
+        ],
+        "use_cases": [
+          "marketing-text",
+          "kundenkommunikation",
+          "datenanalyse",
+          "code",
+          "research",
+          "uebersetzung",
+          "kreativ",
+          "compliance",
+          "agent",
+          "long-context"
+        ],
+        "german_capability": [
+          "low",
+          "medium",
+          "high"
+        ]
+      },
+      "version": "0.1-draft",
+      "language": "de",
+      "subtitle": "Neutrale Übersicht textbasierter Foundation Models mit europäischer Souveränitätsperspektive",
+      "methodology": "Erste Iteration auf Basis des Sprachmodell-Wissensstands (Cut-off Mai 2025). Diese Fassung wurde noch nicht web-verifiziert. Vor Veröffentlichung sollten Hersteller-Quellen (Releases, Modellkarten, Lizenzdokumente) geprüft werden. Souveränitäts- und Preisbewertungen sind redaktionelle Einordnungen des Lab und ersetzen keine Rechts- oder Einkaufsberatung.",
+      "last_updated": "2026-04-15",
+      "neutrality_notice": "Diese Übersicht ist eine neutrale Information für BVDW-Mitglieder und stellt keine Empfehlung einzelner Anbieter dar. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen, keine Wertungen oder Kaufberatung. Die Aufnahme oder Nicht-Aufnahme eines Modells erfolgt nach Sachkriterien (Hygienefaktoren) und impliziert keine Bevorzugung.",
+      "fields_explanation": {
+        "tier": "Frontier Closed (proprietäres Top-Modell, nur per API), Frontier Open (offene Gewichte auf Top-Niveau), Regional (lokal/sprachlich spezialisiert), Specialist (Domain- oder Architektur-Spezialist), Research (Forschungs-/Lehrmodell)",
+        "eu_host": "Modell ist technisch ohne US-Anbieter in der EU hostbar (Self-Host oder europäischer Cloud-Anbieter)",
+        "pricing": "€ = sehr günstig oder kostenlos self-hostbar, €€ = günstig, €€€ = mittel, €€€€ = oberer Mittelpreis, €€€€€ = Frontier-Premium, €€€€€€ = Top-Premium-Tier (z.B. Long-Context-Frontier)",
+        "openness": "closed = nicht zugänglich, api-only = nur kommerzielle API, weights-research = Gewichte verfügbar nur für Forschung, open-weights = Gewichte verfügbar mit Auflagen, open-source = OSI-konforme freie Lizenz, public-domain = gemeinfrei",
+        "cloud_act": "Exposition gegenüber dem US Cloud Act bei Standard-Nutzung (none/low/medium/high)",
+        "sovereignty": "Aggregierter europäischer Souveränitätsscore 1-5 (1 = stark exponiert, 5 = vollständig souverän bei vollständiger EU-konformer Nutzung)",
+        "transparency": "Offenheit der Trainingsdaten und -methoden (none/low/medium/high)",
+        "german_capability": "Praxisbeobachtete Deutschkompetenz (low/medium/high)"
+      },
+      "inclusion_criteria": [
+        "Hygienefaktor 1 (Modalität): Modell ist textlich ansprechbar und reagiert mit Text (reine Bild-, Audio- oder Speech-to-Text-Modelle ausgeschlossen).",
+        "Hygienefaktor 2 (Sprache): Modell beherrscht Deutsch zumindest auf Grundniveau (German capability mindestens 'low').",
+        "Hygienefaktor 3 (Verfügbarkeit): Modell ist für BVDW-Mitglieder zugänglich (öffentliche API, offene Gewichte oder kommerzielles Lizenzmodell)."
+      ]
+    },
+    "updated_at": "2026-04-15T10:13:28.815+00:00"
+  },
+  {
+    "atlas": "specialized",
+    "data": {
+      "scope": "Diese Liste umfasst Foundation Models, die NICHT primär Text-zu-Text-Konversationsmodelle sind. Sie ergänzt die Konversationsmodell-Liste und nutzt ein eigenes Schema mit Modalitäten, Task-Typen und Sprachunterstützung. Foundation Models, die textlich antworten (auch Vision-Language-Modelle), sind in der Konversations-Liste zu finden.",
+      "title": "BVDW Foundation Models Atlas — Spezial-Modalitäten",
+      "curator": "BVDW AI Tech Lab",
+      "filters": {
+        "pricing": [
+          "€",
+          "€€",
+          "€€€",
+          "€€€€",
+          "€€€€€",
+          "€€€€€€"
+        ],
+        "regions": [
+          "DACH",
+          "EU",
+          "US",
+          "CN",
+          "INTL"
+        ],
+        "openness": [
+          "closed",
+          "api-only",
+          "weights-research",
+          "open-weights",
+          "open-source"
+        ],
+        "use_cases": [
+          "marketing-bild",
+          "produkt-foto",
+          "video-werbung",
+          "social-media",
+          "voiceover",
+          "podcast-produktion",
+          "transkription",
+          "untertitel",
+          "musik-jingle",
+          "sound-design",
+          "creative",
+          "compliance"
+        ],
+        "task_types": [
+          "image-generation",
+          "image-editing",
+          "video-generation",
+          "speech-to-text",
+          "text-to-speech",
+          "speech-to-speech",
+          "music-generation",
+          "audio-generation"
+        ],
+        "modality_in": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "modality_out": [
+          "image",
+          "video",
+          "audio",
+          "text"
+        ]
+      },
+      "version": "0.1-draft",
+      "language": "de",
+      "subtitle": "Eigenständige Übersicht generativer und transformativer Foundation Models außerhalb des Text-Konversationsformats",
+      "last_updated": "2026-04-15",
+      "neutrality_notice": "Auch diese Übersicht ist neutrale Information, keine Empfehlung. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen.",
+      "fields_explanation": {
+        "task_type": "Hauptaufgabe (image-generation, image-editing, video-generation, speech-to-text, text-to-speech, speech-to-speech, music-generation, audio-generation)",
+        "modality_in": "Eingangsmodalität (text/image/audio/video)",
+        "sovereignty": "Aggregierter europäischer Souveränitätsscore 1-5",
+        "modality_out": "Ausgangsmodalität (image/audio/video/text)",
+        "language_support": "Sprachunterstützung wo relevant (multilingual/english-dominant/limited/n-a für sprachunabhängige Modalitäten wie Bild)"
+      },
+      "categorization_note": "Modelle sind nach Eingangs- und Ausgangs-Modalität sowie Task-Typ getaggt. Pricing- und Sovereignty-Logik analog zur Konversationsliste."
+    },
+    "updated_at": "2026-04-15T10:13:29.807+00:00"
+  }
+]

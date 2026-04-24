@@ -1,0 +1,12 @@
+{
+  "exported_at": "2026-04-24T10:44:32.650Z",
+  "source": "https://oidtbnhyyydvpkuqzgbs.supabase.co",
+  "tables": {
+    "vendors": 96,
+    "atlas_meta": 2,
+    "licenses": 56,
+    "models": 148,
+    "model_versions": 149
+  },
+  "notes": "Vollständiger Export für Migration. Kann mit scripts/import-all.js in eine leere Supabase-Instanz importiert werden."
+}
