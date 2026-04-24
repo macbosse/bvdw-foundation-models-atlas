@@ -13,6 +13,7 @@
     "export-all": "node --env-file=.env.local scripts/export-all.js",
     "import-all": "node --env-file=.env.local scripts/import-all.js",
     "render-pdfs": "node scripts/render-pdfs.js",
+    "render-preview": "node scripts/render-social-preview.js",
     "setup": "npm run init-db && npm run import"
   },
   "dependencies": {

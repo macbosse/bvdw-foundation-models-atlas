@@ -88,9 +88,19 @@ Der Atlas folgt ein paar bewusst getroffenen Design-Entscheidungen:
 
 ## Für wen ist das interessant?
 
-- **Verbände und Netzwerke**, die eine ähnliche Orientierungshilfe bauen wollen — das ganze Setup ist frei lizenziert (siehe LICENSE, falls vorhanden, sonst kontaktiert gerne den Autor)
+- **Verbände und Netzwerke**, die eine ähnliche Orientierungshilfe bauen wollen — das ganze Setup ist unter MIT-Lizenz frei wiederverwendbar
 - **AI-Teams in Unternehmen**, die ein internes Modell-Inventar brauchen — der Edit-Mode eignet sich direkt für kollaborative Kuratierung
 - **Forschung**, die den Atlas als Referenz nutzen möchte — Deeplinks pro Modell sind stabil
+
+## Lizenz
+
+**Code: MIT License** (siehe [LICENSE](LICENSE)).
+
+**Ausnahmen**:
+- Die BVDW-Corporate-Logos in `assets/bvdw-logo/` sind Markenzeichen des Bundesverbands Digitale Wirtschaft und nicht von der MIT-Lizenz abgedeckt
+- Die redaktionellen Inhalte (Praxisnotizen, Souveränitäts-Bewertungen) sind Werk des BVDW AI Tech Lab und bei Wiederverwendung unter Nennung der Quelle zu nutzen
+
+Alle Code-Abhängigkeiten des Projekts (Supabase, pdf-lib, marked, Lobe-Icons u.a.) sind ebenfalls MIT-lizenziert oder Public Domain — keine Copyleft-Einschränkungen.
 
 ## Kontakt
 
