@@ -50,6 +50,15 @@ Die relevanten Services:
 
 Realistisch startet das BVDW komplett im Free-Tier und entscheidet später, ob ein Paid-Plan nötig wird.
 
+> **Wichtiger Betriebshinweis — Supabase-Pause im Free-Tier:**
+> Supabase pausiert Free-Tier-Projekte nach **7 Tagen ohne Datenbankaktivität** automatisch. Im pausierten Zustand ist die Projekt-Subdomain offline (DNS NXDOMAIN), die API liefert HTTP 500, das statische Frontend läuft aber weiter. Die Daten gehen **nicht** verloren — sie sind nur heruntergefahren. Reaktivierung erfolgt **manuell** im Supabase-Dashboard („Restore project", 2–5 Minuten), es gibt keinen API-Weg.
+>
+> **Zwei Gegenmaßnahmen, je nach Nutzungsprofil:**
+> 1. **Keep-Alive-Cron (kostenlos, bereits eingebaut):** Eine Vercel-Cron-Funktion (`/api/keep-alive`) pingt die Datenbank täglich um 06:00 UTC. Solange das Vercel-Deployment aktiv ist, wird das Projekt nie 7 Tage inaktiv und pausiert nicht. Reicht für den normalen Betrieb vollständig aus.
+> 2. **Supabase Pro (25 €/Monat):** Pausiert grundsätzlich nie, zusätzlich tägliche Backups und Point-in-Time-Recovery. Empfehlenswert, sobald der Atlas offiziell unter bvdw.org läuft und ein Ausfall sichtbar wäre.
+>
+> Für die produktive BVDW-Phase empfehle ich: **Keep-Alive aktiv lassen UND mittelfristig auf Supabase Pro gehen** — der Cron ist die Versicherung gegen Pause, Pro ist die Versicherung gegen alles andere (Backup, Recovery, SLA).
+
 ### Was das BVDW NICHT selbst hosten sollte
 
 - **Supabase selbst**: Grundsätzlich möglich (Docker-Compose-Stack), aber für 148 Datensätze extremer Overkill. Der Betrieb eines produktiven Postgres mit Backups, Upgrades, Monitoring kostet mehr DevOps-Zeit als er rechtfertigt.
