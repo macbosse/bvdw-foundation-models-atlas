@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Der Foundation Models Atlas ist eine neutrale, kuratierte Übersicht relevanter AI-Foundation-Models mit europäischer Souveränitätsperspektive. Er besteht aus einem schlanken Frontend (statisches HTML/CSS/JS), fünf Serverless-API-Routen und einer Supabase-Datenbank mit 148 Modellen, 96 Vendors, 56 Lizenzen und einer vollständigen Versionshistorie.
+Der Foundation Models Atlas ist eine neutrale, kuratierte Übersicht relevanter AI-Foundation-Models mit europäischer Souveränitätsperspektive. Er besteht aus einem schlanken Frontend (statisches HTML/CSS/JS), fünf Serverless-API-Routen und einer Supabase-Datenbank mit 264 Modellen (Stand Update Oktober 2026), 120 Vendors, 80 Lizenzen und einer vollständigen Versionshistorie.
 
 **Kernfunktionen:**
 - Katalog mit 103 konversationellen LLMs und 45 spezialisierten Modellen (Bild, Audio, Video)
@@ -38,7 +38,7 @@ Die relevanten Services:
 |---|---|---|
 | **Code-Hosting (Git)** | GitHub (BVDW-Org) oder GitLab | Standard, Team-Kollaboration, Integration mit Vercel |
 | **Hosting Frontend + API** | Vercel (Free-Tier) | Kostenlos für statische Sites + 100 GB Bandbreite/Monat + unbegrenzte Serverless Functions |
-| **Datenbank (Postgres)** | Supabase (Free-Tier) | 500 MB DB, 2 GB Bandbreite — reicht für 148 Modelle um Faktor 100 |
+| **Datenbank (Postgres)** | Supabase (Free-Tier) | 500 MB DB, 2 GB Bandbreite — reicht für die 264 Modelle um Faktor 50 |
 | **Domain** | BVDW-eigen (z.B. `atlas.bvdw.org`) | Optional, über Vercel-DNS einzurichten |
 | **Externe CDNs für Logos/Flaggen** | bleiben extern (lobehub, flagcdn, simple-icons) | Keine eigene Pflege nötig, alle öffentlich + frei lizenziert |
 
@@ -51,17 +51,20 @@ Die relevanten Services:
 Realistisch startet das BVDW komplett im Free-Tier und entscheidet später, ob ein Paid-Plan nötig wird.
 
 > **Wichtiger Betriebshinweis — Supabase-Pause im Free-Tier:**
-> Supabase pausiert Free-Tier-Projekte nach **7 Tagen ohne Datenbankaktivität** automatisch. Im pausierten Zustand ist die Projekt-Subdomain offline (DNS NXDOMAIN), die API liefert HTTP 500, das statische Frontend läuft aber weiter. Die Daten gehen **nicht** verloren — sie sind nur heruntergefahren. Reaktivierung erfolgt **manuell** im Supabase-Dashboard („Restore project", 2–5 Minuten), es gibt keinen API-Weg.
+> Supabase pausiert Free-Tier-Projekte nach **7 Tagen ohne Datenbankaktivität** automatisch. Im pausierten Zustand ist die Projekt-Subdomain offline (DNS NXDOMAIN), die API liefert HTTP 500, das statische Frontend läuft aber weiter. Die Daten gehen **nicht** verloren — sie sind nur heruntergefahren. Reaktivierung erfolgt im Supabase-Dashboard („Restore project", 2–5 Minuten) oder per Management-API (`POST https://api.supabase.com/v1/projects/<ref>/restore` mit einem Personal-Access-Token, dauert ca. 3 Minuten bis `ACTIVE_HEALTHY`).
 >
-> **Zwei Gegenmaßnahmen, je nach Nutzungsprofil:**
+> **Vorfall Oktober 2026:** Genau dieser Fall ist eingetreten — das Projekt war pausiert, die Live-Seite zeigte keine Modelle. Ursache: Der Vercel-Cron wurde im Mai 2026 eingerichtet, als das Projekt bereits pausiert war, und konnte es nicht reaktivieren; ein 503 des Keep-Alive fiel niemandem auf. Konsequenz: zusätzlich zum Cron gibt es jetzt einen **GitHub-Actions-Workflow** (`.github/workflows/keep-alive.yml`, zweimal täglich), der bei HTTP ≠ 200 fehlschlägt und damit eine E-Mail an den Repo-Owner auslöst. Nach jeder Reaktivierung einmal `curl https://<domain>/api/keep-alive` prüfen.
+>
+> **Drei Gegenmaßnahmen, je nach Nutzungsprofil:**
 > 1. **Keep-Alive-Cron (kostenlos, bereits eingebaut):** Eine Vercel-Cron-Funktion (`/api/keep-alive`) pingt die Datenbank täglich um 06:00 UTC. Solange das Vercel-Deployment aktiv ist, wird das Projekt nie 7 Tage inaktiv und pausiert nicht. Reicht für den normalen Betrieb vollständig aus.
-> 2. **Supabase Pro (25 €/Monat):** Pausiert grundsätzlich nie, zusätzlich tägliche Backups und Point-in-Time-Recovery. Empfehlenswert, sobald der Atlas offiziell unter bvdw.org läuft und ein Ausfall sichtbar wäre.
+> 2. **GitHub-Actions-Keep-Alive mit Alarm (kostenlos, eingebaut seit Oktober 2026):** Unabhängig von Vercel ruft ein Workflow den Keep-Alive-Endpunkt zweimal täglich auf und schlägt fehl, wenn die Datenbank nicht antwortet — GitHub benachrichtigt dann per E-Mail. Damit ist der Ausfall vom Mai/Oktober 2026 (stiller 503) nicht mehr möglich.
+> 3. **Supabase Pro (25 €/Monat):** Pausiert grundsätzlich nie, zusätzlich tägliche Backups und Point-in-Time-Recovery. Empfehlenswert, sobald der Atlas offiziell unter bvdw.org läuft und ein Ausfall sichtbar wäre.
 >
 > Für die produktive BVDW-Phase empfehle ich: **Keep-Alive aktiv lassen UND mittelfristig auf Supabase Pro gehen** — der Cron ist die Versicherung gegen Pause, Pro ist die Versicherung gegen alles andere (Backup, Recovery, SLA).
 
 ### Was das BVDW NICHT selbst hosten sollte
 
-- **Supabase selbst**: Grundsätzlich möglich (Docker-Compose-Stack), aber für 148 Datensätze extremer Overkill. Der Betrieb eines produktiven Postgres mit Backups, Upgrades, Monitoring kostet mehr DevOps-Zeit als er rechtfertigt.
+- **Supabase selbst**: Grundsätzlich möglich (Docker-Compose-Stack), aber für wenige hundert Datensätze extremer Overkill. Der Betrieb eines produktiven Postgres mit Backups, Upgrades, Monitoring kostet mehr DevOps-Zeit als er rechtfertigt.
 - **Vercel-Alternative**: Der Atlas ist stark auf Vercels Routing und Serverless-Functions optimiert. Ein Umzug auf z.B. eigenen Node.js-Server hinter nginx wäre möglich, aber nicht kostenfrei.
 - **CDNs für Logos und Flaggen**: `cdn.jsdelivr.net`, `flagcdn.com`, `api.dicebear.com` und `logo.clearbit.com` sind frei und performant. Eigene Bereitstellung dieser Assets wäre nur sinnvoll, wenn eine BVDW-spezifische Offline-Distribution (z.B. Print) gewünscht wird.
 
@@ -190,7 +193,7 @@ Diese sind alle bereits in `.gitignore` eingetragen.
 
 Die aktuelle Datenbank enthält:
 - 96 Vendors (inkl. Logo-URLs und Metadaten)
-- 148 Modelle (mit vollständigen Feldern: Vendor, Region, Tier, Souveränität, Einsatz-Optionen, Sprachen, Modalitäten, Insider-Notizen …)
+- 264 Modelle (mit vollständigen Feldern: Vendor, Region, Tier, Souveränität, Einsatz-Optionen, Sprachen, Modalitäten, Insider-Notizen …)
 - ~330 Versions-Snapshots (die komplette Historie aller Edits seit dem Start)
 - 56 Lizenzen
 - 2 Atlas-Metadaten-Einträge
@@ -271,8 +274,13 @@ npm run export-all
 # Schreibt nach data-export/ — in Git committen oder extern archivieren
 ```
 
-**Modell-JSONs neu importieren (bei größeren Änderungen an Quelldaten):**
-Siehe `scripts/migrate-phase*.js` — die Migrations-Scripts sind idempotent und können nach Schema-Änderungen erneut laufen.
+**Größere Daten-Updates (viele neue Modelle, Legacy-Markierungen):**
+```bash
+npm run import-delta -- data/updates/2026-10-update.json --dry-run   # Plan anzeigen
+npm run import-delta -- data/updates/2026-10-update.json             # einspielen
+npm run export-all                                                   # Backup aktualisieren
+```
+Ein Update-Paket in `data/updates/` enthält neue Modelle, Lizenzen, Vendors, Patches (z.B. `status: legacy` + `successor`) und Soft-Deletes. Das Script ist idempotent und schreibt für jede Änderung einen Versions-Snapshot — exakt so, als hätte ein Redakteur im Edit-Mode gearbeitet. Das Paket vom Oktober 2026 ist das Referenzbeispiel. Ältere Schema-Migrationen: `scripts/migrate-phase*.js`.
 
 **Logo-Resolver neu starten (wenn Lobe-Icons aktualisiert wurden):**
 ```bash
@@ -282,7 +290,7 @@ npm run resolve-logos
 ### Deploy-Workflow
 
 **Für Code-Änderungen:**
-1. Lokal: `vercel dev` zum Testen
+1. Lokal: `npx vercel dev` (lädt Supabase-Credentials aus `.env.local`) oder ohne Secrets `node scripts/dev-static.js` (statisches Frontend, API-Aufrufe gehen an die Produktion)
 2. Git-Push auf `main` → Vercel deployt automatisch
 3. Preview-Deploys auf Feature-Branches werden ebenfalls automatisch erstellt
 
@@ -348,7 +356,8 @@ Falls das BVDW bestimmte Komponenten selbst hosten möchte:
 
 - **AI-generierte Hero-Bilder** pro Modell — ursprünglich geplant, aktuell via CSS-Gradient als Fallback. Kann später über ein FLUX- oder Stable-Diffusion-Script ergänzt werden.
 - **Bulk-Export als ZIP** aller PDF-Karten — aktuell nur einzelne Karten als PDF, ZIP-Bulk wäre ~30 Zeilen Code
-- **Audit-Script für tote Logo-URLs** — ein wöchentlicher Healthcheck wäre sinnvoll
+- **Audit-Script für tote Logo-URLs** — ein wöchentlicher Healthcheck wäre sinnvoll. Der Clearbit-Logo-Dienst (`logo.clearbit.com`) ist 2026 abgeschaltet; betroffene `image_url`-Werte wurden im Oktober 2026 auf das Vendor-Logo zurückgesetzt.
+- **Entscheidungsmodelle (System One / Decision AI)** — seit Oktober 2026 als Task-Typ `decision` und Modellklasse `system-one` im Spezial-Atlas geführt; wächst die Klasse auf 10+ relevante Modelle, ist ein eigener Atlas-Tab mit eigenem Schema (Kalibrierung, Latenz, Schema-Support) die saubere nächste Stufe — siehe `docs/system-one-decision-models.md`.
 
 ### Potenzielle Erweiterungen
 

@@ -566,3 +566,13 @@ footer .methodology details.def .detail{font-size:11px;opacity:.8;margin-top:8px
   .qcard .qhero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{size:A4;margin:0}
 }
+
+/* ─── Status-/Klassen-Badges (Update Okt 2026) ─── */
+.badge.status-legacy{background:var(--bg-soft);color:var(--text-sub);border-style:dashed}
+.badge.status-retired{background:#fff;color:#b3261e;border-color:#b3261e}
+.badge.status-preview{background:#fff;color:var(--bvdw-accent);border-color:var(--bvdw-accent)}
+.badge.class-system-one{background:var(--bvdw-accent);color:#fff;border-color:var(--bvdw-accent)}
+.card.is-legacy{opacity:.7}
+.card.is-legacy:hover{opacity:1}
+.filters label.check{display:flex;align-items:center;gap:8px;font-size:12px;text-transform:none;letter-spacing:0;font-weight:500;cursor:pointer}
+.filters label.check input{margin:0}

@@ -59,18 +59,20 @@
           "high"
         ]
       },
-      "version": "0.1-draft",
+      "version": "0.4",
       "language": "de",
       "subtitle": "Neutrale Übersicht textbasierter Foundation Models mit europäischer Souveränitätsperspektive",
-      "methodology": "Erste Iteration auf Basis des Sprachmodell-Wissensstands (Cut-off Mai 2025). Diese Fassung wurde noch nicht web-verifiziert. Vor Veröffentlichung sollten Hersteller-Quellen (Releases, Modellkarten, Lizenzdokumente) geprüft werden. Souveränitäts- und Preisbewertungen sind redaktionelle Einordnungen des Lab und ersetzen keine Rechts- oder Einkaufsberatung.",
-      "last_updated": "2026-04-15",
+      "methodology": "Erste Iteration (April 2026) auf Basis des Sprachmodell-Wissensstands mit Cut-off Mai 2025. Update Oktober 2026: Alle seit Mitte 2025 veröffentlichten relevanten Modelle wurden web-recherchiert und gegen Primärquellen (Hersteller-Ankündigungen, Modellkarten, Lizenztexte) geprüft; jede Quelle ist im Eintrag verlinkt. Vom Hersteller abgelöste Modelle bleiben als „Legacy“ mit Nachfolger-Verweis erhalten, abgeschaltete als „Eingestellt“. Souveränitäts- und Preisbewertungen sind redaktionelle Einordnungen des Lab und ersetzen keine Rechts- oder Einkaufsberatung.",
+      "last_updated": "2026-10-06",
       "neutrality_notice": "Diese Übersicht ist eine neutrale Information für BVDW-Mitglieder und stellt keine Empfehlung einzelner Anbieter dar. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen, keine Wertungen oder Kaufberatung. Die Aufnahme oder Nicht-Aufnahme eines Modells erfolgt nach Sachkriterien (Hygienefaktoren) und impliziert keine Bevorzugung.",
       "fields_explanation": {
         "tier": "Frontier Closed (proprietäres Top-Modell, nur per API), Frontier Open (offene Gewichte auf Top-Niveau), Regional (lokal/sprachlich spezialisiert), Specialist (Domain- oder Architektur-Spezialist), Research (Forschungs-/Lehrmodell)",
+        "status": "current = aktuelles Modell des Herstellers, legacy = durch Nachfolger abgelöst aber weiter nutzbar (Nachfolger wird genannt), retired = API abgeschaltet oder Projekt beendet, preview = angekündigt oder nur eingeschränkt verfügbar",
         "eu_host": "Modell ist technisch ohne US-Anbieter in der EU hostbar (Self-Host oder europäischer Cloud-Anbieter)",
         "pricing": "€ = sehr günstig oder kostenlos self-hostbar, €€ = günstig, €€€ = mittel, €€€€ = oberer Mittelpreis, €€€€€ = Frontier-Premium, €€€€€€ = Top-Premium-Tier (z.B. Long-Context-Frontier)",
         "openness": "closed = nicht zugänglich, api-only = nur kommerzielle API, weights-research = Gewichte verfügbar nur für Forschung, open-weights = Gewichte verfügbar mit Auflagen, open-source = OSI-konforme freie Lizenz, public-domain = gemeinfrei",
         "cloud_act": "Exposition gegenüber dem US Cloud Act bei Standard-Nutzung (none/low/medium/high)",
+        "model_class": "Architektur-Klasse jenseits der Modalität: llm (autoregressives Sprachmodell, Standard, wird nicht ausgewiesen) oder system-one (Entscheidungsmodell mit typisierten Antworten und kalibrierten Wahrscheinlichkeiten statt Text)",
         "sovereignty": "Aggregierter europäischer Souveränitätsscore 1-5 (1 = stark exponiert, 5 = vollständig souverän bei vollständiger EU-konformer Nutzung)",
         "transparency": "Offenheit der Trainingsdaten und -methoden (none/low/medium/high)",
         "german_capability": "Praxisbeobachtete Deutschkompetenz (low/medium/high)"
@@ -81,12 +83,12 @@
         "Hygienefaktor 3 (Verfügbarkeit): Modell ist für BVDW-Mitglieder zugänglich (öffentliche API, offene Gewichte oder kommerzielles Lizenzmodell)."
       ]
     },
-    "updated_at": "2026-04-15T10:13:28.815+00:00"
+    "updated_at": "2026-10-06T10:09:34.479+00:00"
   },
   {
     "atlas": "specialized",
     "data": {
-      "scope": "Diese Liste umfasst Foundation Models, die NICHT primär Text-zu-Text-Konversationsmodelle sind. Sie ergänzt die Konversationsmodell-Liste und nutzt ein eigenes Schema mit Modalitäten, Task-Typen und Sprachunterstützung. Foundation Models, die textlich antworten (auch Vision-Language-Modelle), sind in der Konversations-Liste zu finden.",
+      "scope": "Diese Liste umfasst Foundation Models, die NICHT primär Text-zu-Text-Konversationsmodelle sind: Bild, Video, Sprache, Musik und Audio — sowie seit Oktober 2026 Entscheidungsmodelle („System One“ / Decision AI), die Text oder JSON entgegennehmen und statt Text eine typisierte Entscheidung (Auswahl, Score, Ja/Nein) mit kalibrierter Wahrscheinlichkeit zurückgeben. Sie ergänzt die Konversationsmodell-Liste und nutzt ein eigenes Schema mit Modalitäten, Task-Typen und Sprachunterstützung. Foundation Models, die textlich antworten (auch Vision-Language-Modelle), sind in der Konversations-Liste zu finden.",
       "title": "BVDW Foundation Models Atlas — Spezial-Modalitäten",
       "curator": "BVDW AI Tech Lab",
       "filters": {
@@ -124,7 +126,10 @@
           "musik-jingle",
           "sound-design",
           "creative",
-          "compliance"
+          "compliance",
+          "kundenkommunikation",
+          "datenanalyse",
+          "agent"
         ],
         "task_types": [
           "image-generation",
@@ -134,35 +139,40 @@
           "text-to-speech",
           "speech-to-speech",
           "music-generation",
-          "audio-generation"
+          "audio-generation",
+          "decision"
         ],
         "modality_in": [
           "text",
           "image",
           "audio",
-          "video"
+          "video",
+          "json"
         ],
         "modality_out": [
           "image",
           "video",
           "audio",
-          "text"
+          "text",
+          "decision"
         ]
       },
-      "version": "0.1-draft",
+      "version": "0.4",
       "language": "de",
       "subtitle": "Eigenständige Übersicht generativer und transformativer Foundation Models außerhalb des Text-Konversationsformats",
-      "last_updated": "2026-04-15",
+      "last_updated": "2026-10-06",
       "neutrality_notice": "Auch diese Übersicht ist neutrale Information, keine Empfehlung. Praxisnotizen sind beobachtende Beschreibungen verbreiteter Einsatzformen.",
       "fields_explanation": {
-        "task_type": "Hauptaufgabe (image-generation, image-editing, video-generation, speech-to-text, text-to-speech, speech-to-speech, music-generation, audio-generation)",
+        "status": "current = aktuelles Modell des Herstellers, legacy = durch Nachfolger abgelöst aber weiter nutzbar, retired = abgeschaltet, preview = eingeschränkt verfügbar",
+        "task_type": "Hauptaufgabe (image-generation, image-editing, video-generation, speech-to-text, text-to-speech, speech-to-speech, music-generation, audio-generation, decision = Entscheidungsmodell / System One)",
         "modality_in": "Eingangsmodalität (text/image/audio/video)",
+        "model_class": "Architektur-Klasse: system-one für Entscheidungsmodelle (typisierte Antworten + kalibrierte Wahrscheinlichkeiten, keine Textgenerierung); Standard-Generativmodelle tragen keine Klasse",
         "sovereignty": "Aggregierter europäischer Souveränitätsscore 1-5",
-        "modality_out": "Ausgangsmodalität (image/audio/video/text)",
+        "modality_out": "Ausgangsmodalität (image/audio/video/text/decision = typisierte Entscheidung mit Wahrscheinlichkeit statt Medium oder Text)",
         "language_support": "Sprachunterstützung wo relevant (multilingual/english-dominant/limited/n-a für sprachunabhängige Modalitäten wie Bild)"
       },
-      "categorization_note": "Modelle sind nach Eingangs- und Ausgangs-Modalität sowie Task-Typ getaggt. Pricing- und Sovereignty-Logik analog zur Konversationsliste."
+      "categorization_note": "Modelle sind nach Eingangs- und Ausgangs-Modalität sowie Task-Typ getaggt. Entscheidungsmodelle (System One) tragen task_type = decision, modality_out = decision und model_class = system-one; für sie werden zusätzlich Kalibrierungs-, Latenz- und Schema-Angaben in den Specs geführt. Pricing- und Sovereignty-Logik analog zur Konversationsliste."
     },
-    "updated_at": "2026-04-15T10:13:29.807+00:00"
+    "updated_at": "2026-10-06T10:09:34.639+00:00"
   }
 ]

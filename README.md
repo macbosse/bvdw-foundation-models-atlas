@@ -8,7 +8,7 @@ Ein Projekt des BVDW AI Tech Lab. Live: **[bosses-foundation-models.vercel.app](
 
 ## Was ist das?
 
-Ein offener Atlas von derzeit **148 Foundation Models** — von GPT und Claude über Mistral, Aleph Alpha und Qwen bis zu kleineren Regional-Modellen aus Indien, Japan und dem Nahen Osten. Kuratiert mit Fokus auf:
+Ein offener Atlas von derzeit **264 Foundation Models** (172 Konversations-LLMs, 92 Spezial-Modalitäten inkl. Entscheidungsmodelle; Stand Oktober 2026) — von GPT-6 und Claude 5 über Mistral 3, Kolibri und Qwen 3.x bis zu Regional-Modellen aus Korea, Japan, Indien und dem Nahen Osten. Abgelöste Modelle bleiben als Legacy nachvollziehbar. Kuratiert mit Fokus auf:
 
 - **Souveränität**: Wie DSGVO-konform ist der Einsatz? Ist ein On-Prem-Betrieb möglich? US CLOUD Act anwendbar?
 - **Praxis**: Wofür ist das Modell im Alltag wirklich gut? Wo sind bekannte Schwächen?
@@ -17,6 +17,8 @@ Ein offener Atlas von derzeit **148 Foundation Models** — von GPT und Claude �
 ## Features
 
 - **Drei Ansichten**: klassische Liste · Quartett-Karten (mit PDF-Export) · interaktiver Swipe-Finder
+- **Lebenszyklus-Status** pro Modell: abgelöste Modelle bleiben als „Legacy“ mit Nachfolger-Verweis erhalten, abgeschaltete als „Eingestellt“; per Filter ausblendbar
+- **Entscheidungsmodelle („System One“ / Decision AI)** seit Oktober 2026 als eigener Task-Typ und Modellklasse im Spezial-Atlas, mit Task-Typ-Filter — Konzept in [docs/system-one-decision-models.md](docs/system-one-decision-models.md)
 - **Deployment-Buckets**: fünf realistische Einsatz-Szenarien (Eigene Hardware bis Vendor-Direct), automatisch pro Modell eingeordnet
 - **Info-Tooltips** und ausklappbare Methodik-Legende für jede Bewertung
 - **Versionierter Edit-Mode** mit Rollback, Deeplinks pro Modell, Share via Web-Share-API
@@ -49,7 +51,7 @@ cp .env.example .env.local  # falls vorhanden, sonst manuell
 # Daten importieren (einmalig)
 npm run import-all
 
-# Lokaler Dev-Server mit Vercel CLI
+# Lokaler Dev-Server mit Vercel CLI (kein npm-Script, sonst ruft vercel dev sich selbst auf)
 npx vercel dev
 ```
 
@@ -71,11 +73,27 @@ vercel --prod
 
 ENV-Variablen im Vercel-Dashboard unter Settings → Environment Variables setzen.
 
+## Daten aktualisieren
+
+Kleine Korrekturen laufen über den Edit-Mode im Frontend. Größere Updates (viele neue Modelle, Legacy-Markierungen) werden als Paket in `data/updates/` beschrieben und idempotent eingespielt — jede Änderung erzeugt wie im Edit-Mode einen Versions-Snapshot:
+
+```bash
+npm run import-delta -- data/updates/2026-10-update.json --dry-run   # Plan anzeigen
+npm run import-delta -- data/updates/2026-10-update.json             # einspielen
+npm run export-all                                                   # Backup in data-export/ aktualisieren
+```
+
+Für reine Frontend-Arbeiten ohne Supabase-Credentials: `node scripts/dev-static.js` serviert die statischen Dateien und leitet `/api/*` an die Produktion weiter.
+
+Betrieb: Supabase pausiert Free-Tier-Projekte nach sieben Tagen ohne Datenbankaktivität. Dagegen laufen ein Vercel-Cron (`vercel.json`) und ein GitHub-Actions-Workflow (`.github/workflows/keep-alive.yml`), der bei Ausfall fehlschlägt und damit per E-Mail alarmiert.
+
 ## Dokumentation
 
 - **[HANDOVER_BVDW.md](HANDOVER_BVDW.md)** — technisches Übergabe-Dokument mit komplettem Setup-Guide, Migrations-Anleitung und Betriebs-Empfehlungen
 - **[HANDOVER.md](HANDOVER.md)** — Team-Anleitung für redaktionelle Mitarbeit (Edit-Mode, Versionshistorie)
 - **[supabase/schema.sql](supabase/schema.sql)** — kommentiertes Datenbank-Schema
+- **[docs/system-one-decision-models.md](docs/system-one-decision-models.md)** — Einordnung und Integrationskonzept für Entscheidungsmodelle (System One)
+- **[data/updates/](data/updates/)** — versionierte Update-Pakete für `npm run import-delta` (Referenz: Update Oktober 2026)
 
 ## Warum das so gebaut ist
 

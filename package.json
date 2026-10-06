@@ -5,7 +5,6 @@
   "description": "BVDW AI Tech Lab — Foundation Models Atlas. Neutrale, kuratierte Übersicht mit europäischer Souveränitätsperspektive.",
   "type": "module",
   "scripts": {
-    "dev": "vercel dev",
     "deploy": "vercel --prod --yes",
     "init-db": "node --env-file=.env.local scripts/init-db.js",
     "import": "node --env-file=.env.local scripts/import.js",
@@ -14,7 +13,9 @@
     "import-all": "node --env-file=.env.local scripts/import-all.js",
     "render-pdfs": "node scripts/render-pdfs.js",
     "render-preview": "node scripts/render-social-preview.js",
-    "setup": "npm run init-db && npm run import"
+    "setup": "npm run init-db && npm run import",
+    "import-delta": "node --env-file=.env.local scripts/import-delta.js",
+    "resolve-logos": "node --env-file=.env.local scripts/resolve-logos.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

@@ -9,7 +9,9 @@ Eine kuratierte, neutrale Übersicht relevanter Foundation Models mit europäisc
 ## Zwei Atlas-Tabs
 
 1. **Konversations-LLMs** — Text-zu-Text-Modelle, die Deutsch beherrschen (Hygienefaktor).
-2. **Spezial-Modalitäten** — Bild, Video, Audio-zu-Text, Text-zu-Sprache, Musik. Eigenes Schema.
+2. **Spezial-Modalitäten** — Bild, Video, Audio-zu-Text, Text-zu-Sprache, Musik. Eigenes Schema. Seit Oktober 2026 auch **Entscheidungsmodelle („System One“ / Decision AI)**: Sie nehmen Text oder JSON entgegen und geben statt Text eine typisierte Entscheidung (Auswahl, Score, Ja/Nein) mit Wahrscheinlichkeit zurück. Im Atlas: Task-Typ `decision`, Ausgangsmodalität `decision`, Modellklasse `system-one`. Der Filter „Task-Typ“ erscheint nur in diesem Tab.
+
+**Legacy-Filter:** Unten in der Filterleiste lassen sich abgelöste und eingestellte Modelle ausblenden. Standardmäßig werden sie angezeigt, aber gedimmt und mit Badge („Legacy“ bzw. „Eingestellt“) markiert; im Detail steht der Nachfolger.
 
 ## Zwei Ansichten pro Atlas
 
@@ -32,6 +34,9 @@ Ist der Edit-Mode aktiv, sehen alle Karten einen orangen Rahmen und einen kleine
 Stift-Button auf einer Karte klicken. Das Edit-Modal zeigt alle Felder des Modells als Formular:
 
 - Grundlegende Felder: Name, Vendor, Land, Region, Tier, Release-Jahr, Parameter, Kontextfenster
+- **Lebenszyklus (seit Oktober 2026): `status`** (`current` / `legacy` / `retired` / `preview`) und **`successor`** (Name des Nachfolgemodells). Abgelöste Modelle werden nicht gelöscht, sondern auf `legacy` gesetzt — so bleibt der Atlas nachvollziehbar, und Leser können Legacy-Einträge per Filter ausblenden.
+- **Modellklasse (`model_class`)**: leer für normale LLMs, `system-one` für Entscheidungsmodelle (siehe unten)
+- Nur Spezial-Liste: Task-Typ, Eingangs-/Ausgangs-Modalität, Sprachsupport
 - Lizenz und URLs: License ID, Offenheit, URL, Weights-URL
 - **Bilder: `image_url` (Logo) und `hero_image_url` (Hero-Bild für Quartett-Karten)**
 - Souveränität: EU-Hosting, Cloud Act, Transparenz, Sovereignty-Score

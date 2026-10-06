@@ -19,7 +19,7 @@
       </div>
       <h1>Foundation Models Atlas</h1>
       <div class="sub">Neutrale Übersicht relevanter Foundation Models mit europäischer Souveränitätsperspektive — eine Arbeitsgrundlage zur Diskussion in BVDW-Mitgliedsunternehmen.</div>
-      <div class="meta">Version 0.3 · Stand <span id="last-updated">…</span> · Draft · Passwortgeschützter Edit-Modus</div>
+      <div class="meta">Version 0.4 · Stand <span id="last-updated">…</span> · Draft · Passwortgeschützter Edit-Modus</div>
     </div>
     <div class="tools">
       <button class="history-btn" onclick="openHistoryFlyout()">Historie</button>
@@ -71,6 +71,10 @@
       <label>Use Case</label>
       <div class="pillgroup" id="filter-usecase"></div>
     </div>
+    <div class="field" id="task-field" style="display:none">
+      <label>Task-Typ</label>
+      <div class="pillgroup" id="filter-task"></div>
+    </div>
     <div class="field">
       <label>Einsatz-Optionen (Deployment)</label>
       <div class="bucket-pillgroup" id="filter-buckets"></div>
@@ -105,6 +109,9 @@
         <option value="2">medium+</option>
         <option value="3">high</option>
       </select>
+    </div>
+    <div class="field">
+      <label class="check"><input type="checkbox" id="filter-hide-legacy"> Legacy- und eingestellte Modelle ausblenden</label>
     </div>
     <button class="reset" onclick="resetFilters()">Filter zurücksetzen</button>
   </aside>
@@ -379,6 +386,7 @@
           <li>Generative oder transformative Modelle außerhalb Text-zu-Text</li>
           <li>Eigenes Schema mit Modalität, Task-Typ, Sprachunterstützung</li>
           <li>Sprachfähigkeit nicht Voraussetzung, da z.B. Bildgeneration sprachunabhängig</li>
+          <li>Seit Oktober 2026 auch Entscheidungsmodelle („System One“): Text oder JSON rein, typisierte Entscheidung mit kalibrierter Wahrscheinlichkeit raus — als eigener Task-Typ „Entscheidung“ und Modellklasse geführt</li>
         </ul>
       </div>
     </div>

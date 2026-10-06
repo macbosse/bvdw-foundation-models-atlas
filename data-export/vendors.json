@@ -30,6 +30,16 @@
     "updated_at": "2026-04-22T08:44:23.161+00:00"
   },
   {
+    "slug": "ai-singapore",
+    "name": "AI Singapore",
+    "country": "SG",
+    "website": "https://sea-lion.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=AI%20Singapore&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.729+00:00"
+  },
+  {
     "slug": "ai21-labs",
     "name": "AI21 Labs",
     "country": "IL",
@@ -80,6 +90,16 @@
     "updated_at": "2026-04-22T08:44:23.453+00:00"
   },
   {
+    "slug": "amazon-aws",
+    "name": "AWS",
+    "country": "US",
+    "website": "https://siliconangle.com/2026/10/01/aws-debuts-strands-decider-2b-a-first-lightweight-decision-model-for-accelerate-agentic-workflows/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=AWS&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.762+00:00"
+  },
+  {
     "slug": "anthropic",
     "name": "Anthropic",
     "country": "US",
@@ -118,6 +138,16 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:24.35+00:00"
+  },
+  {
+    "slug": "baidu",
+    "name": "Baidu",
+    "country": "CN",
+    "website": "https://ernie.baidu.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/baidu.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.838+00:00"
   },
   {
     "slug": "barcelona-supercomputing-center-bsc",
@@ -200,6 +230,16 @@
     "updated_at": "2026-04-22T09:37:46.32+00:00"
   },
   {
+    "slug": "cloudflare",
+    "name": "Cloudflare",
+    "country": "US",
+    "website": "https:/",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/cloudflare.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.871+00:00"
+  },
+  {
     "slug": "cohere",
     "name": "Cohere",
     "country": "CA",
@@ -218,6 +258,26 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:25.662+00:00"
+  },
+  {
+    "slug": "contrastive-lm",
+    "name": "Contrastive-LM",
+    "country": "US",
+    "website": "https://systemonemodels.org/models/clm/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Contrastive-LM&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.901+00:00"
+  },
+  {
+    "slug": "convai-innovations",
+    "name": "Convai Innovations",
+    "country": "IN",
+    "website": "https://github.com/NandhaKishorM/laya",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Convai%20Innovations&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.933+00:00"
   },
   {
     "slug": "coqui-open-source-erbe",
@@ -298,6 +358,16 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:26.684+00:00"
+  },
+  {
+    "slug": "fastino-labs",
+    "name": "Fastino Labs",
+    "country": "US",
+    "website": "https://fastino.ai",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Fastino%20Labs&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:24.964+00:00"
   },
   {
     "slug": "g42-inception-mbzuai",
@@ -400,6 +470,16 @@
     "updated_at": "2026-04-22T09:37:46.633+00:00"
   },
   {
+    "slug": "jared-palmer",
+    "name": "Jared Palmer",
+    "country": "US",
+    "website": "https://systemonemodels.org/models/kev/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Jared%20Palmer&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:25.079+00:00"
+  },
+  {
     "slug": "krutrim-si-designs-ola",
     "name": "Krutrim Si Designs (Ola)",
     "country": "IN",
@@ -470,6 +550,36 @@
     "updated_at": "2026-04-22T09:37:46.791+00:00"
   },
   {
+    "slug": "lightricks",
+    "name": "Lightricks",
+    "country": "IL",
+    "website": "https://huggingface.co/Lightricks/LTX-2",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/lightricks.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:25.942+00:00"
+  },
+  {
+    "slug": "linagora-openllm-france",
+    "name": "LINAGORA / OpenLLM-France",
+    "country": "FR",
+    "website": "https://huggingface.co/collections/OpenLLM-France/luciole-llm",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=LINAGORA%20%2F%20OpenLLM-France&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:25.975+00:00"
+  },
+  {
+    "slug": "liquid-ai",
+    "name": "Liquid AI",
+    "country": "US",
+    "website": "https://www.liquid.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/liquid.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.004+00:00"
+  },
+  {
     "slug": "m-a-p-hkust",
     "name": "M-A-P / HKUST",
     "country": "CN",
@@ -478,6 +588,16 @@
     "logo_source": "dicebear",
     "brand_color": null,
     "updated_at": "2026-04-22T09:37:46.842+00:00"
+  },
+  {
+    "slug": "meituan",
+    "name": "Meituan",
+    "country": "CN",
+    "website": "https://huggingface.co/meituan-longcat/LongCat-2.0",
+    "logo_url": "https://cdn.simpleicons.org/meituan",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.104+00:00"
   },
   {
     "slug": "meta",
@@ -630,6 +750,16 @@
     "updated_at": "2026-04-22T09:37:47.166+00:00"
   },
   {
+    "slug": "perplexity",
+    "name": "Perplexity",
+    "country": "US",
+    "website": "https://docs.perplexity.ai/docs/decisions/quickstart",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/perplexity.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.135+00:00"
+  },
+  {
     "slug": "pika-labs",
     "name": "Pika Labs",
     "country": "US",
@@ -680,6 +810,36 @@
     "updated_at": "2026-04-22T09:37:45.658+00:00"
   },
   {
+    "slug": "qcri",
+    "name": "QCRI (Hamad Bin Khalifa University)",
+    "country": "QA",
+    "website": "https://www.fanar.qa/en/2-0-release-notes",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=QCRI%20(Hamad%20Bin%20Khalifa%20University)&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.167+00:00"
+  },
+  {
+    "slug": "rakuten",
+    "name": "Rakuten",
+    "country": "JP",
+    "website": "https://global.rakuten.com/corp/news/press/2026/0317_01.html",
+    "logo_url": "https://cdn.simpleicons.org/rakuten",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.198+00:00"
+  },
+  {
+    "slug": "recraft",
+    "name": "Recraft",
+    "country": "GB",
+    "website": "https://www.recraft.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/recraft.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:26.3+00:00"
+  },
+  {
     "slug": "reka-ai",
     "name": "Reka AI",
     "country": "US",
@@ -688,6 +848,16 @@
     "logo_source": "dicebear",
     "brand_color": null,
     "updated_at": "2026-04-22T09:37:45.713+00:00"
+  },
+  {
+    "slug": "resemble-ai",
+    "name": "Resemble AI",
+    "country": "US",
+    "website": "https://www.resemble.ai/learn/models/chatterbox-multilingual",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Resemble%20AI&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.177+00:00"
   },
   {
     "slug": "runway",
@@ -730,6 +900,16 @@
     "updated_at": "2026-04-22T09:37:45.819+00:00"
   },
   {
+    "slug": "servicenow",
+    "name": "ServiceNow",
+    "country": "US",
+    "website": "https://huggingface.co/ServiceNow-AI/Apriel-1.5-15b-Thinker",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=ServiceNow&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.211+00:00"
+  },
+  {
     "slug": "shanghai-ai-laboratory",
     "name": "Shanghai AI Laboratory",
     "country": "CN",
@@ -768,6 +948,16 @@
     "logo_source": "dicebear",
     "brand_color": null,
     "updated_at": "2026-04-22T09:37:47.422+00:00"
+  },
+  {
+    "slug": "sk-telecom",
+    "name": "SK Telecom",
+    "country": "KR",
+    "website": "https://huggingface.co/skt/A.X-K1",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=SK%20Telecom&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.244+00:00"
   },
   {
     "slug": "snowflake",
@@ -820,6 +1010,16 @@
     "updated_at": "2026-04-22T08:44:35.111+00:00"
   },
   {
+    "slug": "stepfun",
+    "name": "StepFun",
+    "country": "CN",
+    "website": "https://static.stepfun.com",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/stepfun.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.35+00:00"
+  },
+  {
     "slug": "suno",
     "name": "Suno",
     "country": "US",
@@ -828,6 +1028,16 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:35.166+00:00"
+  },
+  {
+    "slug": "swiss-ai-initiative-eth-zuerich-epfl-cscs",
+    "name": "Swiss AI Initiative (ETH Zürich, EPFL, CSCS)",
+    "country": "CH",
+    "website": "https://publicai.co/stories/apertus-1-5",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=Swiss%20AI%20Initiative%20(ETH%20Z%C3%BCrich%2C%20EPFL%2C%20CSCS)&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.396+00:00"
   },
   {
     "slug": "swivid-forschung",
@@ -868,6 +1078,16 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:35.388+00:00"
+  },
+  {
+    "slug": "typesafe-ai",
+    "name": "TypeSafe AI",
+    "country": "US",
+    "website": "https://typesafe.ai/",
+    "logo_url": "https://api.dicebear.com/7.x/shapes/svg?seed=TypeSafe%20AI&backgroundColor=FAF8F5",
+    "logo_source": "dicebear",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.429+00:00"
   },
   {
     "slug": "udio",
@@ -930,6 +1150,16 @@
     "updated_at": "2026-04-22T09:37:46.025+00:00"
   },
   {
+    "slug": "vllm-semantic-router",
+    "name": "vLLM Semantic Router",
+    "country": "US",
+    "website": "https://vllm-sr.ai",
+    "logo_url": "https://unpkg.com/@lobehub/icons-static-png@latest/dark/vllm.png",
+    "logo_source": "lobe",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.465+00:00"
+  },
+  {
     "slug": "xai",
     "name": "xAI",
     "country": "US",
@@ -938,6 +1168,16 @@
     "logo_source": "lobe",
     "brand_color": null,
     "updated_at": "2026-04-22T08:44:36.726+00:00"
+  },
+  {
+    "slug": "xiaomi",
+    "name": "Xiaomi",
+    "country": "CN",
+    "website": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+    "logo_url": "https://cdn.simpleicons.org/xiaomi",
+    "logo_source": "simpleicons",
+    "brand_color": null,
+    "updated_at": "2026-10-06T10:14:27.494+00:00"
   },
   {
     "slug": "yandex",

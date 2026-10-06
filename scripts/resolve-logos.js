@@ -125,12 +125,7 @@ async function resolveOneVendor(vendor) {
     if (await urlOk(url)) return { url, source: 'simpleicons' };
   }
 
-  // 3) Clearbit via website
-  const domain = extractDomain(vendor.website);
-  if (domain) {
-    const url = `https://logo.clearbit.com/${domain}`;
-    if (await urlOk(url)) return { url, source: 'clearbit' };
-  }
+  // 3) Clearbit-Logo-Dienst wurde 2026 abgeschaltet (DNS NXDOMAIN) – Schritt entfällt.
 
   // 4) DiceBear
   return { url: dicebear(name), source: 'dicebear' };
@@ -143,7 +138,12 @@ async function main() {
     .select('slug, name, website, logo_url')
     .order('slug', { ascending: true });
   if (error) throw error;
-  console.log(`Gefunden: ${vendors.length} Vendors`);
+  // Standard: nur Vendors ohne Logo auflösen (neue Einträge). Mit --all werden alle neu aufgelöst
+  // und bestehende, ggf. manuell gepflegte Logos überschrieben.
+  const all = process.argv.includes('--all');
+  const todo = all ? vendors : vendors.filter(v => !v.logo_url);
+  console.log(`Gefunden: ${vendors.length} Vendors, davon ${todo.length} ${all ? 'werden neu aufgelöst (--all)' : 'ohne Logo'}`);
+  vendors.length = 0; vendors.push(...todo);
 
   // Parallel in Batches, damit wir nicht ewig warten
   const BATCH = 8;

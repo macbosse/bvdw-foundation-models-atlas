@@ -6,7 +6,7 @@ const STATE = {
   atlas: 'conversational',  // 'conversational' | 'specialized'
   view: 'list',             // 'list' | 'quartett'
   data: { conversational: null, specialized: null },
-  filters: { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all' },
+  filters: { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all', task: new Set(), hideLegacy: false },
   edit: {
     active: false,
     password: null,  // sessionStorage
@@ -119,6 +119,21 @@ const FIELD_EXPLAIN = {
     short: 'Realistische Deployment-Szenarien für deutschen Mittelstand, in 5 Stufen von maximal souverän bis maximal convenient.',
     detail: 'Jedes Modell wird automatisch in die passenden Buckets eingeordnet — abhängig von Offenheit (open-weights vs. api-only) und Herstellerregion. Die Buckets sind:\n\n• B1 Eigene Hardware — On-Prem im eigenen Rechenzentrum, maximale Souveränität\n• B2 EU-Sovereign-Cloud — managed GPUs bei STACKIT/IONOS/OVHcloud usw., DSGVO-konform ohne Cloud-Act\n• B3 EU-Vendor-API — direkter API-Zugriff beim EU-Hersteller\n• B4 US-Hyperscaler EU-Region — Azure/AWS/GCP in EU-Region, aber CLOUD Act anwendbar\n• B5 Vendor-Direct außereuropäisch — OpenAI/Anthropic direkt, Schrems-II-problematisch\n\nKlick auf eine aktive Bucket-Karte zeigt Setup, Invest, Pros/Cons.\n\nDisclaimer: Redaktionelle Orientierung, keine Rechtsberatung.'
   },
+  status: {
+    label: 'Status',
+    short: 'Lebenszyklus-Status des Eintrags.',
+    detail: '• aktuell — aktuelles Modell des Herstellers in seiner Klasse\n• legacy — vom Hersteller durch einen Nachfolger abgelöst, aber weiterhin nutzbar (API/Gewichte verfügbar); Nachfolger wird genannt\n• eingestellt — API abgeschaltet bzw. Projekt beendet; bleibt zur Nachvollziehbarkeit im Atlas\n• preview — angekündigt oder nur eingeschränkt verfügbar\n\nLegacy-Einträge lassen sich im Filter ausblenden.'
+  },
+  model_class: {
+    label: 'Modellklasse',
+    short: 'Architektur-Klasse jenseits der Modalität.',
+    detail: '• LLM — autoregressives Sprachmodell, erzeugt Text Token für Token (Standardfall, wird nicht extra ausgewiesen)\n• System One — Entscheidungsmodell: nimmt Text/JSON und vordefinierte, typisierte Fragen entgegen und liefert statt Text eine Auswahl, einen Score oder ein Ja/Nein mit kalibrierter Wahrscheinlichkeit. Benannt nach Kahnemans schnellem „System 1“. Erzeugt keine Texte, Begründungen oder Code — gedacht als schnelle, günstige Entscheidungsschicht neben einem LLM (Routing, Triage, Guardrails, Scoring).\n\nDie Klasse ist jung (erste Modelle September 2026); Kalibrierungs- und Geschwindigkeitsangaben stammen überwiegend von den Herstellern.'
+  },
+  task_type: {
+    label: 'Task-Typ',
+    short: 'Hauptaufgabe des Modells in der Spezial-Liste.',
+    detail: 'Bildgenerierung, Bildbearbeitung, Videogenerierung, Speech-to-Text, Text-to-Speech, Speech-to-Speech, Musik- und Audiogenerierung — sowie seit Oktober 2026 „Entscheidung“ für System-One-/Decision-Modelle, die typisierte Entscheidungen statt Medien oder Text ausgeben.'
+  },
   benchmarks: {
     label: 'Benchmarks & Vergleichswerte',
     short: 'Warum wir keine eigenen Benchmark-Zahlen pflegen — und wo ihr sie dennoch findet.',
@@ -137,6 +152,10 @@ function infoIcon(key) {
 const REGION_LABEL = { DACH: 'DACH', EU: 'EU', US: 'USA', CN: 'China', KR: 'Korea', JP: 'Japan', IN: 'Indien', MENA: 'MENA', AF: 'Afrika', RU: 'Russland', INTL: 'Intl.' };
 const TIER_LABEL = { 'frontier-closed': 'Frontier closed', 'frontier-open': 'Frontier open', regional: 'Regional', specialist: 'Spezialist', research: 'Forschung' };
 const OPEN_LABEL = { closed: 'Closed', 'api-only': 'Nur API', 'weights-research': 'Weights (Forschung)', 'open-weights': 'Open Weights', 'open-source': 'Open Source', 'public-domain': 'Public Domain' };
+const STATUS_LABEL = { current: 'Aktuell', legacy: 'Legacy', retired: 'Eingestellt', preview: 'Preview' };
+const CLASS_LABEL = { 'system-one': 'System One', llm: 'LLM', diffusion: 'Diffusion' };
+const TASK_LABEL = { 'image-generation': 'Bildgenerierung', 'image-editing': 'Bildbearbeitung', 'video-generation': 'Videogenerierung', 'speech-to-text': 'Speech-to-Text', 'text-to-speech': 'Text-to-Speech', 'speech-to-speech': 'Speech-to-Speech', 'music-generation': 'Musikgenerierung', 'audio-generation': 'Audiogenerierung', decision: 'Entscheidung (System One)' };
+const isLegacy = m => m && (m.status === 'legacy' || m.status === 'retired');
 
 const STAT_DEFS = {
   context: { label: 'Kontext', get: m => m.context || '—', score: m => contextScore(m.context) },
@@ -454,6 +473,8 @@ function matches(m) {
   }
   if (f.region.size && !f.region.has(m.region)) return false;
   if (f.tier.size && !f.tier.has(m.tier)) return false;
+  if (f.task && f.task.size && !f.task.has(m.task_type)) return false;
+  if (f.hideLegacy && isLegacy(m)) return false;
   if (f.openness.size && !f.openness.has(m.openness)) return false;
   if (f.usecase.size) {
     const ucs = m.use_cases || [];
@@ -661,7 +682,7 @@ function answerSwipe(dir) {
 function computeFinderFilters() {
   // Temporärer Filter-State zum Zählen der Treffer
   const tempState = {
-    filters: { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all' }
+    filters: { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all', task: new Set(), hideLegacy: false }
   };
   const appliedSummaries = [];
   for (const q of SWIPE_QUESTIONS) {
@@ -750,6 +771,9 @@ function buildFilters() {
   buildPillGroup('filter-tier', filters.tiers || [], TIER_LABEL, 'tier');
   buildPillGroup('filter-openness', filters.openness || [], OPEN_LABEL, 'openness');
   buildPillGroup('filter-usecase', filters.use_cases || [], null, 'usecase');
+  buildPillGroup('filter-task', filters.task_types || [], TASK_LABEL, 'task');
+  const taskField = document.getElementById('task-field');
+  if (taskField) taskField.style.display = STATE.atlas === 'specialized' && (filters.task_types || []).length ? '' : 'none';
   buildBucketFilter();
   const germanField = document.getElementById('german-field');
   if (germanField) germanField.style.display = STATE.atlas === 'conversational' ? '' : 'none';
@@ -839,13 +863,15 @@ function listCard(m) {
   const dots = Array.from({ length: 5 }, (_, i) => `<i class="${i < sov ? 'on-' + sov : ''}"></i>`).join('');
   const useCases = (m.use_cases || []).slice(0, 4).map(u => `<span class="tag">${escapeHtml(u)}</span>`).join('');
   const region = REGION_LABEL[m.region] || m.region || '—';
-  return `<div class="card" onclick="openModel('${escapeAttr(m.id)}')" tabindex="0" onkeypress="if(event.key==='Enter')openModel('${escapeAttr(m.id)}')">
+  const classBadge = m.model_class && m.model_class !== 'llm' ? `<span class="badge class-${escapeAttr(m.model_class)}">${escapeHtml(CLASS_LABEL[m.model_class] || m.model_class)}</span>` : '';
+  const statusBadge = m.status && m.status !== 'current' ? `<span class="badge status-${escapeAttr(m.status)}" title="${escapeAttr(m.successor ? 'Nachfolger: ' + m.successor : (STATUS_LABEL[m.status] || m.status))}">${escapeHtml(STATUS_LABEL[m.status] || m.status)}</span>` : '';
+  return `<div class="card${isLegacy(m) ? ' is-legacy' : ''}" onclick="openModel('${escapeAttr(m.id)}')" tabindex="0" onkeypress="if(event.key==='Enter')openModel('${escapeAttr(m.id)}')">
     <button class="edit-btn" onclick="event.stopPropagation();openEdit('${escapeAttr(m.id)}')" title="Edit">✎</button>
     <div class="name">${logoImg(m, 'logo-small')}<span class="name-text">${escapeHtml(m.name)}</span></div>
     <div class="vendor">${escapeHtml(m.vendor || '')}</div>
     <div class="badges">
       <span class="badge region">${region}</span>
-      <span class="badge tier-${m.tier}">${TIER_LABEL[m.tier] || m.tier || ''}</span>
+      <span class="badge tier-${m.tier}">${TIER_LABEL[m.tier] || m.tier || ''}</span>${classBadge}${statusBadge}
     </div>
     <div class="row">
       <span class="sov" title="Souveränität ${sov}/5">${dots}</span>
@@ -1427,11 +1453,13 @@ function openModel(id, opts = {}) {
   } else {
     meta.push(['modalities', 'Eingang', m.modality_in || '—']);
     meta.push(['modalities', 'Ausgang', m.modality_out || '—']);
-    meta.push([null, 'Task', m.task_type || '—']);
+    meta.push(['task_type', 'Task', TASK_LABEL[m.task_type] || m.task_type || '—']);
     meta.push([null, 'Sprachsupport', m.language_support || '—']);
   }
   meta.push(['pricing', 'Preis', m.pricing || '—']);
   meta.push(['openness', 'Offenheit', OPEN_LABEL[m.openness] || m.openness || '—']);
+  if (m.model_class && m.model_class !== 'llm') meta.push(['model_class', 'Modellklasse', CLASS_LABEL[m.model_class] || m.model_class]);
+  if (m.status && m.status !== 'current') meta.push(['status', 'Status', (STATUS_LABEL[m.status] || m.status) + (m.successor ? ' · Nachfolger: ' + m.successor : '')]);
   const metaHtml = meta.map(([key, label, v]) => {
     const info = key ? infoIcon(key) : '';
     return `<div><div class="lbl">${label}${info}</div><div class="val">${escapeHtml(String(v))}</div></div>`;
@@ -1567,6 +1595,13 @@ const EDIT_FIELDS = [
   { key: 'year', label: 'Release-Jahr', type: 'number' },
   { key: 'context', label: 'Kontextfenster', type: 'text' },
   { key: 'params', label: 'Parameter', type: 'text' },
+  { key: 'status', label: 'Status (current/legacy/retired/preview)', type: 'text' },
+  { key: 'successor', label: 'Nachfolger (Modellname, bei legacy)', type: 'text' },
+  { key: 'model_class', label: 'Modellklasse (leer=LLM, system-one, diffusion)', type: 'text' },
+  { key: 'task_type', label: 'Task-Typ (nur Spezial-Liste)', type: 'text' },
+  { key: 'modality_in', label: 'Eingangs-Modalität (nur Spezial-Liste)', type: 'text' },
+  { key: 'modality_out', label: 'Ausgangs-Modalität (nur Spezial-Liste)', type: 'text' },
+  { key: 'language_support', label: 'Sprachsupport (nur Spezial-Liste)', type: 'text' },
   { key: 'license_id', label: 'License ID', type: 'text' },
   { key: 'openness', label: 'Offenheit', type: 'text' },
   { key: 'url', label: 'URL / Homepage', type: 'url' },
@@ -1777,7 +1812,9 @@ async function revertToVersion(id, version) {
 // ─── Tab / View switching ──────────────────────────────────────────────────
 async function switchTab(atlas) {
   STATE.atlas = atlas;
-  STATE.filters = { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), sov: 0, price: 6, german: 0 };
+  STATE.filters = { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all', task: new Set(), hideLegacy: false };
+  const hideLegacyEl = document.getElementById('filter-hide-legacy');
+  if (hideLegacyEl) hideLegacyEl.checked = false;
   document.getElementById('tab-conv').setAttribute('aria-selected', atlas === 'conversational');
   document.getElementById('tab-spec').setAttribute('aria-selected', atlas === 'specialized');
   document.getElementById('search').value = '';
@@ -1808,7 +1845,9 @@ function toggleQuartettConfig() {
 }
 
 function resetFilters() {
-  STATE.filters = { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all' };
+  STATE.filters = { search: '', region: new Set(), tier: new Set(), openness: new Set(), usecase: new Set(), buckets: new Set(), sov: 0, price: 6, german: 0, onprem: 'all', task: new Set(), hideLegacy: false };
+  const hideLegacyEl = document.getElementById('filter-hide-legacy');
+  if (hideLegacyEl) hideLegacyEl.checked = false;
   document.getElementById('search').value = '';
   document.getElementById('filter-sov').value = '0';
   document.getElementById('filter-price').value = '6';
@@ -2078,6 +2117,7 @@ async function init() {
   renderMethodologyLegend();
   document.getElementById('search').addEventListener('input', e => { STATE.filters.search = e.target.value; render(); });
   document.getElementById('filter-sov').addEventListener('change', e => { STATE.filters.sov = parseInt(e.target.value); render(); });
+  { const hl = document.getElementById('filter-hide-legacy'); if (hl) hl.addEventListener('change', e => { STATE.filters.hideLegacy = e.target.checked; render(); }); }
   document.getElementById('filter-price').addEventListener('change', e => { STATE.filters.price = parseInt(e.target.value); render(); });
   const germanSel = document.getElementById('filter-german');
   if (germanSel) germanSel.addEventListener('change', e => { STATE.filters.german = parseInt(e.target.value); render(); });

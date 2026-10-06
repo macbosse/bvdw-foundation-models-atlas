@@ -1,0 +1,37 @@
+# Zweiter, von Vercel unabhängiger Keep-Alive + Monitoring für die Supabase-Datenbank.
+# Supabase pausiert Free-Tier-Projekte nach 7 Tagen ohne DB-Aktivität. Der Vercel-Cron
+# (vercel.json) ruft /api/keep-alive täglich auf; dieser Workflow tut dasselbe aus GitHub
+# heraus und schlägt FEHL, wenn die Datenbank nicht antwortet. GitHub benachrichtigt den
+# Repo-Owner bei fehlgeschlagenen Workflow-Läufen per E-Mail, so fällt ein Ausfall sofort auf.
+name: Keep-Alive & Health-Check
+
+on:
+  schedule:
+    - cron: '17 5 * * *'    # täglich 05:17 UTC
+    - cron: '17 17 * * *'   # täglich 17:17 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Keep-Alive-Endpunkt aufrufen
+        run: |
+          set -euo pipefail
+          URL="https://bosses-foundation-models.vercel.app/api/keep-alive"
+          BODY=$(curl -sS --max-time 60 -w '\n%{http_code}' "$URL")
+          CODE=$(echo "$BODY" | tail -n1)
+          JSON=$(echo "$BODY" | sed '$d')
+          echo "HTTP $CODE"
+          echo "$JSON"
+          if [ "$CODE" != "200" ]; then
+            echo "::error title=Supabase nicht erreichbar::Keep-Alive lieferte HTTP $CODE. Projekt im Supabase-Dashboard prüfen (pausiert?)."
+            exit 1
+          fi
+      - name: Frontend-Daten-API prüfen
+        run: |
+          set -euo pipefail
+          CODE=$(curl -sS -o /dev/null --max-time 60 -w '%{http_code}' "https://bosses-foundation-models.vercel.app/api/models?atlas=conversational")
+          echo "models-API HTTP $CODE"
+          [ "$CODE" = "200" ] || { echo "::error title=Models-API fehlerhaft::HTTP $CODE"; exit 1; }
