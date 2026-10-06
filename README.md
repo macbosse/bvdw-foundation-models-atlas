@@ -93,6 +93,7 @@ Betrieb: Supabase pausiert Free-Tier-Projekte nach sieben Tagen ohne Datenbankak
 - **[HANDOVER.md](HANDOVER.md)** — Team-Anleitung für redaktionelle Mitarbeit (Edit-Mode, Versionshistorie)
 - **[supabase/schema.sql](supabase/schema.sql)** — kommentiertes Datenbank-Schema
 - **[docs/system-one-decision-models.md](docs/system-one-decision-models.md)** — Einordnung und Integrationskonzept für Entscheidungsmodelle (System One)
+- **[docs/hosting-hetzner-coolify.md](docs/hosting-hetzner-coolify.md)** — Hosting-Konzept für den Live-Betrieb: Umzug auf Hetzner Cloud + Coolify, Servergröße, Kosten, DSGVO-Checkliste
 - **[data/updates/](data/updates/)** — versionierte Update-Pakete für `npm run import-delta` (Referenz: Update Oktober 2026)
 
 ## Warum das so gebaut ist
