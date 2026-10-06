@@ -85,7 +85,7 @@ npm run export-all                                                   # Backup in
 
 Für reine Frontend-Arbeiten ohne Supabase-Credentials: `node scripts/dev-static.js` serviert die statischen Dateien und leitet `/api/*` an die Produktion weiter.
 
-Betrieb: Supabase pausiert Free-Tier-Projekte nach sieben Tagen ohne Datenbankaktivität. Dagegen laufen ein Vercel-Cron (`vercel.json`) und ein GitHub-Actions-Workflow (`.github/workflows/keep-alive.yml`), der bei Ausfall fehlschlägt und damit per E-Mail alarmiert.
+Betrieb: Supabase pausiert Free-Tier-Projekte nach sieben Tagen ohne Datenbankaktivität. Dagegen laufen zwei Vercel-Crons (`vercel.json`, 06:00 und 18:00 UTC) und ein GitHub-Actions-Workflow (`.github/workflows/keep-alive.yml`, zweimal täglich). Jeder Ping schreibt einen Heartbeat; `/api/health` zeigt Datenbankstatus und das Alter des letzten Pings je Quelle, der Workflow schlägt bei Ausfall oder ausbleibenden Pings fehl und alarmiert per E-Mail. Für den offiziellen Live-Betrieb empfiehlt sich trotzdem Supabase Pro (pausiert nie) oder der Umzug auf eigene EU-Infrastruktur, siehe `docs/hosting-hetzner-coolify.md`.
 
 ## Dokumentation
 

@@ -57,10 +57,10 @@ Realistisch startet das BVDW komplett im Free-Tier und entscheidet später, ob e
 >
 > **Drei Gegenmaßnahmen, je nach Nutzungsprofil:**
 > 1. **Keep-Alive-Cron (kostenlos, bereits eingebaut):** Eine Vercel-Cron-Funktion (`/api/keep-alive`) pingt die Datenbank täglich um 06:00 UTC. Solange das Vercel-Deployment aktiv ist, wird das Projekt nie 7 Tage inaktiv und pausiert nicht. Reicht für den normalen Betrieb vollständig aus.
-> 2. **GitHub-Actions-Keep-Alive mit Alarm (kostenlos, eingebaut seit Oktober 2026):** Unabhängig von Vercel ruft ein Workflow den Keep-Alive-Endpunkt zweimal täglich auf und schlägt fehl, wenn die Datenbank nicht antwortet — GitHub benachrichtigt dann per E-Mail. Damit ist der Ausfall vom Mai/Oktober 2026 (stiller 503) nicht mehr möglich.
+> 2. **GitHub-Actions-Keep-Alive mit Alarm (kostenlos, eingebaut seit Oktober 2026):** Unabhängig von Vercel ruft ein Workflow den Keep-Alive-Endpunkt zweimal täglich auf, prüft danach `/api/health` und schlägt fehl, wenn die Datenbank nicht antwortet oder der Vercel-Cron seit über 36 Stunden nicht angekommen ist — GitHub benachrichtigt dann per E-Mail. Jeder Ping wird in der Tabelle `heartbeat` protokolliert, sodass `/api/health` jederzeit zeigt, welcher Pinger zuletzt wann ankam. Der Vercel-Cron läuft seit Oktober 2026 zweimal täglich. Damit ist der Ausfall vom Mai/Oktober 2026 (stiller 503) nicht mehr möglich.
 > 3. **Supabase Pro (25 €/Monat):** Pausiert grundsätzlich nie, zusätzlich tägliche Backups und Point-in-Time-Recovery. Empfehlenswert, sobald der Atlas offiziell unter bvdw.org läuft und ein Ausfall sichtbar wäre.
 >
-> Für die produktive BVDW-Phase empfehle ich: **Keep-Alive aktiv lassen UND mittelfristig auf Supabase Pro gehen** — der Cron ist die Versicherung gegen Pause, Pro ist die Versicherung gegen alles andere (Backup, Recovery, SLA).
+> Für die produktive BVDW-Phase empfehle ich: **Keep-Alive aktiv lassen UND entweder auf Supabase Pro gehen oder auf eigene EU-Infrastruktur umziehen** (Hetzner + Coolify + Postgres, siehe `docs/hosting-hetzner-coolify.md`). Der Cron ist die Versicherung gegen die Pause, Pro bzw. der eigene Server ist die Versicherung gegen alles andere (Backup, Recovery, Souveränität).
 
 ### Was das BVDW NICHT selbst hosten sollte
 

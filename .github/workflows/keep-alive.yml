@@ -1,8 +1,12 @@
-# Zweiter, von Vercel unabhängiger Keep-Alive + Monitoring für die Supabase-Datenbank.
-# Supabase pausiert Free-Tier-Projekte nach 7 Tagen ohne DB-Aktivität. Der Vercel-Cron
-# (vercel.json) ruft /api/keep-alive täglich auf; dieser Workflow tut dasselbe aus GitHub
-# heraus und schlägt FEHL, wenn die Datenbank nicht antwortet. GitHub benachrichtigt den
-# Repo-Owner bei fehlgeschlagenen Workflow-Läufen per E-Mail, so fällt ein Ausfall sofort auf.
+# Von Vercel unabhängiger Keep-Alive + Health-Check für die Supabase-Datenbank.
+# Supabase pausiert Free-Tier-Projekte nach 7 Tagen ohne API-Aktivität. Dieser Workflow
+#  1. pingt /api/keep-alive (echter DB-Zugriff + Heartbeat-Eintrag "github-actions"),
+#  2. prüft /api/health und schlägt FEHL, wenn die Datenbank nicht antwortet oder ein anderer
+#     Pinger (z. B. der Vercel-Cron) seit mehr als 36 Stunden nicht angekommen ist,
+#  3. hält sich selbst am Leben: GitHub deaktiviert geplante Workflows in öffentlichen Repos nach
+#     60 Tagen ohne Repository-Aktivität. Liegt der letzte Commit > 50 Tage zurück, wird ein leerer
+#     Commit gepusht.
+# Bei fehlgeschlagenen Läufen benachrichtigt GitHub den Repo-Owner per E-Mail.
 name: Keep-Alive & Health-Check
 
 on:
@@ -11,27 +15,56 @@ on:
     - cron: '17 17 * * *'   # täglich 17:17 UTC
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   ping:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      BASE_URL: https://bosses-foundation-models.vercel.app
     steps:
       - name: Keep-Alive-Endpunkt aufrufen
         run: |
           set -euo pipefail
-          URL="https://bosses-foundation-models.vercel.app/api/keep-alive"
-          BODY=$(curl -sS --max-time 60 -w '\n%{http_code}' "$URL")
+          BODY=$(curl -sS --max-time 60 -A "bvdw-atlas-keepalive/github-actions" -w '\n%{http_code}' "$BASE_URL/api/keep-alive")
           CODE=$(echo "$BODY" | tail -n1)
-          JSON=$(echo "$BODY" | sed '$d')
-          echo "HTTP $CODE"
-          echo "$JSON"
+          echo "HTTP $CODE"; echo "$BODY" | sed '$d'
           if [ "$CODE" != "200" ]; then
             echo "::error title=Supabase nicht erreichbar::Keep-Alive lieferte HTTP $CODE. Projekt im Supabase-Dashboard prüfen (pausiert?)."
             exit 1
           fi
-      - name: Frontend-Daten-API prüfen
+
+      - name: Health-Check (Datenbank + andere Pinger)
         run: |
           set -euo pipefail
-          CODE=$(curl -sS -o /dev/null --max-time 60 -w '%{http_code}' "https://bosses-foundation-models.vercel.app/api/models?atlas=conversational")
-          echo "models-API HTTP $CODE"
-          [ "$CODE" = "200" ] || { echo "::error title=Models-API fehlerhaft::HTTP $CODE"; exit 1; }
+          BODY=$(curl -sS --max-time 60 -w '\n%{http_code}' "$BASE_URL/api/health")
+          CODE=$(echo "$BODY" | tail -n1)
+          JSON=$(echo "$BODY" | sed '$d')
+          echo "HTTP $CODE"; echo "$JSON"
+          [ "$CODE" = "200" ] || { echo "::error title=Health-Check fehlgeschlagen::HTTP $CODE"; exit 1; }
+          WARN=$(echo "$JSON" | python3 -c 'import json,sys; d=json.load(sys.stdin); print("\n".join(d.get("warnings",[])))')
+          if [ -n "$WARN" ]; then
+            echo "$WARN" | while IFS= read -r w; do echo "::error title=Keep-Alive-Warnung::$w"; done
+            exit 1
+          fi
+
+      - name: Repository-Aktivität sichern (verhindert Auto-Deaktivierung des Zeitplans)
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Leeren Commit pushen, wenn letzter Commit älter als 50 Tage
+        if: github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          LAST=$(git log -1 --format=%ct)
+          AGE_DAYS=$(( ( $(date +%s) - LAST ) / 86400 ))
+          echo "Letzter Commit vor $AGE_DAYS Tagen"
+          if [ "$AGE_DAYS" -gt 50 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "chore: Keep-Alive-Zeitplan aktiv halten (automatischer Leer-Commit)"
+            git push
+          fi
