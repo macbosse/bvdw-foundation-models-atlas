@@ -115,23 +115,28 @@ Gesamt rund zwei Arbeitstage, davon der größte Teil der Code-Port in Schritt 3
 
 ---
 
-## 8. Variante: gesamter Tech-Stack auf eigener Infrastruktur (Ergänzung 6. Oktober 2026)
+## 8. Gesamter Tech-Stack auf einer Maschine (aktualisiert 6. Oktober 2026)
 
-Wenn neben dem Atlas auch der übrige Projekt-Stack (mehrere Supabase-Instanzen, Trigger.dev, weitere Apps) selbst gehostet werden soll, ändert sich die Dimensionierung, nicht das Prinzip. Alle Hetzner-Cloud-Server sind vollwertige KVM-VMs mit Root-Zugang; Coolify läuft darauf ohne Einschränkung.
+Der Atlas bleibt auf Bosses Hosting und wird dem BVDW per internem Agreement bereitgestellt. Damit kann er mit den übrigen Projekten (mehrere Supabase-Instanzen, Trigger.dev, Apps) auf **einer** Maschine laufen. Alle Hetzner-Cloud-Server sind vollwertige KVM-VMs mit Root-Zugang; ein Dedicated Server ist für diesen Zweck nicht nötig.
 
-**Empfehlung: zwei Maschinen statt einer.**
+**Was bei „viele Projekte, fast keine Last“ wirklich zählt, ist RAM, nicht CPU.** Idle-Container verbrauchen kaum CPU, halten aber ihren Speicher:
 
-| Zweck | Maschine | Preis/Monat (netto, Stand 06.10.2026) | Warum |
-|---|---|---|---|
-| BVDW-Atlas (Verbandsbetrieb, später Übergabe) | Cloud CPX22, 2 vCPU / 4 GB / 80 GB, Nürnberg | 19,49 € | Sauber trennbar, eigener Hetzner-Account des BVDW möglich, keine Vermischung mit privaten Projekten (Verantwortlicher im DSGVO-Sinn ist der BVDW) |
-| Eigener Projekt-Stack (Supabase-Instanzen, Trigger.dev, Apps) | Dedicated AX42, Ryzen 7 PRO 8700GE 8 Kerne / 64 GB DDR5 ECC / 2× 512 GB NVMe, Falkenstein | 99 € + 49 € einmalig | RAM ist der Engpass: jede selbst gehostete Supabase-Instanz braucht 4 bis 8 GB, Trigger.dev v4 (Webapp, Worker, Postgres, Redis, ClickHouse, Registry, Object Store) weitere 8 GB; 64 GB tragen 4 bis 6 Supabase-Stacks plus Trigger.dev plus Apps |
-| Alternative Cloud-Variante | Cloud CPX42, 8 vCPU / 16 GB / 320 GB | 69,49 € | Reicht für Atlas + Trigger.dev + 1 bis 2 Supabase-Stacks; Snapshots und Cloud-Firewall inklusive, aber bei vielen Supabase-Instanzen schnell am RAM-Limit |
+| Komponente | RAM im Leerlauf (Richtwert) |
+|---|---|
+| Coolify (Dashboard, Proxy, Postgres, Redis) | 1 bis 1,5 GB |
+| Supabase-Stack self-hosted (Postgres, Studio, Auth, PostgREST, Storage; Realtime/Analytics abgeschaltet) | 2 bis 3 GB pro Instanz |
+| Trigger.dev v4 self-hosted (Webapp, Worker, Postgres, Redis, ClickHouse, Registry, Object Store) | 4 bis 6 GB |
+| Node-/Next.js-App | 100 bis 250 MB |
+| einzelner Postgres-Dienst (Coolify Ein-Klick) | 100 bis 300 MB |
 
-Weitere Preispunkte vom selben Tag: Cloud CCX33 (8 dedizierte vCPU / 32 GB) 138,49 €, Dedicated EX63 (20 Kerne / 64 GB) 149 € + 74 € Setup. Hetzners Serverbörse (gebrauchte Dedicated-Server ohne Setup-Gebühr) lohnt immer einen Blick, die Preise dort schwanken täglich.
+**Einstieg: Cloud CPX32 (4 vCPU, 8 GB, 160 GB NVMe, 35,49 €/Monat netto).** Das trägt Coolify, den Atlas, eine gemeinsame Supabase-Instanz, ein halbes Dutzend kleine Apps und mehrere einzelne Postgres-Datenbanken. Hetzner-Cloud-Server lassen sich mit wenigen Minuten Ausfall auf CPX42 (8 vCPU, 16 GB, 69,49 €) hochskalieren; mit der Option „nur CPU/RAM“ bleibt die Platte unverändert und der Weg zurück offen. Deshalb klein starten und wachsen, statt vorab 64 GB zu mieten.
 
-**Hinweise zu den Komponenten:**
+**Damit 8 GB reichen, drei Konsolidierungsregeln:**
 
-- *Supabase self-hosted* ist pro Stack ein eigenes Postgres mit eigenem Studio, Auth und PostgREST. „Beliebig viele Tabellen“ ist damit kein Problem mehr, aber jedes Projekt bekommt sinnvollerweise seinen eigenen Stack (Coolify-Template „Supabase“), nicht ein geteilter. Backups pro Stack einrichten.
-- *Trigger.dev v4 self-hosted* ist die aufwendigste Komponente (mehrere Container, eigene Registry, Deploy-Pipeline). Bei geringer Last ist der Trigger.dev-Cloud-Tarif oft die günstigere Wahl; Self-Hosting lohnt vor allem wegen Datenhoheit und vieler paralleler Projekte.
-- *Dedicated statt Cloud* heißt: kein Snapshot-Knopf, keine Cloud-Firewall, Backups selbst organisieren (Hetzner Storage Box oder Object Storage, Coolify-Backups), Hetzner-Robot-Firewall nutzen, monatliche Kündigungsfrist.
-- Die größte erwartete Last kommt tatsächlich vom Atlas (öffentlich, Verbandsreichweite); sie ist trotzdem klein, weil die Seite statisch ist und pro Besuch zwei kleine API-Aufrufe macht. Ein CPX22 trägt das mit großer Reserve.
+1. **Nicht pro Projekt ein Supabase-Stack.** Projekte, die nur serverseitig per Service-Role auf die Datenbank zugreifen (wie der Atlas), brauchen gar kein Supabase, sondern nur eine Postgres-Datenbank aus Coolify. Eine gemeinsame Supabase-Instanz bleibt für die Projekte, die Auth, Storage oder Realtime nutzen; Trennung dort über Schemas oder Datenbanken. Erst wenn getrennte Nutzerkreise (eigene Auth) nötig sind, lohnt ein zweiter Stack.
+2. **Trigger.dev zunächst in der Cloud lassen.** Der Self-Host-Stack ist die mit Abstand schwerste Komponente und bei geringer Last teurer als der Cloud-Tarif. Self-Hosting nachziehen, wenn der Server ohnehin auf 16 GB wächst.
+3. **Speicherlimits in Coolify setzen** (pro Dienst), damit ein einzelner Container nicht die ganze Maschine zieht; 2 GB Swap als Puffer einrichten.
+
+Der CPX22 (2 vCPU, 4 GB, 19,49 €) reicht nur für Coolify, den Atlas, einzelne Postgres-Datenbanken und ein paar kleine Apps, aber nicht für einen Supabase-Stack. Dedicated-Server (AX42 mit 64 GB: 99 € plus 49 € Setup, Stand 6. Oktober 2026) werden erst interessant, wenn mehrere Supabase-Instanzen und Trigger.dev dauerhaft selbst laufen sollen; Hetzners Serverbörse bietet dann oft günstigere Gebrauchtmaschinen.
+
+**Hinweis zur Dokumentation:** `HANDOVER_BVDW.md` geht noch von einer Übergabe des Betriebs an den BVDW aus. Mit dem internen Agreement wird daraus ein Betriebs- und Bereitstellungsdokument (Verantwortlichkeiten, Erreichbarkeit, Backup-Zusagen); diese Anpassung steht noch aus.
